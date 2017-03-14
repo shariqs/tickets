@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 
 import { MenuBarComponent } from './menu-bar.component';
 
+import { LoginComponent } from './login/login.component';
+
 // Must export the config
 export const firebaseConfig = {
     apiKey: 'AIzaSyBWGRvdZwAd7x0-zvCjo4R9wUvJXY-sNQA',
@@ -25,7 +27,8 @@ const myFirebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
