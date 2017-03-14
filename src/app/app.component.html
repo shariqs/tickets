@@ -1,1 +1,8 @@
 <app-menubar> </app-menubar>
+
+ <button  class="btn btn-primary" *ngIf="!auth" (click)="loginGoogle()">  Login With Google   </button>
+ <br>
+ <button  class="btn btn-danger"  *ngIf="auth"  (click)="logout()"  >     Logout              </button>
+  <br>
+ 
+ {{ auth?.uid | json}}
