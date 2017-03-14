@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-        <a class="navbar-brand" href="#">ESET</a>
+        <a class="navbar-brand" href="#">TicketSheister</a>
         </div>
         <ul class="nav navbar-nav" *ngFor="let item of menuItems">
         <li (click)="itemClicked(item)" > <a href="#"> {{ item }} </a> </li> 
