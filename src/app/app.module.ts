@@ -6,7 +6,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 
-import { MenuBarComponent } from './menu-bar.component';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 import { LoginComponent } from './login/login.component';
 

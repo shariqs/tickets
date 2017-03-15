@@ -9,6 +9,4 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 })
 
 
-export class AppComponent {
-  
-}
+export class AppComponent { }
