@@ -10,6 +10,8 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 import { LoginComponent } from './login/login.component';
 
+import { BodyComponent} from './body.component';
+
 // Must export the config
 export const firebaseConfig = {
     apiKey: 'AIzaSyBWGRvdZwAd7x0-zvCjo4R9wUvJXY-sNQA',
@@ -28,7 +30,8 @@ const myFirebaseAuthConfig = {
   declarations: [
     AppComponent,
     MenuBarComponent,
-    LoginComponent
+    LoginComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
