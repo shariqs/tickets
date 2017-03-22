@@ -1,6 +1,35 @@
-# Etes
+<p align="center">
+  <a href="https://github.com/shariqs/tickets" target="_blank">
+    <img src="assets/main_logo_1.png" width="50%">
+  </a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
+## Description
+
+A semester project for CS 160 class at San Jose State University. Simulating the process of software developments using Agile method. 
+
+## Details
+> Problem Statement: a startup have an idea that allows people in San Jose area to exchange their bought tickets to upcoming
+> events in town. They will be the middlemen where people can go on their website to sell or purchase another's people ticket.
+> Some percentage service fees will be put on both buyers and sellers. The website will display the list of events and the
+> tickets available as well as the seller's names. A database system where user can create their accounts are also required. 
+
+## Stacks
+
+- **Software**:
+  - [Google Chrome](https://www.google.com/chrome/)
+  - [Firebase](https://firebase.google.com/)
+  - [Node.js](https://nodejs.org/)
+  - [GitHub](https://www.github.com/)
+  - [Angular](https://angular.io/)
+  
+ ## Set up
+ 
+ ### Recommended Development Tools
+
+- [**Visual Studio Code**](https://code.visualstudio.com/)
+- [**NPM Check Updates**](https://www.npmjs.com/package/npm-check-updates)
+- [**GitHub**](https://desktop.github.com/)
 
 ## Development server
 
@@ -26,3 +55,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Credits
+
+<a href="http://www.freepik.com/free-photos-vectors/design">Design vector created by Freepik</a>
