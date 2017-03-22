@@ -4,6 +4,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-body',
   template: `
+    <nav>
+      <a routerLink="menu" routerLinkActive="active">next page</a>
+    </nav>
     <div class="container-fluid text-center">    
         <div class="row content">
             <div class="col-sm-6 text-left"> 

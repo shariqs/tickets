@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 
 import { BodyComponent} from './body.component';
 
+import { routing } from './routing/routing.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
+
 // Must export the config
 export const firebaseConfig = {
     apiKey: 'AIzaSyBWGRvdZwAd7x0-zvCjo4R9wUvJXY-sNQA',
@@ -31,13 +34,15 @@ const myFirebaseAuthConfig = {
     AppComponent,
     MenuBarComponent,
     LoginComponent,
-    BodyComponent
+    BodyComponent,
+    MainMenuComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig,  myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig,  myFirebaseAuthConfig),
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
