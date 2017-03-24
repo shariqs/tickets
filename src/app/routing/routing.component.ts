@@ -9,7 +9,10 @@ import { InfoComponent } from '../info/info.component';
 const appRoutes: Routes = [
   //{  path:'',      component: BodyComponent  },
   {
-    path:'',
+    path:'', redirectTo: 'Home', pathMatch:'full'
+  },
+  {
+    path:'Home',
     component: MainMenuComponent
   },
   {

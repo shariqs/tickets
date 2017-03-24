@@ -10,12 +10,12 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 import { LoginComponent } from './login/login.component';
 
-import { BodyComponent} from './body.component';
 
 import { routing } from './routing/routing.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { DataService } from './data.service';
-import { InfoComponent } from './info/info.component'
+import { InfoComponent } from './info/info.component';
+import { BodyComponent} from './body/body.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -36,9 +36,9 @@ const myFirebaseAuthConfig = {
     AppComponent,
     MenuBarComponent,
     LoginComponent,
-    BodyComponent,
     MainMenuComponent,
     InfoComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
