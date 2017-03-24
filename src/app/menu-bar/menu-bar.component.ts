@@ -7,6 +7,19 @@ import { Component } from '@angular/core';
 })
 
 export class MenuBarComponent {
-    menuItems = ['Home', 'Buy', 'Sell', 'Transactions'];
+    menuItems = ['Info', 'Buy', 'Sell', 'Transactions'];
+    /*menuItems: menuItems;
 
+    constructor(){
+      this.menuItems = {
+        name: ['Home', 'Buy', 'Sell', 'Transactions'],
+        path: ['./home', './buy', './sell', './transactions']
+      }
+    }
+}
+
+interface menuItems{
+  name: string[];
+  path: string[];
+}*/
 }

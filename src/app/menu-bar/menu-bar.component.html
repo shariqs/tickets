@@ -1,11 +1,11 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">TicketMeister</a>
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">TicketMeister</a>
     </div>
 
     <ul class="nav navbar-nav" *ngFor="let item of menuItems" padding-bottom=-10px>
-      <li (click)="itemClicked(item)"> <a href="#"> {{ item }} </a> </li>
+      <li> <a routerLink="{{item}}" routerLinkActive="active"> {{ item }} </a> </li>
     </ul>
     <app-login align="right"></app-login>
   </div>

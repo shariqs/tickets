@@ -14,7 +14,8 @@ import { BodyComponent} from './body.component';
 
 import { routing } from './routing/routing.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { DataService } from './data.service'
+import { DataService } from './data.service';
+import { InfoComponent } from './info/info.component'
 
 // Must export the config
 export const firebaseConfig = {
@@ -37,6 +38,7 @@ const myFirebaseAuthConfig = {
     LoginComponent,
     BodyComponent,
     MainMenuComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
