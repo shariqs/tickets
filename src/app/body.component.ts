@@ -1,22 +1,11 @@
 import { Component } from '@angular/core';
-
-
+import { DataService } from './data.service';
 @Component({
   selector: 'app-body',
   template: `
-    <nav>
-      <a routerLink="menu" routerLinkActive="active">next page</a>
-    </nav>
     <div class="container-fluid text-center">    
         <div class="row content">
-            <div class="col-sm-6 text-left"> 
-              <h1>Welcome</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <hr>
-              <h3>Test</h3>
-              <p>Lorem ipsum...</p>
-            </div>
-            <div class="col-sm-6 text-left"> 
+            <div class="col-sm-6"> 
               <h1>Welcome</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               <hr>
@@ -24,18 +13,15 @@ import { Component } from '@angular/core';
               <p>Lorem ipsum...</p>
             </div>
         </div>
-    </div>
-
-    <footer class="container-fluid text-center">
-    <p>Footer Text</p>
-    </footer>
+        <button (click)="clicked()"> Add to Database </button>
+    </div> 
   `,
   styles: [`
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
     
     /* Set gray background color and 100% height */
     .sidenav {
+       text-align: center;
       padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
@@ -54,24 +40,28 @@ import { Component } from '@angular/core';
         height: auto;
         padding: 15px;
       }
-      .row.content {height:auto;} 
+      .row.content {height:auto; text-align: center;} 
     }
 
-    .body {
-      height: 100%
-    }
     }
    `],
 })
 
 export class BodyComponent {
-    menuItems = ['Home', 'Buy', 'Sell', 'Transactions'];
-    // Useless example methods
-    itemClicked(inputs) {   console.log(inputs);        }
-    public addMenuItem(newMenuItem) {    this.menuItems.push(newMenuItem);    }
+// <a routerLink="menus" routerLinkActive="active">next page</a>
+/**
+ *   <footer class="container-fluid text-center">
+    <p>Footer Text</p>
+    </footer>
+ */
 
-    constructor(){
-    console.log('body is in');
+    constructor(public dataService: DataService){ }
+
+
+
+      clicked(){
+    this.dataService.addCreditCard(623424231432412, 323, 12, 2018);
   }
+
 }
 

@@ -14,6 +14,7 @@ import { BodyComponent} from './body.component';
 
 import { routing } from './routing/routing.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { DataService } from './data.service'
 
 // Must export the config
 export const firebaseConfig = {
@@ -44,7 +45,7 @@ const myFirebaseAuthConfig = {
     AngularFireModule.initializeApp(firebaseConfig,  myFirebaseAuthConfig),
     routing
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

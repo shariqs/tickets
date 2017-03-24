@@ -6,10 +6,7 @@ import { MainMenuComponent } from '../main-menu/main-menu.component';
 import { AppComponent } from '../app.component';
 
 const appRoutes: Routes = [
-  {
-      path:'',
-      component: BodyComponent
-  },
+  //{  path:'',      component: BodyComponent  },
   {
       path:'menu',
       component: MainMenuComponent
@@ -17,3 +14,4 @@ const appRoutes: Routes = [
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export class RoutingComponent { }
