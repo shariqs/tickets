@@ -22,7 +22,6 @@ export class DataService {
   }
 
   public addAddress(streetNumber: Number, city: String, zipCode: Number) {
-    /*DB OBJECT DOES NOT EXIST YET*/
     var info = this.af.database.list('Addresses').push({
       streetNumber: streetNumber,
       city: city,

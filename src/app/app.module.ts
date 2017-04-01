@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { routing } from './routing/routing.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { DataService } from './data.service';
+import { EventService } from './event.service';
+
 import { InfoComponent } from './info/info.component';
 import { BodyComponent} from './body/body.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
@@ -49,7 +51,7 @@ const myFirebaseAuthConfig = {
     AngularFireModule.initializeApp(firebaseConfig,  myFirebaseAuthConfig),
     routing
   ],
-  providers: [DataService],
+  providers: [DataService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

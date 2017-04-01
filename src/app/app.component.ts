@@ -4,7 +4,7 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 

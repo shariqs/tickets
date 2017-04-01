@@ -8,13 +8,11 @@ import { InfoComponent } from '../info/info.component';
 
 const appRoutes: Routes = [
   //{  path:'',      component: BodyComponent  },
+
   {
     path:'', redirectTo: 'Home', pathMatch:'full'
   },
-  {
-    path:'Home',
-    component: MainMenuComponent
-  },
+  //{ path:'Home',    component: MainMenuComponent  },
   {
     path:'Info',
     component: InfoComponent
