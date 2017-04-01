@@ -19,6 +19,8 @@ import { EventService } from './event.service';
 import { InfoComponent } from './info/info.component';
 import { BodyComponent} from './body/body.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { EventListComponent } from './event-list/event-list.component';
+
 
 // Must export the config
 export const firebaseConfig = {
@@ -42,7 +44,8 @@ const myFirebaseAuthConfig = {
     MainMenuComponent,
     InfoComponent,
     BodyComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,

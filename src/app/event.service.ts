@@ -9,7 +9,7 @@ export class EventService {
 
 public eventList = [];
 
-  constructor(public http: Http) {     }
+  constructor(public http: Http) {   this.getEventFromLocalArea();  }
 
 
 getEventFromLocalArea(){
