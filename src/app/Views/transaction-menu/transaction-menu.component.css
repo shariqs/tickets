@@ -3,7 +3,7 @@
     width: 100%;
     position: fixed;
     height: 100%;
-    background-color: pink;
+    background-color: #616161;
     margin: 0px;
     padding: 0px;
 }
@@ -16,6 +16,8 @@ overflow-y: hidden;
 overflow-x: hidden;
 padding: 25px;
 text-align: center;
+color: white;
+border-left: white 1px solid;
 
 }
 
