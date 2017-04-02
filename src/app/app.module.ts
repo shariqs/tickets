@@ -22,6 +22,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { BrowseMenuComponent } from './Views/browse-menu/browse-menu.component';
 import { SearchMenuComponent } from './Views/search-menu/search-menu.component';
+import { TransactionMenuComponent } from './Views/transaction-menu/transaction-menu.component';
 
 
 // Must export the config
@@ -48,8 +49,9 @@ const myFirebaseAuthConfig = {
     BodyComponent,
     ShoppingCartComponent,
     EventListComponent,
-    browseMenuComponent,
-    SearchMenuComponent
+    BrowseMenuComponent,
+    SearchMenuComponent,
+    TransactionMenuComponent
   ],
   imports: [
     BrowserModule,
