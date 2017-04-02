@@ -1,2 +1,11 @@
-.eventList{
+ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+.list-group-item{
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    
 }

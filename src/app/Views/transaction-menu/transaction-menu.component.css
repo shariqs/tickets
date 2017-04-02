@@ -2,7 +2,10 @@
 .container{
     width: 100%;
     position: fixed;
-    height: 38em;
+    height: 100%;
+    background-color: pink;
+    margin: 0px;
+    padding: 0px;
 }
 
 .ticketDetails{
@@ -12,6 +15,7 @@ height: 38em;
 overflow-y: hidden;
 overflow-x: hidden;
 padding: 25px;
+text-align: center;
 
 }
 
@@ -23,11 +27,11 @@ h3{
 
 
 #ticketList {
+    float: right;
+    padding: 0px;
+    width: 50%;
+    height: 100%;
+    overflow-y: scroll;
+    margin-bottom: 10px;
 
-float: right;
-padding: 5px;
-width: 50%;
-height: 100%;
-overflow-y: scroll;
-margin-bottom: 10px;
 }

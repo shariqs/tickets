@@ -13,10 +13,11 @@ public eventList = [];
 
 
 getEventFromLocalArea(){
-      var eventData: any = this.http.get('http://api.songkick.com/api/3.0/search/locations.json?location=geo:37.3382,-121.8863&apikey=147UvqDDrnGJk7nh');
+      var eventData: any = this.http.get('http://api.songkick.com/api/3.0/events.json?location=geo:37.3382,-121.8863&apikey=147UvqDDrnGJk7nh');
       eventData.subscribe(info => { 
             let response = JSON.parse(info._body);
-            this.eventList = response.resultsPage.results.location;
+            this.eventList = (response.resultsPage.results.event);
+            
       })
 
 }

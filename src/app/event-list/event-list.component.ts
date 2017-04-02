@@ -8,16 +8,7 @@ import { EventService } from '../event.service';
 })
 export class EventListComponent {
 
-  constructor(public eventService: EventService) {
+  constructor(public eventService: EventService) {   }
 
-
-
-
-   }
-
- 
-  clicked() {
-    this.eventService.getEventFromLocalArea();
-  }
 
 }
