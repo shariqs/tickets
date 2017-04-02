@@ -17,7 +17,7 @@ height: 100%;
 overflow-y: hidden;
 overflow-x: hidden;
 padding: 0px;
-text-align: center;
+
 color: white;
 
 
@@ -27,6 +27,7 @@ color: white;
 
 #text{
 
+text-align: center;
 padding: 5em;
 
 }
@@ -43,3 +44,9 @@ float: right;
     padding-bottom: 10em;
 }
 
+#logo{
+
+text-align: center;
+    float: bottom;
+    padding: 2em;
+}
