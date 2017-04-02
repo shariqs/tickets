@@ -2,6 +2,7 @@
 .container{
     width: 100%;
     position: fixed;
+    height: 38em;
 }
 
 .eventDetails{
@@ -21,10 +22,13 @@ h3{
 }
 
 
-#event-list {
+#eventList {
 
 float: right;
 padding: 5px;
-
+width: 50%;
+height: 100%;
+overflow-y: scroll;
+margin-bottom: 10px;
 }
 
