@@ -20,7 +20,7 @@ import { InfoComponent } from './info/info.component';
 import { BodyComponent} from './body/body.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EventListComponent } from './event-list/event-list.component';
-import { TransactionMenuComponent } from './transaction-menu/transaction-menu.component';
+import { TransactionMenuComponent } from './Views/transaction-menu/transaction-menu.component';
 
 
 // Must export the config
