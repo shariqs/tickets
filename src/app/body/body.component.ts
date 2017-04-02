@@ -15,11 +15,5 @@ export class BodyComponent {
       </footer>
    */
 
-  constructor(public eventService: EventService) { }
-
-  clicked() {
-    this.eventService.getEventFromLocalArea();
-  }
-
 }
 

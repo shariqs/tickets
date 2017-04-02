@@ -16,5 +16,8 @@ export class EventListComponent {
    }
 
  
+  clicked() {
+    this.eventService.getEventFromLocalArea();
+  }
 
 }

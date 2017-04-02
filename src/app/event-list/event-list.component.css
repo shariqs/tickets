@@ -1,11 +1,7 @@
 .eventList{
 
-
-width: 45%;
-height: 34em;
+width: 50%;
+height: 35em;
 overflow-y: auto;
 overflow-x: hidden;
-
-
-
 }
