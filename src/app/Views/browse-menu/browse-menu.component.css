@@ -16,7 +16,7 @@ width: 50%;
 height: 100%;
 overflow-y: hidden;
 overflow-x: hidden;
-padding: 5em;
+padding: 0px;
 text-align: center;
 color: white;
 
@@ -25,6 +25,11 @@ color: white;
 
 }
 
+#text{
+
+padding: 5em;
+
+}
 
 
 #eventList {
