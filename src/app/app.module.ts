@@ -20,7 +20,7 @@ import { InfoComponent } from './info/info.component';
 import { BodyComponent} from './body/body.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EventListComponent } from './event-list/event-list.component';
-import { TransactionMenuComponent } from './Views/transaction-menu/transaction-menu.component';
+import { BrowseMenuComponent } from './Views/browse-menu/browse-menu.component';
 import { SearchMenuComponent } from './Views/search-menu/search-menu.component';
 
 
@@ -48,7 +48,7 @@ const myFirebaseAuthConfig = {
     BodyComponent,
     ShoppingCartComponent,
     EventListComponent,
-    TransactionMenuComponent,
+    browseMenuComponent,
     SearchMenuComponent
   ],
   imports: [
