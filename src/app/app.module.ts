@@ -23,6 +23,9 @@ import { EventListComponent } from './event-list/event-list.component';
 import { BrowseMenuComponent } from './Views/browse-menu/browse-menu.component';
 import { SearchMenuComponent } from './Views/search-menu/search-menu.component';
 import { TransactionMenuComponent } from './Views/transaction-menu/transaction-menu.component';
+import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { AccountMenuComponent } from './Views/account-menu/account-menu.component';
+import { PurchasedMenuComponent } from './Views/purchased-menu/purchased-menu.component';
 
 
 // Must export the config
@@ -51,7 +54,10 @@ const myFirebaseAuthConfig = {
     EventListComponent,
     BrowseMenuComponent,
     SearchMenuComponent,
-    TransactionMenuComponent
+    TransactionMenuComponent,
+    TicketListComponent,
+    AccountMenuComponent,
+    PurchasedMenuComponent
   ],
   imports: [
     BrowserModule,

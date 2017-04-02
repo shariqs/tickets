@@ -1,0 +1,33 @@
+
+.container{
+    width: 100%;
+    position: fixed;
+    height: 38em;
+}
+
+.ticketDetails{
+float: left;
+width: 50%;
+height: 38em;
+overflow-y: hidden;
+overflow-x: hidden;
+padding: 25px;
+
+}
+
+h3{
+ text-align: center;
+ padding: 15px;
+
+}
+
+
+#ticketList {
+
+float: right;
+padding: 5px;
+width: 50%;
+height: 100%;
+overflow-y: scroll;
+margin-bottom: 10px;
+}
