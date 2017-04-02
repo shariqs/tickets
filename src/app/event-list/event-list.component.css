@@ -3,6 +3,11 @@ ul{
     margin: 0px;
 }
 
+.list-group-item:hover{
+
+    background-color: darkslategray;
+}
+
 .list-group-item{
     padding: 0px;
     margin: 0px;
@@ -10,6 +15,7 @@ ul{
     background-color: #616161;
     color: white;
     border-color: #424242;
+
 }
 
 .eventList{
