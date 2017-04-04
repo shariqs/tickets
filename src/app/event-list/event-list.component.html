@@ -2,6 +2,6 @@
 <div class="eventList">
 
 <ul class="list-group"  *ngFor="let event of eventService.eventList" >
-      <li class="list-group-item"> <p>{{event.venue.displayName | json}}  {{event.location.city | json}} <p> </li>
+      <li class="list-group-item" (click)="eventClicked(event)"> <p>{{event.venue.displayName | json}}  {{event.location.city | json}} <p> </li>
     </ul>
 </div>

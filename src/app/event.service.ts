@@ -7,23 +7,22 @@ import { Http } from '@angular/http';
 @Injectable()
 export class EventService {
 
-public eventList = [];
+      public eventList = [];
+      public activeEvent; 
 
-  constructor(public http: Http) {   this.getEventFromLocalArea();  }
+      public transactionInProgress = "browse";
+      constructor(public http: Http) { this.getEventFromLocalArea(); }
+
+      getEventFromLocalArea() {
+            var eventData: any = this.http.get('http://api.songkick.com/api/3.0/events.json?location=geo:37.3382,-121.8863&apikey=147UvqDDrnGJk7nh');
+            eventData.subscribe(info => {
+                  let response = JSON.parse(info._body);
+                  this.eventList = (response.resultsPage.results.event);
+            })
+
+      }
 
 
-
-
-getEventFromLocalArea(){
-      var eventData: any = this.http.get('http://api.songkick.com/api/3.0/events.json?location=geo:37.3382,-121.8863&apikey=147UvqDDrnGJk7nh');
-      eventData.subscribe(info => { 
-            let response = JSON.parse(info._body);
-            this.eventList = (response.resultsPage.results.event);
-            console.log(this.eventList)
-            
-      })
-
-}
 
 
 

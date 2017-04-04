@@ -1,25 +1,12 @@
-
 <div class="container">
 
 
-<div class="eventDetails">
+    <app-ticket-info> </app-ticket-info>
 
-<div id="text">
-  <h1> Event Details</h1>
-  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+    <div id="eventList">
 
-<p id="logo"> event api <br>
-  provider's logo </p>
-
-</div>
-
-
-<div id="eventList">
-
-<app-event-list></app-event-list>
-</div>
-
-
-
+        <app-event-list class='rightFrame' *ngIf='this.eventService.transactionInProgress == "browse"'></app-event-list>
+        <app-buy class='rightFrame' *ngIf='this.eventService.transactionInProgress == "buy" '></app-buy>
+        <app-sell class='rightFrame' *ngIf='this.eventService.transactionInProgress == "sell"'></app-sell>
+    </div>
 </div>

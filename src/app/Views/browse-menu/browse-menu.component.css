@@ -1,52 +1,41 @@
-
-.container{
-     width: 100%;
+.container {
+    width: 100%;
     position: fixed;
     height: 100%;
     background-color: #616161;
     margin: 0px;
     padding: 0px;
     padding-bottom: 0px;
-
 }
 
-.eventDetails{
-float: left;
-width: 50%;
-height: 100%;
-overflow-y: hidden;
-overflow-x: hidden;
-padding: 0px;
-
-color: white;
-
-
-/*border-left: white 1px solid; */
-
-}
-
-#text{
-
-text-align: center;
-padding: 5em;
-
-}
-
-
-#eventList {
-
-float: right;
+.rightFrame {
+    float: right;
     padding: 0px;
     width: 50%;
     height: 100%;
     overflow-y: scroll;
     margin: 0px;
-    padding-bottom: 10em;
+    padding-bottom: 50px;
 }
 
-#logo{
+app-ticket-info {
+    float: left;
+    width: 50%;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 0px;
+    color: white;
+    /*border-left: white 1px solid; */
+}
 
-text-align: center;
+#text {
+    text-align: center;
+    padding: 5em;
+}
+
+#logo {
+    text-align: center;
     float: bottom;
     padding: 2em;
 }

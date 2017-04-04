@@ -1,0 +1,21 @@
+<div id='instructions' class='leftFrame' *ngIf='!this.eventService.activeEvent'>
+
+    <h1> Instructions </h1>
+    <p> Here we will provide instructions for the user so they will know how to use our application. </p>
+
+</div>
+
+<div id='eventInformation' class='leftFrame' *ngIf='this.eventService.activeEvent'>
+    <div id="text">
+        <h1> Event Details</h1>
+
+        <p>Location: {{ this.eventService.activeEvent.location. city}}</p>
+        <p> {{ this.eventService.activeEvent.start.time }} </p>
+        <p> {{ this.eventService.activeEvent.start.date }}</p>
+        <br> <br> <br> {{ this.eventService.activeEvent | json }}
+    </div>
+    <p id="logo"> event api <br> provider's logo </p>
+
+    <button class="btn btn-primary" (click)='buyButtonClicked()'>Buy</button>
+    <button class="btn btn-danger" (click)='sellButtonClicked()'>Sell</button>
+</div>

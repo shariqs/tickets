@@ -9,4 +9,19 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 })
 
 
-export class AppComponent { }
+export class AppComponent {
+
+  public view;
+
+  constructor(public af: AngularFire) {
+    af.auth.subscribe(auth => {
+      if (auth == null) {
+        this.view = "splash";
+      } else {
+        this.view = "browse";
+      }
+    });
+  }
+
+
+}

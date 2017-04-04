@@ -26,6 +26,10 @@ import { TransactionMenuComponent } from './Views/transaction-menu/transaction-m
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { AccountMenuComponent } from './Views/account-menu/account-menu.component';
 import { PurchasedMenuComponent } from './Views/purchased-menu/purchased-menu.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { TicketInfoComponent } from './ticket-info/ticket-info.component';
+import { BuyComponent } from './buy/buy.component';
+import { SellComponent } from './sell/sell.component';
 
 
 // Must export the config
@@ -57,7 +61,11 @@ const myFirebaseAuthConfig = {
     TransactionMenuComponent,
     TicketListComponent,
     AccountMenuComponent,
-    PurchasedMenuComponent
+    PurchasedMenuComponent,
+    TransactionComponent,
+    TicketInfoComponent,
+    BuyComponent,
+    SellComponent
   ],
   imports: [
     BrowserModule,

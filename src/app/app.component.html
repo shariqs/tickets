@@ -1,2 +1,6 @@
 <app-menu-bar></app-menu-bar>
-<app-browse-menu></app-browse-menu>
+<div [ngSwitch]="view">
+    <app-info *ngSwitchCase="'splash'"></app-info>
+    <app-browse-menu *ngSwitchCase="'browse'"></app-browse-menu>
+    <app-transaction-menu *ngSwitchCase="'transaction'"></app-transaction-menu>
+</div>
