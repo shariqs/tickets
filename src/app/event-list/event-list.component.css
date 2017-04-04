@@ -1,10 +1,12 @@
 ul{
     padding: 0px;
     margin: 0px;
+    
 }
 
 .list-group-item:hover{
     background-color: darkslategray;
+    padding: 10px;
 }
 
 .list-group-item{
@@ -18,8 +20,8 @@ ul{
 }
 
 .eventList{
-    
-padding-bottom: 0px;
+
+padding-bottom: 10px;
 
 
 }

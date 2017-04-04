@@ -8,7 +8,13 @@
     padding-bottom: 0px;
 }
 
-.rightFrame {
+.rightFrame{
+
+
+    
+}
+
+#eventList {
     float: right;
     padding: 0px;
     width: 50%;
