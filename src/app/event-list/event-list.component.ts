@@ -12,6 +12,6 @@ export class EventListComponent {
 
 
   eventClicked(inc){
-    this.eventService.activeEvent = inc;
+    this.eventService.activeEvent = inc.toString();
   } 
 }

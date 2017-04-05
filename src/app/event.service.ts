@@ -9,7 +9,7 @@ export class EventService {
 
       public eventList = [];
       public eventStringList = [];
-      public activeEvent;
+      public activeEvent: Event;
       public eventDetailsList = [];
 
       public transactionInProgress = "browse";
@@ -30,7 +30,8 @@ export class EventService {
                         var city = JSON.stringify(event.location.city).replace(/\"/g, '');
                         var date = JSON.stringify(event.start.date).replace(/\"/g, '');
                         var time = JSON.stringify(event.start.time).replace(/\"/g, '');
-                        this.eventDetailsList[j] = new Event(name, venue, date, time, city);
+                        var id = new Number(JSON.stringify(event.id));
+                        this.eventDetailsList[j] = new Event(name, venue, date, time, city, id);
 
                   }
                   console.log(this.eventDetailsList)
@@ -45,12 +46,20 @@ class Event {
       date: string;
       time: string;
       city: string;
+      id: Number;
 
-      constructor(displayName: string, venue: string, date: string, time: string, city: string) {
+      constructor(displayName: string, venue: string, date: string, time: string, city: string, id: Number) {
             this.displayName = displayName;
             this.venue = venue;
             this.date = date;
             this.time = time;
             this.city = city;
+            this.id = id;
+      }
+
+      toString(): string {
+
+            return this.displayName + ", " + this.venue + ", " + this.date + ", " + this.time + ", " + this.city
+
       }
 }

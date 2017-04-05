@@ -9,10 +9,10 @@
     <div id="text">
         <h1> Event Details</h1>
 
-        <p>Location: {{ this.eventService.activeEvent.location. city}}</p>
-        <p> {{ this.eventService.activeEvent.start.time }} </p>
-        <p> {{ this.eventService.activeEvent.start.date }}</p>
-        <br> <br> <br> {{ this.eventService.activeEvent | json }}
+        <p>{{ this.eventService.activeEvent.city}}</p>
+        <p> {{ this.eventService.activeEvent.time }} </p>
+        <p> {{ this.eventService.activeEvent.date }}</p>
+        <br> <br> <br> {{ this.eventService.activeEvent }}
     </div>
     <p id="logo"> event api <br> provider's logo </p>
 
