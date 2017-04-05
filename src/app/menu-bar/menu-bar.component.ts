@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class MenuBarComponent {
-    menuItems = ['Info', 'Buy', 'Sell', 'Transactions'];
+    menuItems = ['Search', 'Browse', 'Sell', 'Transactions'];
     /*menuItems: menuItems;
 
     constructor(){
