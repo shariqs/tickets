@@ -33,7 +33,7 @@ import { BuyComponent } from './buy/buy.component';
 import { SellComponent } from './sell/sell.component';
 
 
-// Must export the config
+// Must export the confis
 export const firebaseConfig = {
     apiKey: 'AIzaSyBWGRvdZwAd7x0-zvCjo4R9wUvJXY-sNQA',
     authDomain: 'ticketsheister.firebaseapp.com',

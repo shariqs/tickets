@@ -1,7 +1,7 @@
 
 <div class="eventList">
 
-<ul class="list-group"  *ngFor="let event of eventService.eventList" >
-      <li class="list-group-item" (click)="eventClicked(event)"> <p>{{event.venue.displayName | json}}  {{event.location.city | json}} <p> </li>
+<ul class="list-group"  *ngFor="let event of eventService.eventDetailsList" >
+      <li class="list-group-item" (click)="eventClicked(event)"> <p>{{event.displayName}} <br> {{event.date}}, {{event.city}} <p> </li>
     </ul>
 </div>
