@@ -10,6 +10,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 import { LoginComponent } from './login/login.component';
 
+import { PopupModule } from 'ng2-opd-popup';
 
 import { routing } from './routing/routing.component';
 import { MainMenuComponent } from './Views/main-menu/main-menu.component';
@@ -72,7 +73,8 @@ const myFirebaseAuthConfig = {
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig,  myFirebaseAuthConfig),
-    routing
+    routing,
+    PopupModule.forRoot()
   ],
   providers: [DataService, EventService],
   bootstrap: [AppComponent]

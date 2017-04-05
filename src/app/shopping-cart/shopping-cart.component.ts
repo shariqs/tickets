@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { Popup } from 'ng2-opd-popup';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  styleUrls: ['./shopping-cart.component.css'],
 })
+
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private popup:Popup, private router: Router){  }
 
-  ngOnInit() {
+  ngOnInit(){ }
+
+  showEvent(){
+    this.popup.options = {
+      cancleBtnClass: "btn btn-default",
+      confirmBtnClass: "btn btn-default",
+      color: "#4180ab",
+      header: "Your Cart"
+    }
+    this.popup.show();
+  }
+  ConfirmEvent(){
+    this.router.navigateByUrl('Transactions');
+  }
+  CancelEvent(){
+    alert('Removed from cart');
   }
 
 }

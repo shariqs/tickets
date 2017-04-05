@@ -1,3 +1,7 @@
-<p>
-  shopping-cart works!
-</p>
+<popup (confirmClick)="ConfirmEvent()" (cancelClick)="CancelEvent()">
+  Item name: Item 1
+  <br>
+  Price: $9.99
+</popup>
+
+<button class="btn btn-mbe-normal" (click)="showEvent()"> Add to cart </button>
