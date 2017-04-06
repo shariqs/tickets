@@ -8,11 +8,6 @@
     padding-bottom: 0px;
 }
 
-.rightFrame{
-
-
-    
-}
 
 #eventList {
     float: right;
@@ -40,8 +35,3 @@ app-ticket-info {
     padding: 5em;
 }
 
-#logo {
-    text-align: center;
-    float: bottom;
-    padding: 2em;
-}
