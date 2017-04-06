@@ -31,6 +31,7 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { TicketInfoComponent } from './ticket-info/ticket-info.component';
 import { BuyComponent } from './buy/buy.component';
 import { SellComponent } from './sell/sell.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 // Must export the confis
@@ -66,7 +67,8 @@ const myFirebaseAuthConfig = {
     TransactionComponent,
     TicketInfoComponent,
     BuyComponent,
-    SellComponent
+    SellComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

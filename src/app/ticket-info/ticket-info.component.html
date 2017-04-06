@@ -14,7 +14,7 @@
         <p> {{ this.eventService.activeEvent.date }}</p>
         <br> <br> <br> {{ this.eventService.activeEvent }}
     </div>
-    <p id="logo"> event api <br> provider's logo </p>
+    
 
     <a [routerLink] = "['Buy']">
         <button class="btn btn-primary" (click)='buyButtonClicked()'>Buy</button>
@@ -22,4 +22,13 @@
      <a [routerLink] = "['Sell']">
         <button class="btn btn-danger" (click)='sellButtonClicked()'>Sell</button>
      </a>
+
+    <br>
+    <div id="sklogo">
+ <a href="http://www.songkick.com/">
+     <img src="../assets/sk-badge-pink.svg" alt="Songkick's' logo" height="45">
+     <img src="../assets/powered-by-songkick-pink.png" alt="Songkick's' logo" height="40">
+ </a>
+    </div>
+
 </div>
