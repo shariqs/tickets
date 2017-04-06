@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 
 import { PopupModule } from 'ng2-opd-popup';
 
-import { routing } from './routing/routing.component';
+import { routing, appRoutingProviders } from './routing/routing.component';
 import { MainMenuComponent } from './Views/main-menu/main-menu.component';
 import { DataService } from './data.service';
 import { EventService } from './event.service';
@@ -76,7 +76,7 @@ const myFirebaseAuthConfig = {
     routing,
     PopupModule.forRoot()
   ],
-  providers: [DataService, EventService],
+  providers: [DataService, EventService, appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

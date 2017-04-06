@@ -1,7 +1,8 @@
-
 <div class="eventList">
 
 <ul class="list-group"  *ngFor="let event of eventService.eventDetailsList" >
-      <li class="list-group-item" (click)="eventClicked(event)"> <p>{{event.displayName}} <br> {{event.date}}, {{event.city}} <p> </li>
+      <a [routerLink] = "['/Browse',event.id.toString()]">
+        <li class="list-group-item" (click)="eventClicked(event)"> <p>{{event.displayName}} <br> {{event.date}}, {{event.city}} <p> </li>
+      </a>
     </ul>
 </div>

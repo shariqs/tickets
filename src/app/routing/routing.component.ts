@@ -9,15 +9,22 @@ import { SearchMenuComponent } from '../Views/search-menu/search-menu.component'
 import { TransactionMenuComponent } from '../Views/transaction-menu/transaction-menu.component';
 import { BrowseMenuComponent } from '../Views/browse-menu/browse-menu.component';
 import { SellComponent } from '../sell/sell.component';
+import { BuyComponent } from '../buy/buy.component';
 
-const appRoutes: Routes = [
+export const routes: Routes = [
   {path:'',      component: BodyComponent  },
   {path:'Info', component: InfoComponent },
   {path:'Search', component: SearchMenuComponent },
   {path:'Transactions', component: TransactionMenuComponent},
   {path:'Browse', component: BrowseMenuComponent},
-  {path:'Sell', component: SellComponent}
+  {path:'Browse/:id', component: BrowseMenuComponent,
+    children: [
+      {path:'', redirectTo: 'EventList', pathMatch:'full'},
+      {path:'Sell', component: SellComponent},
+      {path:'Buy', component: BuyComponent}
+    ]
+  },
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
-export class RoutingComponent { }
+export const routing = RouterModule.forRoot(routes);
+export const appRoutingProviders: any [] = [];

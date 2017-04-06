@@ -16,6 +16,10 @@
     </div>
     <p id="logo"> event api <br> provider's logo </p>
 
-    <button class="btn btn-primary" (click)='buyButtonClicked()'>Buy</button>
-    <button class="btn btn-danger" (click)='sellButtonClicked()'>Sell</button>
+    <a [routerLink] = "['Buy']">
+        <button class="btn btn-primary" (click)='buyButtonClicked()'>Buy</button>
+    </a>
+     <a [routerLink] = "['Sell']">
+        <button class="btn btn-danger" (click)='sellButtonClicked()'>Sell</button>
+     </a>
 </div>
