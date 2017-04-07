@@ -1,6 +1,28 @@
 
-<p>
-    sell works!
-</p>
-<button (click)="this.eventService.transactionInProgress = 'browse'"> Back </button>
+<button class="btn btn-mbe-normal" (click)="this.eventService.transactionInProgress = 'browse'"> Back </button>
 <br>
+
+<div class="prompt">
+<h4> To sell a ticket, please provide us the current information</h4>
+<br>
+
+<form>
+<label> What is your current pickup address? </label>
+<br>
+<input id="address" type="text"> 
+<br>
+<label> What is the Ticket ID? </label>
+<br>
+<input id="ticketid" type="text" > 
+<br>
+<label> What is your desired selling price? </label>
+<br>
+<input id="price" type="text" > 
+<br>
+<br>
+<input class="btn btn-mbe-normal" type="submit" value="Submit">
+</form>
+<br>
+<p> Reminder! a 10% deduction will be applied to each ticket. </p>
+
+</div>

@@ -1,2 +1,15 @@
-<p>buy works!</p>
-<button (click)="this.eventService.transactionInProgress = 'browse'"> Back </button>
+
+
+
+<button class="btn btn-mbe-normal" (click)="this.eventService.transactionInProgress = 'browse'"> Back </button>
+<p id="prompt">Available tickets at this event: </p>
+
+<br>
+<popup class="frame" (confirmClick)="ConfirmEvent()" (cancelClick)="CancelEvent()">
+  To complete your purchase please continue
+  <br>
+  Price: $9.99
+</popup>
+
+<button class="btn btn-mbe-normal" (click)="showEvent()"> Buy a Ticket </button>
+<br>

@@ -1,7 +1,8 @@
 
 .containter{
 
-    height: 38em;
+    height: 100%;
+    width: 100%;
     position: fixed;
 }
 .input[type=text] {

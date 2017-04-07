@@ -19,7 +19,7 @@ export class ShoppingCartComponent implements OnInit {
       cancleBtnClass: "btn btn-default",
       confirmBtnClass: "btn btn-default",
       color: "#4180ab",
-      header: "Your Cart"
+      header: "Do you want to continue on purchasing this ticket"
     }
     this.popup.show();
   }
