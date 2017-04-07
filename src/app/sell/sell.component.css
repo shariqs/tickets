@@ -1,4 +1,26 @@
-.prompt{
+label {
+    font-size: 30px;
+    color: white;
+}
 
-color: white; 
+form {
+    padding: 20px;
+}
+
+input {
+    display: inline;
+    padding: 5px;
+    width: 500px;
+}
+
+#price {
+    width: 100px;
+}
+
+h4 {
+    color: white;
+}
+
+.sebm-google-map-container {
+    height: 300px;
 }

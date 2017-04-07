@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
@@ -32,6 +32,7 @@ import { TicketInfoComponent } from './ticket-info/ticket-info.component';
 import { BuyComponent } from './buy/buy.component';
 import { SellComponent } from './sell/sell.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { AgmCoreModule } from "angular2-google-maps/core";
 
 
 // Must export the confis
@@ -71,12 +72,17 @@ const myFirebaseAuthConfig = {
     SearchBarComponent
   ],
   imports: [
+      AgmCoreModule.forRoot({
+      apiKey: "AIzaSyCT69ZTIW-awHVfckjduLvQ8I0Sy_Zf2gA",
+      libraries: ["places"]
+    }),
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig,  myFirebaseAuthConfig),
     routing,
-    PopupModule.forRoot()
+    PopupModule.forRoot(),
+     ReactiveFormsModule
   ],
   providers: [DataService, EventService, appRoutingProviders],
   bootstrap: [AppComponent]

@@ -21,6 +21,7 @@ export class EventService {
                   let response = JSON.parse(info._body);
                   this.eventList = (response.resultsPage.results.event);
 
+                  
                   var i = 0;
                   for (var j in this.eventList) {
                         var event = this.eventList[j]

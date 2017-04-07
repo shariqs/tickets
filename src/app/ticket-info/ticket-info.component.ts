@@ -23,7 +23,9 @@ export class TicketInfoComponent {
       console.log('this is the id: '+this.idNum);
     })
   }
-  private ngDoCheck(){
+
+
+   private ngDoCheck(){
     if(this.idNum > 0){
         //loop to pick the event base on id
         for(let event of this.eventService.eventDetailsList){
@@ -32,7 +34,7 @@ export class TicketInfoComponent {
             console.log('found');
             this.eventService.activeEvent = event.toString();
             break;
-          }else { console.log('error'); }
+          }else {  }
         }
       }else if(this.idNum != 0){
         this.router.navigate['/Info'];

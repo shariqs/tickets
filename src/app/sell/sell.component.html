@@ -1,27 +1,23 @@
 <button class="btn btn-mbe-normal" (click)="this.eventService.transactionInProgress = 'browse'"> Back </button>
 <br>
 
-<div class="prompt">
-<h4> To sell a ticket, please provide us the current information</h4>
-<br>
+<div class="container">
+    <h1> You want to sell: </h1>
+    <p> {{ this.eventService.activeEvent }} </p>
+    <h1>Please enter your information: </h1>
+    <div class="form-group">
+        <label> Address </label>
+        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+    </div>
+    <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude"></sebm-google-map-marker>
+    </sebm-google-map>
 
-<form>
-<label> What is your current pickup address? </label>
-<br>
-<input id="address" type="text"> 
-<br>
-<label> What is the Ticket ID? </label>
-<br>
-<input id="ticketid" type="text" > 
-<br>
-<label> What is your desired selling price? </label>
-<br>
-<input id="price" type="text" > 
-<br>
-<br>
-<input class="btn btn-mbe-normal" type="submit" value="Submit">
-</form>
-<br>
-<p> Reminder! a 10% deduction will be applied to each ticket. </p>
+    <label>Price</label>
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input id="price" type="number" class="form-control" placeholder="Price" min="0.01" step="0.01" max="2500" />
+    </div>
 
+    <button class="btn btn-primary"> Submit </button>
 </div>
