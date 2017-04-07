@@ -28,6 +28,5 @@ export class EventListComponent {
 
   eventClicked(inc){
     this.eventService.activeEvent = inc.toString();
-    //this.router.navigate(['/Browse', id]);
   } 
 }

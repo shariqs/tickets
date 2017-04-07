@@ -10,6 +10,7 @@ import { TransactionMenuComponent } from '../Views/transaction-menu/transaction-
 import { BrowseMenuComponent } from '../Views/browse-menu/browse-menu.component';
 import { SellComponent } from '../sell/sell.component';
 import { BuyComponent } from '../buy/buy.component';
+import { TicketInfoComponent} from '../ticket-info/ticket-info.component';
 
 export const routes: Routes = [
   {path:'',      component: BodyComponent  },
@@ -17,9 +18,9 @@ export const routes: Routes = [
   {path:'Search', component: SearchMenuComponent },
   {path:'Transactions', component: TransactionMenuComponent},
   {path:'Browse', component: BrowseMenuComponent},
-  {path:'Browse/:id', component: BrowseMenuComponent,
+  {path:'Browse/:id', component: TicketInfoComponent,
     children: [
-      {path:'', redirectTo: 'EventList', pathMatch:'full'},
+      {path:'', redirectTo: 'Browse', pathMatch:'full'},
       {path:'Sell', component: SellComponent},
       {path:'Buy', component: BuyComponent}
     ]
