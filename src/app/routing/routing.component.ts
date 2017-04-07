@@ -18,7 +18,7 @@ export const routes: Routes = [
   {path:'Search', component: SearchMenuComponent },
   {path:'Transactions', component: TransactionMenuComponent},
   {path:'Browse', component: BrowseMenuComponent},
-  {path:'Browse/:id', component: TicketInfoComponent,
+  {path:'Browse/:id', component: BrowseMenuComponent,
     children: [
       {path:'', redirectTo: 'Browse', pathMatch:'full'},
       {path:'Sell', component: SellComponent},
