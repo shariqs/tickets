@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router} from '@angular/router';
+import { EventService } from '../event.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -7,19 +9,12 @@ import { Component } from '@angular/core';
 })
 
 export class MenuBarComponent {
+    constructor(public eventService: EventService, private router: Router) { }
+
     menuItems = ['Search', 'Browse', 'Sell', 'Transactions'];
-    /*menuItems: menuItems;
-
-    constructor(){
-      this.menuItems = {
-        name: ['Home', 'Buy', 'Sell', 'Transactions'],
-        path: ['./home', './buy', './sell', './transactions']
-      }
+    
+    onClick(){
+      this.eventService.transactionInProgress = 'browse';
+      this.eventService.activeEvent = null;
     }
-}
-
-interface menuItems{
-  name: string[];
-  path: string[];
-}*/
 }

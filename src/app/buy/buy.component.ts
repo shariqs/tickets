@@ -30,12 +30,6 @@ export class BuyComponent{
   private ngDoCheck(){
     this.eventService.transactionInProgress = "buy";
   }
-    
-   private ngOnDestroy() {
-      this.sub.unsubscribe();
-
-
-    }
 
    showEvent(){
     this.popup.options = {
@@ -54,7 +48,10 @@ export class BuyComponent{
     alert('Ticket was not purchased');
   }
   onClick(){
-    this.router.navigate(['/Browse']);
     this.eventService.transactionInProgress = 'browse';
+  }
+
+  private ngOnDestroy() {
+      this.sub.unsubscribe(); 
   }
 }

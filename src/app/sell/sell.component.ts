@@ -93,7 +93,6 @@ export class SellComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/Browse']);
     this.eventService.transactionInProgress = 'browse';
   }
 

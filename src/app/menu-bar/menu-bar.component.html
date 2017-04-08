@@ -5,7 +5,7 @@
     </div>
 
     <ul class="nav navbar-nav" *ngFor="let item of menuItems" padding-bottom=-10px>
-      <li> <a [routerLink]="['/',item]" routerLinkActive="active"> {{ item }} </a> </li>
+      <li> <a [routerLink]="['/',item]" routerLinkActive="active" (click)="onClick()"> {{ item }} </a> </li>
     </ul>
     <app-login align="right"></app-login>
   </div>

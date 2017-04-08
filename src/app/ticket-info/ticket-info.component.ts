@@ -41,11 +41,15 @@ export class TicketInfoComponent {
   }
 
   buyButtonClicked(){
-    this.eventService.transactionInProgress = 'buy';
+    if(this.eventService.transactionInProgress == 'sell'){
+      //alert('Please use the BACK button');
+    }else {this.eventService.transactionInProgress = 'buy';}
   }
 
   sellButtonClicked(){
-    this.eventService.transactionInProgress = 'sell';
+    if(this.eventService.transactionInProgress == 'buy'){
+      //alert('Please use the BACK button');
+    }else {this.eventService.transactionInProgress = 'sell';}
   }
 
 
