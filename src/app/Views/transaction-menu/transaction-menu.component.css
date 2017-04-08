@@ -2,13 +2,13 @@
 .container{
     width: 100%;
     position: fixed;
-    height: 38em;
+    height: 100%;
 }
 
 .ticketDetails{
 float: left;
 width: 50%;
-height: 38em;
+height: 100%;
 overflow-y: hidden;
 overflow-x: hidden;
 padding: 25px;
