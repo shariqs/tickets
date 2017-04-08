@@ -18,10 +18,10 @@ export class BuyComponent{
     private idNum: number;
   
 
-    ngOnInit() {
+  ngOnInit() {
       this.sub = this.route.parent.params.subscribe(params => {
       this.id = +params["id"];
-      console.log("this is the id2:"+this.id);
+      console.log("this is the id (buy form):"+this.id);
       this.idNum = this.id;
     });
 

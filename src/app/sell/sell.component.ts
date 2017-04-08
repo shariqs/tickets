@@ -40,6 +40,12 @@ export class SellComponent implements OnInit {
     this.zoom = 4;
     this.latitude = 39.8282;
     this.longitude = -98.5795;
+
+    this.sub = this.route.parent.params.subscribe(params => {
+      this.id = +params["id"];
+      console.log("this is the id (sell form):"+this.id);
+      this.idNum = this.id;
+    });
     
     //create search FormControl
     this.searchControl = new FormControl();
@@ -69,13 +75,6 @@ export class SellComponent implements OnInit {
         });
       });
     });
-
-    this.sub = this.route.parent.params.subscribe(params => {
-      this.id = +params["id"];
-      console.log("this is the id2:"+this.id);
-      this.idNum = this.id;
-    });
-
   }
 
   private ngDoCheck(){
