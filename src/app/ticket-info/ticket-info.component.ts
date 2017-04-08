@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event.service';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router  } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-info',
@@ -24,20 +23,16 @@ export class TicketInfoComponent {
     })
   }
 
-
    private ngDoCheck(){
     if(this.idNum > 0){
         //loop to pick the event base on id
         for(let event of this.eventService.eventDetailsList){
           var temp = +event.id.toString();
           if(this.idNum == temp){
-            console.log('found');
             this.eventService.activeEvent = event.toString();
             break;
           }else {  }
         }
-      }else if(this.idNum != 0){
-        this.router.navigate['/Info'];
       }
   }
 

@@ -4,6 +4,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { AgmCoreModule, MapsAPILoader } from 'angular2-google-maps/core';
 import { EventService } from '../event.service';
+import { ActivatedRoute, Router  } from '@angular/router';
 
 @Component({
   selector: 'app-sell',
@@ -15,12 +16,13 @@ import { EventService } from '../event.service';
 
 export class SellComponent implements OnInit {
   
-
-
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  private id: any;
+  private idNum: number;
+  private sub: any;
   
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -28,8 +30,10 @@ export class SellComponent implements OnInit {
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    public eventService: EventService 
-  ) {}
+    public eventService: EventService,
+    private route: ActivatedRoute, 
+    private router: Router
+  ) { }
   
   ngOnInit() {
     //set google maps defaults
@@ -65,6 +69,17 @@ export class SellComponent implements OnInit {
         });
       });
     });
+
+    this.sub = this.route.parent.params.subscribe(params => {
+      this.id = +params["id"];
+      console.log("this is the id2:"+this.id);
+      this.idNum = this.id;
+    });
+
+  }
+
+  private ngDoCheck(){
+    this.eventService.transactionInProgress = "sell";
   }
   
   private setCurrentPosition() {
@@ -75,6 +90,15 @@ export class SellComponent implements OnInit {
         this.zoom = 12;
       });
     }
+  }
+
+  onClick(){
+    this.router.navigate(['/Browse']);
+    this.eventService.transactionInProgress = 'browse';
+  }
+
+  private ngOnDestroy(){
+    this.sub.unsubscribe();
   }
 }
 

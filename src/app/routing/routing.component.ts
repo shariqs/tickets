@@ -21,8 +21,8 @@ export const routes: Routes = [
   {path:'Browse/:id', component: BrowseMenuComponent,
     children: [
       {path:'', redirectTo: 'Browse', pathMatch:'full'},
-      {path:'Sell', component: SellComponent},
-      {path:'Buy', component: BuyComponent}
+      {path:'sell', component: SellComponent},
+      {path:'buy', component: BuyComponent}
     ]
   },
 ];
