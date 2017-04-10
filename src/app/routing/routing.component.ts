@@ -13,8 +13,7 @@ import { BuyComponent } from '../buy/buy.component';
 import { TicketInfoComponent} from '../ticket-info/ticket-info.component';
 
 export const routes: Routes = [
-  {path:'',             component: BodyComponent  },
-  {path:'Info',         component: InfoComponent },
+  {path:'',         component: InfoComponent },
   {path:'Search',       component: SearchMenuComponent },
   {path:'Transactions', component: TransactionMenuComponent},
   {path:'Browse',       component: BrowseMenuComponent},
