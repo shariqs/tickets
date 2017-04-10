@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class DataService {
@@ -7,6 +7,7 @@ export class DataService {
 
   constructor(public af: AngularFire) { 
     af.auth.subscribe(auth => this.uid = auth.uid);
+    
   }
 
   public addCreditCard(number: Number, code: Number, expMonth: Number, expYear: Number){
@@ -21,7 +22,7 @@ export class DataService {
     this.af.database.list('Users/' + this.uid + '/Cards/').push(key);
   }
 
-  public addAddress(streetNumber: Number, city: String, zipCode: Number) {
+  public addAddress(streetNumber: String, city: String, zipCode: Number) {
     var info = this.af.database.list('Addresses').push({
       streetNumber: streetNumber,
       city: city,

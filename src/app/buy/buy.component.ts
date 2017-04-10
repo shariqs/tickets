@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Popup } from 'ng2-opd-popup';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class BuyComponent{
    showEvent(){
     this.popup.options = {
       cancleBtnClass: "btn btn-default",
+      cancleBtnContent:"Cancel",
       confirmBtnClass: "btn btn-default",
   
       color: "#4180ab",

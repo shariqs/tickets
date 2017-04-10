@@ -2,7 +2,17 @@
 <a [routerLink] = "['./']">
 <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
 </a>
+
+
 <p id="prompt">Available tickets at this event: </p>
+
+
+
+<div class="ticketList">
+<app-ticket-list></app-ticket-list>
+
+</div>
+
 
 <br>
 <popup class="frame" (confirmClick)="ConfirmEvent()" (cancelClick)="CancelEvent()">
