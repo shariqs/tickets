@@ -1,63 +1,79 @@
-<form class="form-horizontal" [formGroup]="form">
-  <div class="form-group">
-    <label class="control-label col-sm-2">First name:</label>
-    <div class="col-sm-10">
-      <input formControlName="firstName" placeholder="Enter your first name">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2">Last Name:</label>
-    <div class="col-sm-10">
-      <input formControlName="lastName" placeholder="Enter your last name">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2">Billing Address:</label>
-    <div class="col-sm-10"> 
-      <input formControlName="billingAdress" placeholder="Enter your billing address">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2">City:</label>
-    <div class="col-sm-10"> 
-      <input formControlName="city" placeholder="Enter the city">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2">Zip code:</label>
-    <div class="col-sm-10"> 
-      <input formControlName="zipCode" placeholder="Enter your zip code">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2">Card no:</label>
-    <div class="col-sm-10">
-      <input formControlName="cardNo" placeholder="Enter your credit card number">
-    </div>
-  </div>
-   <div class="form-group">
-    <label class="control-label col-sm-2">security code:</label>
-    <div class="col-sm-10">
-      <input formControlName="secCode" placeholder="Enter your credit card security code">
-    </div>
-  </div>
-   <div class="form-group">
-    <label class="control-label col-sm-2">expiration month:</label>
-    <div class="col-sm-10">
-       <input formControlName="exMon" placeholder="Enter your credit card expiration month">
-    </div>
-  </div>
-   <div class="form-group">
-    <label class="control-label col-sm-2">expiration year:</label>
-    <div class="col-sm-10">
-      <input formControlName="exYear" placeholder="Enter your credit card expiration year">
-    </div>
-  </div>
-  <div class="form-group"> 
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
-    </div>
-  </div>
-</form>
-<p>form: {{form.value | json}}</p>
-<hr>
+<div class="jumbotron">
+    <h2>Credit Card Info</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['firstName'].valid && form.controls['firstName'].touched}">
+        <label>First Name:</label>
+        <input class="form-control" type="text" placeholder="John" [formControl]="form.controls['firstName']">
+        <div *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched" class="alert alert-danger">You must include a first name</div>
+        <div *ngIf="form.controls['firstName'].hasError('minlength') && form.controls['firstName'].touched" class="alert alert-danger">Your first name must be at least 5 characters long</div>
+        <div *ngIf="form.controls['firstName'].hasError('maxlength') && form.controls['firstName'].touched" class="alert alert-danger">Your first name cannot exceed 10 characters</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['lastName'].valid && form.controls['lastName'].touched}">
+        <label>Last Name:</label>
+        <input class="form-control" type="text" placeholder="Doe" [formControl]="form.controls['lastName']">
+        <div *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched" class="alert alert-danger">You must include a last name</div>
+        <div *ngIf="form.controls['lastName'].hasError('minlength') && form.controls['lastName'].touched" class="alert alert-danger">Your last name must be at least 5 characters long</div>
+        <div *ngIf="form.controls['lastName'].hasError('maxlength') && form.controls['lastName'].touched" class="alert alert-danger">Your last name cannot exceed 10 characters.</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['billingAddress'].valid && form.controls['billingAddress'].touched}">
+        <label>Billing Address:</label>
+        <input class="form-control" type="text" placeholder="123 Street" [formControl]="form.controls['billingAddress']">
+        <div *ngIf="form.controls['billingAddress'].hasError('required') && form.controls['billingAddress'].touched" class="alert alert-danger">Please fill in your billing address</div>
+        <div *ngIf="form.controls['billingAddress'].hasError('minlength') && form.controls['billingAddress'].touched" class="alert alert-danger">Please enter valid address</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['city'].valid && form.controls['city'].touched}">
+        <label>City:</label>
+        <input class="form-control" type="text" placeholder="San Jose" [formControl]="form.controls['city']">
+        <div *ngIf="form.controls['city'].hasError('required') && form.controls['city'].touched" class="alert alert-danger">Please fill in your city</div>
+        <div *ngIf="form.controls['city'].hasError('minlength') && form.controls['city'].touched" class="alert alert-danger">Please enter valid city</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['zipCode'].valid && form.controls['zipCode'].touched}">
+        <label>Zip Code:</label>
+        <input class="form-control" type="text" placeholder="95192" [formControl]="form.controls['zipCode']">
+        <div *ngIf="form.controls['zipCode'].hasError('required') && form.controls['zipCode'].touched" class="alert alert-danger">Please fill in your zipcode</div>
+        <div *ngIf="form.controls['zipCode'].hasError('minlength') && form.controls['zipCode'].touched" class="alert alert-danger">Please enter valid zipcode</div>
+        <div *ngIf="form.controls['zipCode'].hasError('maxlength') && form.controls['zipCode'].touched" class="alert alert-danger">Please enter valid zipcode</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['cardNo'].valid && form.controls['cardNo'].touched}">
+        <label>Card no.(without "-"):</label>
+        <input class="form-control" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" [formControl]="form.controls['cardNo']">
+        <div *ngIf="form.controls['cardNo'].hasError('required') && form.controls['cardNo'].touched" class="alert alert-danger">You must fill in your credit card number</div>
+        <div *ngIf="form.controls['cardNo'].hasError('minlength') && form.controls['cardNo'].touched" class="alert alert-danger">Please enter valid card number</div>
+        <div *ngIf="form.controls['cardNo'].hasError('maxlength') && form.controls['cardNo'].touched" class="alert alert-danger">Please enter valid card number</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['exMon'].valid && form.controls['exMon'].touched}">
+        <label>Expiration month:</label>
+        <input class="form-control" type="text" placeholder="09" [formControl]="form.controls['exMon']">
+        <div *ngIf="form.controls['exMon'].hasError('required') && form.controls['exMon'].touched" class="alert alert-danger">You must fill in your credit card's expiration month.</div>
+        <div *ngIf="form.controls['exMon'].hasError('minlength') && form.controls['exMon'].touched" class="alert alert-danger">Please enter valid month</div>
+        <div *ngIf="form.controls['exMon'].hasError('maxlength') && form.controls['exMon'].touched" class="alert alert-danger">Please enter valid month</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['exYear'].valid && form.controls['exYear'].touched}">
+        <label>Expiration Year:</label>
+        <input class="form-control" type="text" placeholder="2020" [formControl]="form.controls['exYear']">
+        <div *ngIf="form.controls['exYear'].hasError('required') && form.controls['exYear'].touched" class="alert alert-danger">You must fill in your credit card's expiration year.</div>
+        <div *ngIf="form.controls['exYear'].hasError('minlength') && form.controls['exYear'].touched" class="alert alert-danger">Please enter valid year</div>
+        <div *ngIf="form.controls['exYear'].hasError('maxlength') && form.controls['exYear'].touched" class="alert alert-danger">Please enter valid year</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error':!form.controls['secCode'].valid && form.controls['secCode'].touched}">
+        <label>Security code (found the back):</label>
+        <input class="form-control" type="text" placeholder="465" [formControl]="form.controls['secCode']">
+        <div *ngIf="form.controls['secCode'].hasError('required') && form.controls['secCode'].touched" class="alert alert-danger">You must fill in your credit card's security code number.</div>
+        <div *ngIf="form.controls['secCode'].hasError('minlength') && form.controls['secCode'].touched" class="alert alert-danger">Please enter valid numbers</div>
+        <div *ngIf="form.controls['secCode'].hasError('maxlength') && form.controls['secCode'].touched" class="alert alert-danger">Please enter valid numbers</div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+      </div>
+    </form>
+</div>

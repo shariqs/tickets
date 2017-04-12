@@ -29,15 +29,15 @@ export class CreditCardFormComponent implements OnInit {
   constructor(public fb: FormBuilder, dataService: DataService) {
 
     this.form = this.fb.group({
-      firstName: '',
-      lastName: '',
-      billingAdress: '',
-      city: '',
-      zipCode: '',
-      cardNo: '',
-      exMon: '',
-      exYear: '',
-      secCode: ''
+      firstName: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(15)])],
+      lastName: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(15)])],
+      billingAddress: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      city: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      zipCode: ['', Validators.compose([Validators.required, Validators.minLength(5),Validators.maxLength(5)])],
+      cardNo: ['', Validators.compose([Validators.required, Validators.minLength(16),Validators.maxLength(16)])],
+      exMon: ['', Validators.compose([Validators.required, Validators.minLength(2),Validators.maxLength(2)])],
+      exYear: ['', Validators.compose([Validators.required, Validators.minLength(4),Validators.maxLength(4)])],
+      secCode: ['', Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(3)])]
     });
 
    }
@@ -46,13 +46,12 @@ export class CreditCardFormComponent implements OnInit {
     
   }
 
-  onSubmit(){
-    console.log(this.form.value);
-    alert('work in process!');
-    
+  onSubmit(value: any): void{
+    console.log('Reactive Form Data: ')
+    console.log(value);
+    alert('submitted');
+  }
    /*this.addCreditCard(this.cardNo, this.secCode, this.exMon, this.exYear);
   dataService.addAddress(this.billingAddress, this.city, this.zipCode); */
-
-  }
 
 }
