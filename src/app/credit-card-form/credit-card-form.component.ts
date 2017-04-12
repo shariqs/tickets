@@ -36,7 +36,7 @@ export class CreditCardFormComponent implements OnInit {
       zipCode: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{5}')])],
       cardNo: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{16}')])],
       exMon: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{2}')])],
-      exYear: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{2}')])],
+      exYear: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{4}')])],
       secCode: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{3}')])]
     });
 
