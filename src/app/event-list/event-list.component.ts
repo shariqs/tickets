@@ -13,6 +13,7 @@ export class EventListComponent {
 
   private id: number;
   private sub: any;
+  private searchTerm: string;
 
   constructor(public eventService: EventService, private route: ActivatedRoute, private router: Router) {   }
 

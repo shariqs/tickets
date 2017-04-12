@@ -9,8 +9,9 @@ export class EventService {
 
       public eventList = [];
       public eventStringList = [];
-      public activeEvent: Event;
-      public eventDetailsList = [];
+      public activeEvent: string;
+      public eventDetailsList: Event[] = [];
+      public eventListModel: Event[] = [];
 
       public transactionInProgress = "browse";
       constructor(public http: Http) { this.getEventFromLocalArea(); }
@@ -35,8 +36,15 @@ export class EventService {
                         this.eventDetailsList[j] = new Event(name, venue, date, time, city, id);
 
                   }
-                  console.log(this.eventDetailsList)
+                  this.eventListModel = this.eventDetailsList;
+                  console.log(this.eventListModel)
             });
+      }
+
+      search(searchTerm: string) {
+            if (searchTerm != null)
+                  this.eventListModel = this.eventDetailsList.filter(event => event.displayName.toLowerCase().includes(searchTerm.toLowerCase()));
+            console.log(this.eventListModel)
       }
 
 }

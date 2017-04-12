@@ -6,7 +6,6 @@
     <app-ticket-info> </app-ticket-info>
 
     <div id="eventList">
-       <app-search-bar class='rightFrame' *ngIf='this.eventService.transactionInProgress == "browse"'></app-search-bar>
         <app-event-list class='rightFrame' *ngIf='this.eventService.transactionInProgress == "browse"'></app-event-list>
         <app-buy class='rightFrame' *ngIf='this.eventService.transactionInProgress == "buy" '></app-buy>
         <app-sell class='rightFrame' *ngIf='this.eventService.transactionInProgress == "sell"'></app-sell>
