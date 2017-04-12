@@ -36,40 +36,35 @@
         <label>Zip Code:</label>
         <input class="form-control" type="text" placeholder="95192" [formControl]="form.controls['zipCode']">
         <div *ngIf="form.controls['zipCode'].hasError('required') && form.controls['zipCode'].touched" class="alert alert-danger">Please fill in your zipcode</div>
-        <div *ngIf="form.controls['zipCode'].hasError('minlength') && form.controls['zipCode'].touched" class="alert alert-danger">Please enter valid zipcode</div>
-        <div *ngIf="form.controls['zipCode'].hasError('maxlength') && form.controls['zipCode'].touched" class="alert alert-danger">Please enter valid zipcode</div>
+        <div *ngIf="form.controls['zipCode'].hasError('pattern') && form.controls['zipCode'].touched" class="alert alert-danger">Please enter valid zipcode</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['cardNo'].valid && form.controls['cardNo'].touched}">
         <label>Card no.(without "-"):</label>
         <input class="form-control" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" [formControl]="form.controls['cardNo']">
         <div *ngIf="form.controls['cardNo'].hasError('required') && form.controls['cardNo'].touched" class="alert alert-danger">You must fill in your credit card number</div>
-        <div *ngIf="form.controls['cardNo'].hasError('minlength') && form.controls['cardNo'].touched" class="alert alert-danger">Please enter valid card number</div>
-        <div *ngIf="form.controls['cardNo'].hasError('maxlength') && form.controls['cardNo'].touched" class="alert alert-danger">Please enter valid card number</div>
+        <div *ngIf="form.controls['cardNo'].hasError('pattern') && form.controls['cardNo'].touched" class="alert alert-danger">Please enter valid card number</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['exMon'].valid && form.controls['exMon'].touched}">
         <label>Expiration month:</label>
         <input class="form-control" type="text" placeholder="09" [formControl]="form.controls['exMon']">
         <div *ngIf="form.controls['exMon'].hasError('required') && form.controls['exMon'].touched" class="alert alert-danger">You must fill in your credit card's expiration month.</div>
-        <div *ngIf="form.controls['exMon'].hasError('minlength') && form.controls['exMon'].touched" class="alert alert-danger">Please enter valid month</div>
-        <div *ngIf="form.controls['exMon'].hasError('maxlength') && form.controls['exMon'].touched" class="alert alert-danger">Please enter valid month</div>
+        <div *ngIf="form.controls['exMon'].hasError('pattern') && form.controls['exMon'].touched" class="alert alert-danger">Please enter valid month</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['exYear'].valid && form.controls['exYear'].touched}">
         <label>Expiration Year:</label>
         <input class="form-control" type="text" placeholder="2020" [formControl]="form.controls['exYear']">
         <div *ngIf="form.controls['exYear'].hasError('required') && form.controls['exYear'].touched" class="alert alert-danger">You must fill in your credit card's expiration year.</div>
-        <div *ngIf="form.controls['exYear'].hasError('minlength') && form.controls['exYear'].touched" class="alert alert-danger">Please enter valid year</div>
-        <div *ngIf="form.controls['exYear'].hasError('maxlength') && form.controls['exYear'].touched" class="alert alert-danger">Please enter valid year</div>
+        <div *ngIf="form.controls['exYear'].hasError('pattern') && form.controls['exYear'].touched" class="alert alert-danger">Please enter valid year</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['secCode'].valid && form.controls['secCode'].touched}">
         <label>Security code (found the back):</label>
         <input class="form-control" type="text" placeholder="465" [formControl]="form.controls['secCode']">
         <div *ngIf="form.controls['secCode'].hasError('required') && form.controls['secCode'].touched" class="alert alert-danger">You must fill in your credit card's security code number.</div>
-        <div *ngIf="form.controls['secCode'].hasError('minlength') && form.controls['secCode'].touched" class="alert alert-danger">Please enter valid numbers</div>
-        <div *ngIf="form.controls['secCode'].hasError('maxlength') && form.controls['secCode'].touched" class="alert alert-danger">Please enter valid numbers</div>
+        <div *ngIf="form.controls['secCode'].hasError('pattern') && form.controls['secCode'].touched" class="alert alert-danger">Please enter valid numbers</div>
       </div>
 
       <div class="form-group">

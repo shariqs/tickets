@@ -33,11 +33,11 @@ export class CreditCardFormComponent implements OnInit {
       lastName: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(15)])],
       billingAddress: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       city: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      zipCode: ['', Validators.compose([Validators.required, Validators.minLength(5),Validators.maxLength(5)])],
-      cardNo: ['', Validators.compose([Validators.required, Validators.minLength(16),Validators.maxLength(16)])],
-      exMon: ['', Validators.compose([Validators.required, Validators.minLength(2),Validators.maxLength(2)])],
-      exYear: ['', Validators.compose([Validators.required, Validators.minLength(4),Validators.maxLength(4)])],
-      secCode: ['', Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(3)])]
+      zipCode: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{5}')])],
+      cardNo: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{16}')])],
+      exMon: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{2}')])],
+      exYear: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{2}')])],
+      secCode: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{3}')])]
     });
 
    }
