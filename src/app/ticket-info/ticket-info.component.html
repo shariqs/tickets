@@ -11,23 +11,22 @@
     </div>
     <div class="panel-body">
         <a href="http://www.freepik.com/free-vector/event-remember-background-design_1016179.htm">
-        <img src = "../assets/event_pic.png" alt="event pic" height="30%" width="30%"></a>
+        <img class="animated bounce infinite" src = "../assets/event_pic.png" alt="event pic" height="30%" width="30%"></a>
         <br><br>
         <div *ngFor="let s of this.eventService.activeEvent.split(';')">
             {{ s }} <br/>
         </div>
     
-    
     <br>
-    <a [routerLink] = "['./buy']">
-        <button class="btn btn-primary" (click)='buyButtonClicked()'>Buy</button>
+    <div>
+    <a [routerLink] = "['./buy']" class="btn btn-default btn-md">
+        <span class="glyphicon glyphicon-arrow-down"></span> Buy
     </a>
-     <a [routerLink] = "['./sell']">
-        <button class="btn btn-danger" (click)='sellButtonClicked()'>Sell</button>
-     </a>
-     
-
-    <br><br>
+    <a [routerLink] = "['./sell']" class="btn btn-default btn-md">
+        <span class="glyphicon glyphicon-arrow-up"></span> Sell
+    </a>
+    </div>
+    <br>
     <div id="sklogo">
  <a href="http://www.songkick.com/">
      <img src="../assets/sk-badge-pink.svg" alt="Songkick's' logo" height="45">

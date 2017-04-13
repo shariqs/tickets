@@ -13,9 +13,6 @@
     background: rgba(0,0,0,0.0);
 }
 
-.panel-heading{
-}
-
 .panel-body{
     text-align: center;
     width: 100%;
@@ -23,3 +20,9 @@
     vertical-align: middle;
     background: rgba(0,0,0,0.0);
 }
+
+.divider{
+    width: 15em;
+    margin-left: 14em;
+}
+
