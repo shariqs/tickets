@@ -7,13 +7,10 @@
 
 <div id='eventInformation' class='leftFrame' *ngIf='this.eventService.activeEvent'>
     <div id="text">
-        <br><br><br>
         <h1> Details</h1>
-
-        <p> {{ this.eventService.activeEvent.city}}</p>
-        <p> {{ this.eventService.activeEvent.time }} </p>
-        <p> {{ this.eventService.activeEvent.date }}</p>
-        <br> <br> <br> 
+        <a href="http://www.freepik.com/free-vector/event-remember-background-design_1016179.htm">
+        <img src = "../assets/event_pic.png" alt="event pic" height="30%" width="30%"></a>
+        <br><br>
         <div *ngFor="let s of this.eventService.activeEvent.split(';')">
             {{ s }} <br/>
         </div>

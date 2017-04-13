@@ -1,6 +1,6 @@
 
 <div class="eventList">
-  <h2> Event Lists </h2>
+  <h2 align ="center"> Event Lists </h2>
   <input id="bar" type="text" name="search" [(ngModel)]="this.searchTerm" (ngModelChange)="this.eventService.search(searchTerm)" placeholder="Search..">
     
   <ul class="list-group"  *ngFor="let event of eventService.eventListModel" >
