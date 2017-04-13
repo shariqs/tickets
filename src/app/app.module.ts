@@ -5,24 +5,19 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { AppComponent } from './app.component';
-
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
-
 import { LoginComponent } from './login/login.component';
-
 import { PopupModule } from 'ng2-opd-popup';
 
 import { routing, appRoutingProviders } from './routing/routing.component';
 import { MainMenuComponent } from './Views/main-menu/main-menu.component';
 import { DataService } from './data.service';
 import { EventService } from './event.service';
-
 import { InfoComponent } from './info/info.component';
 import { BodyComponent} from './body/body.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { BrowseMenuComponent } from './Views/browse-menu/browse-menu.component';
-import { SearchMenuComponent } from './Views/search-menu/search-menu.component';
 import { TransactionMenuComponent } from './Views/transaction-menu/transaction-menu.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { AccountMenuComponent } from './Views/account-menu/account-menu.component';
@@ -61,7 +56,6 @@ const myFirebaseAuthConfig = {
     ShoppingCartComponent,
     EventListComponent,
     BrowseMenuComponent,
-    SearchMenuComponent,
     TransactionMenuComponent,
     TicketListComponent,
     AccountMenuComponent,
