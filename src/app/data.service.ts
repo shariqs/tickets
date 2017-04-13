@@ -20,7 +20,7 @@ export class DataService {
      });
 
     var key = info.key;
-    this.af.database.list('Users/' + this.uid + '/Active_Listings').push(key);
+    this.af.database.list('Users/' + this.uid + '/Active_Listings/' + id).push(key);
   }
 
   public addCreditCard(number: Number, code: Number, expMonth: Number, expYear: Number){

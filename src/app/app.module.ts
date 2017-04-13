@@ -30,6 +30,7 @@ import { SellComponent } from './sell/sell.component';
 import { AgmCoreModule } from "angular2-google-maps/core";
 import { CreditCardFormComponent } from './credit-card-form/credit-card-form.component';
 import { FooterComponent } from './footer/footer.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 
 
 // Must export the confis
@@ -66,7 +67,8 @@ const myFirebaseAuthConfig = {
     BuyComponent,
     SellComponent,
     CreditCardFormComponent,
-    FooterComponent
+    FooterComponent,
+    TransactionHistoryComponent
   ],
   imports: [
       AgmCoreModule.forRoot({

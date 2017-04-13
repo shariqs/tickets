@@ -1,0 +1,25 @@
+ul {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.list-group-item:hover {
+    background-color: darkslategray;
+    padding: 10px;
+}
+
+.list-group-item {
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border-color: #424242;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}

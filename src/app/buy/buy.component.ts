@@ -75,6 +75,8 @@ export class BuyComponent{
       this.sub.unsubscribe(); 
   }
 
+
+//THIS SHOULD NOT BE HERE IT SHOULD BE IN DATASERVICE BUT I HAVE NO ENERGY
   buyTicket(purchased){
     //Removes Listing from Active_Listings
     this.af.database.object('Active_Listings/'+ this.eventService.activeEventData.id +'/' + purchased.$key).remove();
@@ -83,10 +85,10 @@ export class BuyComponent{
     //Adds Listing to Purchased for specific user
     this.af.database.list('Users/' + this.uid + '/Purchased/' + this.eventService.activeEventData.id).push(info.key);
     //Removes Listing from User's Active_Listing
-    this.af.database.list('Users/' + this.uid + '/Active_Listings/').subscribe(listings => {
+    this.af.database.list('Users/' + this.uid + '/Active_Listings/' + this.eventService.activeEventData.id).subscribe(listings => {
       listings.forEach(listing => {
         if(listing.$value == purchased.$key){
-          this.af.database.list('Users/' + this.uid + '/Active_Listings/' + listing.$key).remove();
+          this.af.database.list('Users/' + this.uid + '/Active_Listings/' + this.eventService.activeEventData.id + "/"  + listing.$key).remove();
         }
       });
     });
