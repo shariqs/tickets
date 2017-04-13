@@ -1,25 +1,24 @@
 
-<a [routerLink] = "['./']">
-<button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
-</a>
+<div class ="container">
+
+  <p id="prompt">Available tickets at this event: </p>
+
+  <div class="ticketList">
+  <app-ticket-list></app-ticket-list>
+
+  </div>
 
 
-<p id="prompt">Available tickets at this event: </p>
-
-
-
-<div class="ticketList">
-<app-ticket-list></app-ticket-list>
-
-</div>
-
-
-<br>
-<popup class="frame" (confirmClick)="ConfirmEvent()" (cancelClick)="CancelEvent()">
-  To complete your purchase please continue
   <br>
-  Price: $9.99
-</popup>
+  <popup class="frame" (confirmClick)="ConfirmEvent()" (cancelClick)="CancelEvent()">
+    To complete your purchase please continue
+    <br>
+    Price: $9.99
+  </popup>
 
-<button class="btn btn-mbe-normal" (click)="showEvent()"> Buy a Ticket </button>
-<br>
+  <button class="btn btn-mbe-normal" (click)="showEvent()"> Buy this Ticket </button>
+  <a [routerLink] = "['./']">
+    <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
+  </a>
+  <br>
+</div>

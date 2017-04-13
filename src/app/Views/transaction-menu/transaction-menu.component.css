@@ -3,6 +3,9 @@
     width: 100%;
     position: fixed;
     height: 100%;
+    background: -webkit-linear-gradient(to left, #4298f4, #47067a);
+    background: linear-gradient(to left, #4298f4, #47067a	);
+    color: white;
 }
 
 .ticketDetails{
@@ -12,11 +15,16 @@ height: 100%;
 overflow-y: visible;
 overflow-x: hidden;
 padding: 25px;
+color: black;
 }
 
 h3{
  text-align: center;
  padding: 15px;
+}
+
+h1{
+    color:white;
 }
 
 #ticketList {

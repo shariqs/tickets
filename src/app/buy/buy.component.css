@@ -8,3 +8,9 @@ popup{
     position: absolute;
     width: 70%;
 }
+
+.container{
+    color: white;
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+}

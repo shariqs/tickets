@@ -1,11 +1,14 @@
 <app-menu-bar></app-menu-bar>
 <div class="container">
   <div class="ticketDetails">
-    <h1> Transactions menu</h1>
+    <h1> Transactions</h1>
     <app-credit-card-form></app-credit-card-form>
-    </div>
+  </div>
   <div id="ticketList">
-  <h3> Ticket's Available </h3>
-  <app-ticket-list></app-ticket-list>
+    <h3> Ticket's Info </h3>
+    <div *ngIf="isAvailable">
+      <p *ngFor="let s of this.eventService.activeEvent.split(';')"> {{ s }} </p>
+    </div>
+    <app-ticket-list></app-ticket-list>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from '../../event.service';
 
 @Component({
   selector: 'app-transaction-menu',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public eventService: EventService) { }
 
   ngOnInit() {
   }
