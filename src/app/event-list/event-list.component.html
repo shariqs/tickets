@@ -2,8 +2,10 @@
 <div class="eventList">
 
   <h2 align ="center"> Event Lists </h2>
-
-  <input class="form-control" id="bar" type="text" name="search" [(ngModel)]="this.searchTerm" (ngModelChange)="this.eventService.search(searchTerm)"  placeholder="Search..">
+  <div class="input-group input-group-sm">
+  <span class="input-group-addon" id="bar"><i>Search:</i></span>
+  <input class="form-control" aria-describedby="bar" id="bar" type="text" name="search" [(ngModel)]="this.searchTerm" (ngModelChange)="this.eventService.search(searchTerm)"  placeholder="Enter an event name..">
+</div>
 
   <ul class="list-group"  *ngFor="let event of eventService.eventListModel" >
       <a [routerLink] = "['/Browse',event.id.toString()]">
