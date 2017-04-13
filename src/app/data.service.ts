@@ -10,8 +10,8 @@ export class DataService {
   }
 
   public addTicketListing(long, lat, price, event){
+    
     var id: Number = event.id + 0;
-    console.log(price);
     var info = this.af.database.list('Active_Listings/' + id + '/').push({
       longitude: long,
       latitude: lat,

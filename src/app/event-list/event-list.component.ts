@@ -28,7 +28,8 @@ export class EventListComponent {
   }
 
   eventClicked(inc){
-    this.eventService.activeEventData = inc;
-    this.eventService.activeEvent = inc.toString();
+
+    this.eventService.setActiveEvent(inc);
+
   } 
 }

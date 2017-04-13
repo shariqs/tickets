@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { Http } from '@angular/http';
-
-
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class EventService {
@@ -10,7 +10,7 @@ export class EventService {
       public eventList = [];
       public eventStringList = [];
       public activeEvent: string;
-      public activeEventData: Event;
+      public activeEventData: Event; 
       public eventDetailsList: Event[] = [];
       public eventListModel: Event[] = [];
 
@@ -23,7 +23,7 @@ export class EventService {
                   let response = JSON.parse(info._body);
                   this.eventList = (response.resultsPage.results.event);
 
-                  
+
                   var i = 0;
                   for (var j in this.eventList) {
                         var event = this.eventList[j]
@@ -48,6 +48,12 @@ export class EventService {
             console.log(this.eventListModel)
       }
 
+      setActiveEvent(event : Event) {
+            
+            this.activeEventData = event;
+            this.activeEvent = event.toString();
+      }
+
 }
 
 class Event {
@@ -69,9 +75,12 @@ class Event {
 
       toString(): string {
 
-            return "Event Name: " + this.displayName + ";" + 
-                   "Venue: "      + this.venue + ";" +
-                   "Date & Time: "       + this.time + ", " + this.date + ";" + 
-                   "City: "       + this.city
+            return "Event Name: " + this.displayName + ";" +
+                  "Venue: " + this.venue + ";" +
+                  "Date & Time: " + this.time + ", " + this.date + ";" +
+                  "City: " + this.city
       }
+
+
+
 }

@@ -1,24 +1,20 @@
+<div class="container">
 
-<div class ="container">
+    <p id="prompt">Available tickets at this event: </p>
 
-  <p id="prompt">Available tickets at this event: </p>
+    <div class="ticketList">
+        <app-ticket-list></app-ticket-list>
+    </div>
 
-  <div class="ticketList">
-  <app-ticket-list></app-ticket-list>
+    <ul class="list-group" *ngFor="let listing of availableListings">
+        <li class="list-group-item" (dblclick)='buyTicket(listing)'>
+            {{ listing | json }}
+        </li>
 
-  </div>
-
-
-  <br>
-  <popup class="frame" (confirmClick)="ConfirmEvent()" (cancelClick)="CancelEvent()">
-    To complete your purchase please continue
+    </ul>
+    <button class="btn btn-mbe-normal" (click)="showEvent()"> Buy this Ticket </button>
+    <a [routerLink]="['./']">
+        <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
+    </a>
     <br>
-    Price: $9.99
-  </popup>
-
-  <button class="btn btn-mbe-normal" (click)="showEvent()"> Buy this Ticket </button>
-  <a [routerLink] = "['./']">
-    <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
-  </a>
-  <br>
 </div>

@@ -24,7 +24,8 @@ export class SellComponent implements OnInit {
   private id: any;
   private idNum: number;
   private sub: any;
-  
+  private activeEvent: Event;
+
   @ViewChild("search")
   public searchElementRef: ElementRef;
   
@@ -98,11 +99,11 @@ export class SellComponent implements OnInit {
   }
   
   onSubmit(){
- 
       this.dataService.addTicketListing(this.longitude, this.latitude, this.price, this.eventService.activeEventData);
   }
   private ngOnDestroy(){
     this.sub.unsubscribe();
   }
 }
+
 
