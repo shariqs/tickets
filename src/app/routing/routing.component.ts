@@ -19,7 +19,7 @@ export const routes: Routes = [
     children: [
       {path:'', redirectTo: 'Browse', pathMatch:'full'},
       {path:'sell', component: SellComponent},
-      {path:'buy',  component: BuyComponent}
+      {path:'buy', component: BuyComponent}
     ]
   },
   {path:'**', redirectTo: ''}
