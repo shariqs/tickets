@@ -6,8 +6,21 @@ export class DataService {
   uid;
 
   constructor(public af: AngularFire) { 
-    af.auth.subscribe(auth => this.uid = auth.uid);
-    
+    af.auth.subscribe(auth => this.uid = auth.uid); 
+  }
+
+  public addTicketListing(long, lat, price, event){
+    var id: Number = event.id + 0;
+    console.log(price);
+    var info = this.af.database.list('Active_Listings/' + id + '/').push({
+      longitude: long,
+      latitude: lat,
+      price: price,
+      owner: this.uid
+     });
+
+    var key = info.key;
+    this.af.database.list('Users/' + this.uid + '/Active_Listings').push(key);
   }
 
   public addCreditCard(number: Number, code: Number, expMonth: Number, expYear: Number){

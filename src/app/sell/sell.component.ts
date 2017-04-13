@@ -5,7 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AgmCoreModule, MapsAPILoader } from 'angular2-google-maps/core';
 import { EventService } from '../event.service';
 import { ActivatedRoute, Router  } from '@angular/router';
-
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-sell',
   templateUrl: './sell.component.html',
@@ -19,6 +19,7 @@ export class SellComponent implements OnInit {
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
+  public price: number;
   public zoom: number;
   private id: any;
   private idNum: number;
@@ -32,7 +33,8 @@ export class SellComponent implements OnInit {
     private ngZone: NgZone,
     public eventService: EventService,
     private route: ActivatedRoute, 
-    private router: Router
+    private router: Router,
+    public dataService: DataService
   ) { }
   
   ngOnInit() {
@@ -91,10 +93,14 @@ export class SellComponent implements OnInit {
     }
   }
 
-  onClick(){
+  onBack(){
     this.eventService.transactionInProgress = 'browse';
   }
-
+  
+  onSubmit(){
+ 
+      this.dataService.addTicketListing(this.longitude, this.latitude, this.price, this.eventService.activeEventData);
+  }
   private ngOnDestroy(){
     this.sub.unsubscribe();
   }

@@ -10,6 +10,7 @@ export class EventService {
       public eventList = [];
       public eventStringList = [];
       public activeEvent: string;
+      public activeEventData: Event;
       public eventDetailsList: Event[] = [];
       public eventListModel: Event[] = [];
 
