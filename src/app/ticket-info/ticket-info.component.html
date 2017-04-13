@@ -7,23 +7,28 @@
 
 <div id='eventInformation' class='leftFrame' *ngIf='this.eventService.activeEvent'>
     <div id="text">
-        <h1> Event Details</h1>
+        <br><br><br>
+        <h1> Details</h1>
 
-        <p>{{ this.eventService.activeEvent.city}}</p>
+        <p> {{ this.eventService.activeEvent.city}}</p>
         <p> {{ this.eventService.activeEvent.time }} </p>
         <p> {{ this.eventService.activeEvent.date }}</p>
-        <br> <br> <br> {{ this.eventService.activeEvent }}
+        <br> <br> <br> 
+        <div *ngFor="let s of this.eventService.activeEvent.split(';')">
+            {{ s }} <br/>
+        </div>
     </div>
     
-
+    <br>
     <a [routerLink] = "['./buy']">
         <button class="btn btn-primary" (click)='buyButtonClicked()'>Buy</button>
     </a>
      <a [routerLink] = "['./sell']">
         <button class="btn btn-danger" (click)='sellButtonClicked()'>Sell</button>
      </a>
+     
 
-    <br>
+    <br><br>
     <div id="sklogo">
  <a href="http://www.songkick.com/">
      <img src="../assets/sk-badge-pink.svg" alt="Songkick's' logo" height="45">

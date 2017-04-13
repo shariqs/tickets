@@ -68,7 +68,9 @@ class Event {
 
       toString(): string {
 
-            return this.displayName + ", " + this.venue + ", " + this.date + ", " + this.time + ", " + this.city
-
+            return "Event Name: " + this.displayName + ";" + 
+                   "Venue: "      + this.venue + ";" +
+                   "Date & Time: "       + this.time + ", " + this.date + ";" + 
+                   "City: "       + this.city
       }
 }

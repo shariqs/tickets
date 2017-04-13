@@ -2,7 +2,8 @@
     width: 100%;
     position: fixed;
     height: 100%;
-    background-color: #616161;
+    background: url("bg-pattern.png"), -webkit-linear-gradient(to right, #4298f4, #8b41f4);
+    background: url("bg-pattern.png"), linear-gradient(to right, #4298f4, #8b41f4);
     margin: 0px;
     padding: 0px;
     padding-bottom: 0px;
@@ -30,8 +31,16 @@ app-ticket-info {
     /*border-left: white 1px solid; */
 }
 
+app-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
 #text {
     text-align: center;
     padding: 5em;
 }
+
+
 

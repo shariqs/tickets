@@ -12,11 +12,19 @@ ul {
     padding: 0px;
     margin: 0px;
     border-radius: 0px;
-    background-color: #616161;
+    background:rgba(0,0,0,0.3);
     color: white;
     border-color: #424242;
 }
 
 .eventList {
     padding-bottom: 40px;
+}
+
+.well well-sm{
+    background:rgba(0,0,0,0.3);
+}
+
+footer{
+    color: white;
 }

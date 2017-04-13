@@ -49,26 +49,28 @@
       <div class="form-group" [ngClass]="{'has-error':!form.controls['exMon'].valid && form.controls['exMon'].touched}">
         <label>Expiration month:</label>
         <input class="form-control" type="text" placeholder="09" [formControl]="form.controls['exMon']">
-        <div *ngIf="form.controls['exMon'].hasError('required') && form.controls['exMon'].touched" class="alert alert-danger">You must fill in your credit card's expiration month.</div>
+        <div *ngIf="form.controls['exMon'].hasError('required') && form.controls['exMon'].touched" class="alert alert-danger">You must fill in your credit card's expiration month</div>
         <div *ngIf="form.controls['exMon'].hasError('pattern') && form.controls['exMon'].touched" class="alert alert-danger">Please enter valid month</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['exYear'].valid && form.controls['exYear'].touched}">
         <label>Expiration Year:</label>
         <input class="form-control" type="text" placeholder="2020" [formControl]="form.controls['exYear']">
-        <div *ngIf="form.controls['exYear'].hasError('required') && form.controls['exYear'].touched" class="alert alert-danger">You must fill in your credit card's expiration year.</div>
+        <div *ngIf="form.controls['exYear'].hasError('required') && form.controls['exYear'].touched" class="alert alert-danger">You must fill in your credit card's expiration year</div>
         <div *ngIf="form.controls['exYear'].hasError('pattern') && form.controls['exYear'].touched" class="alert alert-danger">Please enter valid year</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['secCode'].valid && form.controls['secCode'].touched}">
         <label>Security code (found the back):</label>
         <input class="form-control" type="text" placeholder="465" [formControl]="form.controls['secCode']">
-        <div *ngIf="form.controls['secCode'].hasError('required') && form.controls['secCode'].touched" class="alert alert-danger">You must fill in your credit card's security code number.</div>
-        <div *ngIf="form.controls['secCode'].hasError('pattern') && form.controls['secCode'].touched" class="alert alert-danger">Please enter valid numbers</div>
+        <div *ngIf="form.controls['secCode'].hasError('required') && form.controls['secCode'].touched" class="alert alert-danger">You must fill in your credit card's security code number</div>
+        <div *ngIf="form.controls['secCode'].hasError('pattern') && form.controls['secCode'].touched" class="alert alert-danger">Please enter valid number</div>
       </div>
 
       <div class="form-group">
         <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
       </div>
+
+      {{form.value | json}}
     </form>
 </div>
