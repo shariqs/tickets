@@ -31,6 +31,14 @@ A semester project for CS 160 class at San Jose State University. Simulating the
 - [**NPM Check Updates**](https://www.npmjs.com/package/npm-check-updates)
 - [**GitHub**](https://desktop.github.com/)
 
+## Required addons
+
+ - `npm install ng2-opd-popup --save` [**Boostrap Modals**](https://www.npmjs.com/package/ng2-opd-popup)
+ - `npm install angular2-google-maps --save` [**Angular Maps**](https://angular-maps.com/docs/getting-started.html)
+ - `npm install @types/googlemaps --save-dev`
+ - `typings install dt~google.maps --global`
+ - `npm install`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
