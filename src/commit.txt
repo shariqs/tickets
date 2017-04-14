@@ -1,0 +1,1 @@
+Ticket info now displays month name instead of number. day number has prefix.

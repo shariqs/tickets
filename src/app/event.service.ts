@@ -77,7 +77,7 @@ class Event {
 
             return "Event Name: " + this.displayName + ";" +
                   "Venue: " + this.venue + ";" +
-                  "Date & Time: " + this.time + ", " + this.date + ";" +
+                  "Date & Time: " + this.getMonth(this.date) + " " + this.getDay(this.date) + ", " + this.getYear(this.date) +  ", " + this.time + ";" +
                   "City: " + this.city
       }
 
