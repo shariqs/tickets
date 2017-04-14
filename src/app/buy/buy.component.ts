@@ -94,7 +94,7 @@ export class BuyComponent{
     });
     //Adds Listing to User's Sold
     this.af.database.list('/Users/' + this.uid + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
-
+    alert('sold');
 
   }
 }

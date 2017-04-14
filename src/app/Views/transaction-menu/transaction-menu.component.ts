@@ -8,7 +8,10 @@ import { EventService } from '../../event.service';
 })
 export class TransactionMenuComponent implements OnInit {
 
-  constructor(public eventService: EventService) { }
+  isAvailable: false;
+  constructor(public eventService: EventService) {   }
+  
+
 
   ngOnInit() {
   }

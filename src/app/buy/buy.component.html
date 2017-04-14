@@ -8,7 +8,7 @@
 
     <ul class="list-group" *ngFor="let listing of availableListings">
         <li class="list-group-item" (dblclick)='buyTicket(listing)'>
-            {{ listing | json }}
+            User: {{ listing.owner.substring(0,5) }} Price: ${{ listing.price }}
         </li>
 
     </ul>

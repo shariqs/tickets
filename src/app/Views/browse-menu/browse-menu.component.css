@@ -2,8 +2,7 @@
     width: 100%;
     position: fixed;
     height: 100%;
-    background: -webkit-linear-gradient(to right, #4298f4, #47067a);
-    background: linear-gradient(to right, #4298f4, #47067a	);
+    background-color: darkgrey;
     margin: 0px;
     padding: 0px;
     padding-bottom: 0px;

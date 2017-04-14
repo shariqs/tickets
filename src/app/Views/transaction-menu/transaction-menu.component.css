@@ -3,8 +3,7 @@
     width: 100%;
     position: fixed;
     height: 100%;
-    background: -webkit-linear-gradient(to left, #4298f4, #47067a);
-    background: linear-gradient(to left, #4298f4, #47067a	);
+    background-color: darkgrey;
     color: white;
 }
 
