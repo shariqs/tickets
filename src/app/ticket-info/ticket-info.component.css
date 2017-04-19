@@ -6,7 +6,7 @@
 }
 
 .panel{
-    background: #222222;
+    background: rgba(0,0,0,0.0);
     border-style: hidden;
 }
 .panel panel-default{
@@ -18,7 +18,7 @@
     width: 100%;
     height: 100%;
     vertical-align: middle;
-    background: #222222;
+    background: rgba(0,0,0,0.0);
 }
 
 .divider{
