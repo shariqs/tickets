@@ -13,6 +13,7 @@ export class EventService {
       public activeEventData: Event; 
       public eventDetailsList: Event[] = [];
       public eventListModel: Event[] = [];
+      private sortDescending = true;//defult
 
       public transactionInProgress = "browse";
       constructor(public http: Http) { this.getEventFromLocalArea(); }
@@ -57,7 +58,22 @@ export class EventService {
 
       sort(sortSetting: string) {
             console.log('sort by ' + sortSetting);
+
             if (sortSetting === "Date") {
+                  this.sortByDate(this.sortDescending);
+                  this.sortDescending = !this.sortDescending;
+
+            } else if (sortSetting === "Event") {
+                  this.sortByEvent(this.sortDescending);
+                  this.sortDescending = !this.sortDescending;
+            } else if (sortSetting === "City") {
+                  this.sortByCity(this.sortDescending);
+                  this.sortDescending = !this.sortDescending;
+            }
+      }
+
+      sortByDate(sortDescending: boolean) {
+            if (sortDescending) {
                   this.eventListModel = this.eventListModel.sort((event1, event2) => {
                         if (parseInt(event1.getYear()) != parseInt(event2.getYear())) {
                               return parseInt(event1.getYear()) - parseInt(event2.getYear());
@@ -70,9 +86,25 @@ export class EventService {
                                     return 0;
                               }
                         });
-
-            } else if (sortSetting === "Event") {
+            } else {
                   this.eventListModel = this.eventListModel.sort((event1, event2) => {
+                        if (parseInt(event1.getYear()) != parseInt(event2.getYear())) {
+                              return parseInt(event2.getYear()) - parseInt(event1.getYear());
+                        } else if (event1.getMonthNumber() != event2.getMonthNumber()) {
+                                    return event2.getMonthNumber() - event1.getMonthNumber();
+                              } else if (event1.getDayNumber() != event2.getDayNumber())  {
+                                    return event2.getDayNumber() - event1.getDayNumber();
+                              
+                              } else {
+                                    return 0;
+                              }
+                        });
+            }
+      }
+
+      sortByEvent(sortDescending: boolean) {
+            if (sortDescending) {
+            this.eventListModel = this.eventListModel.sort((event1, event2) => {
                         if (event1.displayName < event2.displayName) {
                               return -1;
                         } else if (event1.displayName > event2.displayName) {
@@ -81,11 +113,35 @@ export class EventService {
                               return 0;
                         }
                   });
-            } else if (sortSetting === "City") {
+            } else {
+                  this.eventListModel = this.eventListModel.sort((event1, event2) => {
+                        if (event1.displayName > event2.displayName) {
+                              return -1;
+                        } else if (event1.displayName < event2.displayName) {
+                              return 1;
+                        } else {
+                              return 0;
+                        }
+                  });
+            }
+      }
+
+      sortByCity(sortDescending: boolean) {
+            if (sortDescending) {
                   this.eventListModel = this.eventListModel.sort((event1, event2) => {
                         if (event1.city < event2.city) {
                               return -1;
                         } else if (event1.city > event2.city) {
+                              return 1;
+                        } else {
+                              return 0;
+                        }
+                  });
+            } else {
+                  this.eventListModel = this.eventListModel.sort((event1, event2) => {
+                        if (event1.city > event2.city) {
+                              return -1;
+                        } else if (event1.city < event2.city) {
                               return 1;
                         } else {
                               return 0;
