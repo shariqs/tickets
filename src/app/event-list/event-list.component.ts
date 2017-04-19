@@ -15,6 +15,8 @@ export class EventListComponent {
   private sub: any;
   private searchTerm: string;
 
+  public headerColumns: string[] = ['Event', 'Date', 'City'];
+
   constructor(public eventService: EventService, private route: ActivatedRoute, private router: Router) {   }
 
   private ngOnInit(){
@@ -30,6 +32,7 @@ export class EventListComponent {
   eventClicked(inc){
 
     this.eventService.setActiveEvent(inc);
+    console.log(inc);
 
   } 
 }

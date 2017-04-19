@@ -37,7 +37,7 @@ export class EventService {
                         this.eventDetailsList[j] = new Event(name, venue, date, time, city, id);
 
                   }
-                  this.eventListModel = this.eventDetailsList;
+                  this.eventListModel = this.eventDetailsList.filter(event => event.displayName.length != 0);
                   console.log(this.eventListModel)
             });
       }
@@ -52,7 +52,48 @@ export class EventService {
             
             this.activeEventData = event;
             this.activeEvent = event.toString();
+            console.log(this.activeEvent);
       }
+
+      sort(sortSetting: string) {
+            console.log('sort by ' + sortSetting);
+            if (sortSetting === "Date") {
+                  this.eventListModel = this.eventListModel.sort((event1, event2) => {
+                        if (parseInt(event1.getYear()) != parseInt(event2.getYear())) {
+                              return parseInt(event1.getYear()) - parseInt(event2.getYear());
+                        } else if (event1.getMonthNumber() != event2.getMonthNumber()) {
+                                    return event1.getMonthNumber() - event2.getMonthNumber();
+                              } else if (event1.getDayNumber() != event2.getDayNumber())  {
+                                    return event1.getDayNumber() - event2.getDayNumber();
+                              
+                              } else {
+                                    return 0;
+                              }
+                        });
+
+            } else if (sortSetting === "Event") {
+                  this.eventListModel = this.eventListModel.sort((event1, event2) => {
+                        if (event1.displayName < event2.displayName) {
+                              return -1;
+                        } else if (event1.displayName > event2.displayName) {
+                              return 1;
+                        } else {
+                              return 0;
+                        }
+                  });
+            } else if (sortSetting === "City") {
+                  this.eventListModel = this.eventListModel.sort((event1, event2) => {
+                        if (event1.city < event2.city) {
+                              return -1;
+                        } else if (event1.city > event2.city) {
+                              return 1;
+                        } else {
+                              return 0;
+                        }
+                  });
+            }
+      }
+
 
 }
 
@@ -77,18 +118,18 @@ class Event {
 
             return "Event Name: " + this.displayName + ";" +
                   "Venue: " + this.venue + ";" +
-                  "Date & Time: " + this.getMonth(this.date) + " " + this.getDay(this.date) + ", " + this.getYear(this.date) +  ", " + this.time + ";" +
+                  "Date & Time: " + this.getMonth() + " " + this.getDay() + ", " + this.getYear() +  ", " + this.time + ";" +
                   "City: " + this.city
       }
 
 
 
-      getYear(date: string) : string {
-            return date.substring(0, 4);
+      getYear() : string {
+            return this.date.substring(0, 4);
       }
 
-      getDay(date: string) : string {
-            var day = date.substring(8);
+      getDay() : string {
+            var day = this.date.substring(8);
             var dayInt = parseInt(day);
             if (dayInt == 1) {
                   day = day.concat("st");
@@ -102,8 +143,17 @@ class Event {
             return day;
       }
 
-      getMonth(date: string) : string {
-            var month = date.substring(5, 7);
+      getDayNumber() : number {
+            return parseInt(this.date.substring(8));
+      }
+
+      getMonthNumber() : number {
+
+            return parseInt(this.date.substring(5, 7));
+      }
+
+      getMonth() : string {
+            var month = this.date.substring(5, 7);
             switch (month) {
                   case '01' :{
                         month = "January";

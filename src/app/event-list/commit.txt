@@ -1,1 +1,0 @@
-Search button on info page routes to Browse component instead of non-existant search page.

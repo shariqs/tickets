@@ -1,0 +1,3 @@
+Download NodeJS
+npm install -g @angular/cli@latest
+npm install ng2-opd-popup --save

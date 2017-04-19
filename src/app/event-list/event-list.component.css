@@ -3,11 +3,12 @@ ul {
     margin: 0px;
 
 }
-
+/*
 .list-group-item:hover {
     background-color: darkslategray;
     padding: 10px;
 }
+
 
 .list-group-item {
     padding: 0px;
@@ -17,6 +18,10 @@ ul {
     color: white;
     border-color: #424242;
     text-align: center;
+}
+*/
+
+#bar {
 }
 
 .eventList {
@@ -29,13 +34,63 @@ ul {
 
 footer{
     color: white;
+    background-color: darkslategray;
+}
+
+.header{
+    width: 100%;
+    text-align: left;
+    margin-top: 0.55em;
+    
+    background-color: #222222;
+}
+.headerColumn {
+    background-color: #222222;
+}
+
+.headerColumn:hover {
+    background-color: grey;
 }
 
 h2{
     color: white;
+    background-color: darkslategray;
     margin-top: 0.55em;
 }
 
 h5{
     font-family: "Times New Roman", Times, serif;
+}
+
+table {
+     width: 100%;
+     background-color: darkslategrey;
+     padding-bottom: 40px;
+}
+
+th {
+    
+    text-align: center;
+}
+
+tr:hover {
+    background-color: darkslategray;
+    padding: 0px;
+    
+}
+
+tr {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    
+    background:rgba(0,0,0,0.3);
+    border-radius: 0px;
+}
+
+td {
+    padding: 0px;
+    margin: 0px;
+    color: white;
+    overflow: hidden;
 }

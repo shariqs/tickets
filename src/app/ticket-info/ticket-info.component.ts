@@ -17,8 +17,8 @@ export class TicketInfoComponent {
 
   private ngOnInit(){
     this.sub = this.route.params.subscribe(params => {
-      this.id += params['id'];
-      this.idNum = +this.id.toString().replace( /^\D+/g, '');
+      this.id = params['id'];
+      this.idNum = this.id.toString().replace( /^\D+/g, '');
       console.log('this is the id: '+this.idNum);
     })
   }

@@ -1,1 +1,0 @@
-Changed TicketInfoComponent.html to display event details with new Event Objects. Added id field to Event class.
