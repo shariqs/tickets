@@ -8,9 +8,11 @@
 .panel{
     background: rgba(0,0,0,0.0);
     border-style: hidden;
+    height: 100%;
 }
 .panel panel-default{
     background: rgba(0,0,0,0.4);
+    height: 100%;
 }
 
 .panel-body{
