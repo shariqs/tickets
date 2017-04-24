@@ -67,6 +67,7 @@ export class BuyComponent implements OnInit{
   }
   onClick(){
     this.eventService.transactionInProgress = 'browse';
+    
   }
 
 

@@ -34,8 +34,9 @@ export class EventService {
                         var city = JSON.stringify(event.location.city).replace(/\"/g, '');
                         var date = JSON.stringify(event.start.date).replace(/\"/g, '');
                         var time = JSON.stringify(event.start.time).replace(/\"/g, '');
+                        var link = JSON.stringify(event.uri).replace(/\"/g, '');
                         var id = new Number(JSON.stringify(event.id));
-                        this.eventDetailsList[j] = new Event(name, venue, date, time, city, id);
+                        this.eventDetailsList[j] = new Event(name, venue, date, time, city, id, link );
 
                   }
                   this.eventListModel = this.eventDetailsList.filter(event => event.displayName.length != 0);
@@ -160,14 +161,17 @@ class Event {
       time: string;
       city: string;
       id: Number;
+      link: string;
 
-      constructor(displayName: string, venue: string, date: string, time: string, city: string, id: Number) {
+      constructor(displayName: string, venue: string, date: string, time: string, city: string, id: Number, link: string) {
             this.displayName = displayName;
             this.venue = venue;
             this.date = date;
             this.time = time;
             this.city = city;
             this.id = id;
+            this.link = link;
+
       }
 
       toString(): string {
@@ -175,7 +179,8 @@ class Event {
             return "Event Name: " + this.displayName + ";" +
                   "Venue: " + this.venue + ";" +
                   "Date & Time: " + this.getMonth() + " " + this.getDay() + ", " + this.getYear() +  ", " + this.time + ";" +
-                  "City: " + this.city
+                  "City: " + this.city + ";" +
+                  "Event Link: " + this.link
       }
 
 
