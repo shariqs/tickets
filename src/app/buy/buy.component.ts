@@ -28,6 +28,8 @@ export class BuyComponent implements OnInit{
     private idNum: number;
     private uid;
     
+    
+    
   ngOnInit() {
 
     this.af.auth.subscribe(x => {
@@ -82,6 +84,23 @@ export class BuyComponent implements OnInit{
     }
   }
 
+  //gets number of tickets 
+
+  toString(): string {
+    for (var i = 0; i < this.availableListings.length; i++){
+        this.eventService.activeEventData.addTicket();
+    }
+ return this.availableListings.length + "";
+ 
+ }
+
+  //gets number of sold tickets 
+
+  getSoldTickets(): string{
+     return this.eventService.activeEventData.getSoldT() + "";
+
+  }
+
 
   private ngOnDestroy() {
       this.sub.unsubscribe(); 
@@ -91,6 +110,7 @@ export class BuyComponent implements OnInit{
 //THIS SHOULD NOT BE HERE IT SHOULD BE IN DATASERVICE BUT I HAVE NO ENERGY
   buyTicket(purchased){
     if(this.eventService.activeEventData != undefined){
+          this.eventService.activeEventData.soldT()
       //Removes Listing from Active_Listings
       this.af.database.object('Active_Listings/'+ this.eventService.activeEventData.id +'/' + purchased.$key).remove();
       //Adds Listing to Completed_Transactions
@@ -107,6 +127,7 @@ export class BuyComponent implements OnInit{
       });
       //Adds Listing to User's Sold
       this.af.database.list('/Users/' + this.uid + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
+  
       alert('sold');
     }
   }

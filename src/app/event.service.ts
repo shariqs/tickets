@@ -162,6 +162,8 @@ class Event {
       city: string;
       id: Number;
       link: string;
+      tickets: number;
+      soldTickets: number;
 
       constructor(displayName: string, venue: string, date: string, time: string, city: string, id: Number, link: string) {
             this.displayName = displayName;
@@ -171,7 +173,26 @@ class Event {
             this.city = city;
             this.id = id;
             this.link = link;
+            this.soldTickets = 0;
+            
 
+      }
+// update the number of tickets available 
+      addTicket(){
+        this.tickets++;
+
+      }
+//update the number of tickets sold 
+      soldT(){
+            this.tickets--;
+
+            this.soldTickets++;
+
+      }
+//get the number of tickets sold 
+      getSoldT(): number{
+
+            return this.soldTickets;
       }
 
       toString(): string {

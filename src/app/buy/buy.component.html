@@ -1,6 +1,10 @@
 <div class="container">
 
-    <p id="prompt">Available tickets at this event: </p>
+    <p id="prompt">Available tickets at this event: {{ toString()}} </p>
+    <br>
+     <p id="prompt"> Tickets sold from this event: {{ getSoldTickets()}} </p>
+
+     <br>
 
     <div class="ticketList">
         <app-ticket-list></app-ticket-list>
@@ -12,9 +16,12 @@
         </li>
 
     </ul>
+    <br>
     <button class="btn btn-mbe-normal" (click)="showEvent()"> Buy this Ticket </button>
     <a [routerLink]="['.']">
         <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
     </a>
     <br>
+
+
 </div>
