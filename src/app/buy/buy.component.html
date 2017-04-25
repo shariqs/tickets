@@ -10,7 +10,7 @@
     </a>
 </div>
      <br>
- <p id="prompt">Available tickets at this event: {{ toString()}} </p>
+ <p id="prompt">{{ toString()}} </p>
 </div>
 
 
@@ -22,7 +22,7 @@
         <li class="list-group-item" >
             User: {{ listing.owner.substring(0,5) }} Price: ${{ listing.price }}
             <div class="text-right" style="margin-top: -35px">
-                <button id ="style" class="btn btn-mbe-normal" (dblclick)='buyTicket(listing)'> Buy </button>
+                <button class="btn btn-mbe-normal" (dblclick)='buyTicket(listing)'> Buy </button>
             </div>
         </li>
 

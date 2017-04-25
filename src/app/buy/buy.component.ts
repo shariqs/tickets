@@ -79,12 +79,21 @@ export class BuyComponent implements OnInit{
   //gets number of tickets 
 
   toString(): string {
+    if (this.availableListings.length == 0 ) return "Currently, there are no available tickets at this event" 
+    else {
     for (var i = 0; i < this.availableListings.length; i++){
         this.eventService.activeEventData.addTicket();
     }
- return this.availableListings.length + "";
- 
+ return "Available tickets at this event: " + this.availableListings.length + " tickets";
+    }
  }
+
+prompt(): string {
+  return
+}
+
+
+
 
   //gets number of sold tickets 
 
@@ -101,7 +110,19 @@ export class BuyComponent implements OnInit{
 
 //THIS SHOULD NOT BE HERE IT SHOULD BE IN DATASERVICE BUT I HAVE NO ENERGY
   buyTicket(purchased){
+  var text = "no";
+  if (confirm('Are you sure you want to buy this ticket?') == true) {
+      text = "yes";
+    }
+    else 
+    {
+      text = "no";
+    }
+
+    if (text == "yes"){
+
     if(this.eventService.activeEventData != undefined){
+      
       //Removes Listing from Active_Listings
       this.af.database.object('Active_Listings/'+ this.eventService.activeEventData.id +'/' + purchased.$key).remove();
       //Adds Listing to Completed_Transactions
@@ -119,9 +140,16 @@ export class BuyComponent implements OnInit{
       });
       //Adds Listing to User's Sold
       this.af.database.list('/Users/' + this.uid + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
-  
-      alert('sold');
+      alert('Ticket was purchased')
     }
-    else return null;
+    else return null; 
+
+    }
+    else 
+       {
+      console.log("user did not buy the ticket");
+      alert('The ticket was not purchased')
+
+       }
   }
 }
