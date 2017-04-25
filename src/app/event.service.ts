@@ -196,7 +196,7 @@ class Event {
             this.time = time;
             this.city = city;
             this.id = id;
-            this.link = link;      
+            this.link = link.substring(0,41);      
 
       }
 // update the number of tickets available 
