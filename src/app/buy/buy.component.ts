@@ -96,10 +96,10 @@ export class BuyComponent implements OnInit{
 
   //gets number of sold tickets 
 
-  getSoldTickets(): string{
-     return this.eventService.activeEventData.getSoldT() + "";
+ // getSoldTickets(){
+     //eturn this.eventService.activeEventData.getSoldT();
 
-  }
+  //}
 
 
   private ngOnDestroy() {

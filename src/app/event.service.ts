@@ -36,7 +36,7 @@ export class EventService {
                         var time = JSON.stringify(event.start.time).replace(/\"/g, '');
                         var link = JSON.stringify(event.uri).replace(/\"/g, '');
                         var id = new Number(JSON.stringify(event.id));
-                        this.eventDetailsList[j] = new Event(name, venue, date, time, city, id, link );
+                        this.eventDetailsList[j] = new Event(name, venue, date, time, city, id, link);
 
                   }
                   this.eventListModel = this.eventDetailsList.filter(event => event.displayName.length != 0);
@@ -49,6 +49,9 @@ export class EventService {
                   this.eventListModel = this.eventDetailsList.filter(event => event.displayName.toLowerCase().includes(searchTerm.toLowerCase()));
             console.log(this.eventListModel)
       }
+
+     
+
 
       setActiveEvent(event : Event) {
             
@@ -162,8 +165,8 @@ class Event {
       city: string;
       id: Number;
       link: string;
-      tickets: number;
-      soldTickets: number;
+      tickets: number = 0;
+      soldTickets: number = 0;
 
       constructor(displayName: string, venue: string, date: string, time: string, city: string, id: Number, link: string) {
             this.displayName = displayName;
@@ -172,10 +175,7 @@ class Event {
             this.time = time;
             this.city = city;
             this.id = id;
-            this.link = link;
-            this.soldTickets = 0;
-            this.tickets= 0;
-            
+            this.link = link;      
 
       }
 // update the number of tickets available 
@@ -188,12 +188,20 @@ class Event {
             this.tickets--;
 
             this.soldTickets++;
+             this.setTicketsSold(this.soldTickets);
+
 
       }
 //get the number of tickets sold 
-      getSoldT(): number{
-
+      getSoldT() {
+      
             return this.soldTickets;
+      }
+
+
+       setTicketsSold(n: number){
+       this.soldTickets = n;
+
       }
 
       toString(): string {
