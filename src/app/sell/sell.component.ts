@@ -99,7 +99,10 @@ export class SellComponent implements OnInit {
   }
   
   onSubmit(){
+    if(this.eventService.activeEventData != null) {
       this.dataService.addTicketListing(this.longitude, this.latitude, this.price, this.eventService.activeEventData);
+      alert("Your ticket for " + this.eventService.activeEventData.displayName + " has been listed");
+    }
   }
   private ngOnDestroy(){
     this.sub.unsubscribe();

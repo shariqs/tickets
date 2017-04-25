@@ -7,13 +7,13 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class EventService {
 
-      public eventList = [];
+      public eventList = [];//for the json data
       public eventStringList = [];
       public activeEvent: string;
       public activeEventData: Event; 
-      public eventDetailsList: Event[] = [];
-      public eventListModel: Event[] = [];
-      private sortDescending = true;//defult
+      public eventDetailsList: Array<Event> = [];//list of all local events cached clientside
+      public eventListModel: Array<Event> = [];//the list that is shown to the user. This is so we can filter the list without having to refetch data
+      private sortDescending = true;//default
 
       public transactionInProgress = "browse";
       constructor(public http: Http) { this.getEventFromLocalArea(); }
@@ -25,9 +25,8 @@ export class EventService {
                   this.eventList = (response.resultsPage.results.event);
 
 
-                  var i = 0;
                   for (var j in this.eventList) {
-                        var event = this.eventList[j]
+                        var event = this.eventList[j];
                         var name = JSON.stringify(event.displayName).replace(/\"/g, '');
                         name = name.substring(0, name.indexOf("(") - 1);
                         var venue = JSON.stringify(event.venue.displayName).replace(/\"/g, '');
@@ -49,9 +48,7 @@ export class EventService {
                   this.eventListModel = this.eventDetailsList.filter(event => event.displayName.toLowerCase().includes(searchTerm.toLowerCase()));
             console.log(this.eventListModel)
       }
-
-     
-
+      
 
       setActiveEvent(event : Event) {
             
@@ -156,6 +153,7 @@ export class EventService {
 
 
 }
+
 
 class Event {
       displayName: string;

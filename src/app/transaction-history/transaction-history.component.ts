@@ -10,6 +10,7 @@ import { AngularFire } from 'angularfire2';
 export class TransactionHistoryComponent implements OnInit {
   uid;
   activeListings = [];
+  activeEventListings: Array<Event> = [];
   purchased = [];
   sold = [];
 
@@ -60,7 +61,9 @@ export class TransactionHistoryComponent implements OnInit {
 
     });
 
+
   }
+
 
   ngOnInit() {
 
