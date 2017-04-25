@@ -21,7 +21,9 @@
          <ul class="list-group" *ngFor="let listing of availableListings">
         <li class="list-group-item" >
             User: {{ listing.owner.substring(0,5) }} Price: ${{ listing.price }}
-             <button id ="style" class="btn btn-mbe-normal" (dblclick)='buyTicket(listing)'> Buy </button>
+            <div class="text-right" style="margin-top: -35px">
+                <button id ="style" class="btn btn-mbe-normal" (dblclick)='buyTicket(listing)'> Buy </button>
+            </div>
         </li>
 
     </ul>
