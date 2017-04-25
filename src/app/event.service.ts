@@ -14,9 +14,12 @@ export class EventService {
       public eventDetailsList: Array<Event> = [];//list of all local events cached clientside
       public eventListModel: Array<Event> = [];//the list that is shown to the user. This is so we can filter the list without having to refetch data
       private sortDescending = true;//default
-
       public transactionInProgress = "browse";
-      constructor(public http: Http) { this.getEventFromLocalArea(); }
+
+      
+      constructor(public http: Http) { 
+            this.getEventFromLocalArea(); 
+      }
 
       getEventFromLocalArea() {
             var eventData: any = this.http.get('http://api.songkick.com/api/3.0/events.json?location=geo:37.3382,-121.8863&apikey=147UvqDDrnGJk7nh');
@@ -151,8 +154,24 @@ export class EventService {
             }
       }
 
-      public getEvent(displayName, venue, date, time, city, id, link): Event {
-            return new Event(displayName, venue, date, time, city, id, link);
+
+      public findEventById(id: Number): Event {
+            var data: any = this.http.get('http://api.songkick.com/api/3.0/events/' + id + '.json?apikey=147UvqDDrnGJk7nh');
+
+            data.subscribe(info => {
+                  let response = JSON.parse(info._body);
+                  var event = (response.resultsPage.results.event);
+                   var name = JSON.stringify(event.displayName).replace(/\"/g, '');
+                        name = name.substring(0, name.indexOf("(") - 1);
+                        var venue = JSON.stringify(event.venue.displayName).replace(/\"/g, '');
+                        var city = JSON.stringify(event.location.city).replace(/\"/g, '');
+                        var date = JSON.stringify(event.start.date).replace(/\"/g, '');
+                        var time = JSON.stringify(event.start.time).replace(/\"/g, '');
+                        var link = JSON.stringify(event.uri).replace(/\"/g, '');
+                        var id = new Number(JSON.stringify(event.id));
+                  return new Event(name, venue, city, date, time, id, link);
+            });
+            return null;
       }
 
 

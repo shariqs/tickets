@@ -16,7 +16,7 @@ export class DataService {
       longitude: long,
       latitude: lat,
       price: price,
-      owner: this.uid
+      owner: this.uid,
      });
 
     var key = info.key;
