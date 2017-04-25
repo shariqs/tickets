@@ -92,10 +92,6 @@ export class BuyComponent implements OnInit{
     }
  }
 
-prompt(): string {
-  return
-}
-
 
 
 
