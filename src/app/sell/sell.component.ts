@@ -100,7 +100,7 @@ export class SellComponent implements OnInit {
   
   onSubmit(){
     if(this.eventService.activeEventData != null ) {
-      if ( this.price != null && this.longitude != null && this.latitude != null ){
+      if ( this.price != null && this.longitude != null && this.latitude != null && this.price != 0){
         this.dataService.addTicketListing(
         this.longitude,
         this.latitude,
