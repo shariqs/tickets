@@ -52,13 +52,6 @@ export class TransactionHistoryComponent implements OnInit {
         });
       });
 
-
-
-
-
-
-
-
     });
 
 
@@ -67,9 +60,7 @@ export class TransactionHistoryComponent implements OnInit {
 
   ngOnInit() {
 
-
-
-
   }
+
 
 }

@@ -18,17 +18,17 @@
 </div>
   <div>
       <table class="header">
-        <td class="headerColumn" style="width: 50%" (click)="this.eventService.sort(this.headerColumns[0])">Event</td>
-        <td class="headerColumn" tyle="width: 40%" (click)="this.eventService.sort(this.headerColumns[1])">Date</td>
-        <td class="headerColumn" style="width: 10%" (click)="this.eventService.sort(this.headerColumns[2])">City</td>
+        <td class="headerColumn" style="width: 50%;height: 25px" (click)="this.eventService.sort(this.headerColumns[0])">Event</td>
+        <td class="headerColumn" style="width: 25%;height: 25px" (click)="this.eventService.sort(this.headerColumns[1])">Date</td>
+        <td class="headerColumn" style="width: 25%;height: 25px" (click)="this.eventService.sort(this.headerColumns[2])">City</td>
       </table>
-    <table *ngFor="let event of eventService.eventListModel" >
+      <table *ngFor="let event of eventService.eventListModel" >
       <a [routerLink] = "['/Browse',event.id.toString()]">
       <tr>
-        <td style="width: 50%" (click)="eventClicked(event)">{{event.displayName}}</td>
-        <td style="width: 40%" (click)="eventClicked(event)">{{event.date}}</td>
-        <td style="width: 10%" (click)="eventClicked(event)">{{event.city}}</td>
+        <td style="min-width: 465px;" (click)="eventClicked(event)">{{event.displayName}}</td>
+        <td style="min-width: 270px;" (click)="eventClicked(event)">{{event.date}}</td>
+        <td style="min-width: 250px;" (click)="eventClicked(event)">{{event.city}}</td>
       </tr>
       </a>
-    </table>
+      </table>
   </div>
