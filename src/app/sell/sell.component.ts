@@ -99,9 +99,13 @@ export class SellComponent implements OnInit {
   }
   
   onSubmit(){
-    if(this.eventService.activeEventData != null) {
+    if(this.eventService.activeEventData != null ) {
+      if ( this.price != null && this.longitude != null && this.latitude != null){
       this.dataService.addTicketListing(this.longitude, this.latitude, this.price, this.eventService.activeEventData);
+      alert('Ticket sale was a success')
       this.router.navigateByUrl('Transactions');
+      }
+      else alert("the form was not correclty filled out");
     } else {
       alert("unable to list ticket");
     }

@@ -28,7 +28,7 @@ export class TicketListComponent implements OnInit {
       });
 
  }
- else return null;
+ else return "NA";
 
    });
 

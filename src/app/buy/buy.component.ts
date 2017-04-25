@@ -120,7 +120,7 @@ prompt(): string {
   buyTicket(purchased){
   var price = purchased.price;
   var fee = this.discount(price);
-  var ppt = "Are you sure you want to buy this ticket?" +"\n"+ "Ticket Price: $" + price +"\n" + "Ticket Miester's Price: $" + fee;
+  var ppt = "Are you sure you want to buy this ticket?" +"\n"+ "Ticket Price: $" + price +"\n" + "Ticket Meister's Price: $" + fee;
   var text = "no";
   
   if (confirm( ppt) == true) {
@@ -147,19 +147,19 @@ prompt(): string {
           if(listing.$value == purchased.$key){
             this.af.database.list('Users/' + this.uid + '/Active_Listings/' + this.eventService.activeEventData.id + "/"  + listing.$key).remove();
           }
-          else if (listing.$value == null) return null;
+          else if (listing.$value == null) return "NA";
         });
       });
       //Adds Listing to User's Sold
       this.af.database.list('/Users/' + this.uid + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
       alert('Ticket was purchased')
     }
-    else return null; 
+    else return "NA"; 
 
     }
     else 
        {
-      console.log("user did not buy the ticket");
+      
       alert('The ticket was not purchased');
 
        }
