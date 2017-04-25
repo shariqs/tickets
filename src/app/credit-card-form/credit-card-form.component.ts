@@ -46,12 +46,20 @@ export class CreditCardFormComponent implements OnInit {
     
   }
 
-  onSubmit(value: any): void{
-    console.log('Reactive Form Data: ')
+  onSubmit(value: any): void {
+    console.log('Reactive Form Data: ');
     console.log(value);
     alert('submitted');
   }
+
+  getUserDataString(): string {
+    return (this.firstName != undefined ? this.firstName : "First") + ", " 
+    + (this.lastName != undefined ? this.lastName : "Last") + ", " 
+    + (this.billingAddress != undefined ? this.billingAddress : "Billing Address") + ", " 
+    + (this.city != undefined ? this.city : "City");
+  }
    /*this.addCreditCard(this.cardNo, this.secCode, this.exMon, this.exYear);
+  }
   dataService.addAddress(this.billingAddress, this.city, this.zipCode); */
 
 }

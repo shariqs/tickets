@@ -4,7 +4,7 @@
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['firstName'].valid && form.controls['firstName'].touched}">
         <label>First Name:</label>
-        <input class="form-control" type="text" placeholder="John" [formControl]="form.controls['firstName']">
+        <input [(ngModel)] ="firstName" class="form-control" type="text" placeholder="John" [formControl]="form.controls['firstName']" >
         <div *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched" class="alert alert-danger">You must include a first name</div>
         <div *ngIf="form.controls['firstName'].hasError('minlength') && form.controls['firstName'].touched" class="alert alert-danger">Your first name must be at least 5 characters long</div>
         <div *ngIf="form.controls['firstName'].hasError('maxlength') && form.controls['firstName'].touched" class="alert alert-danger">Your first name cannot exceed 10 characters</div>
@@ -12,7 +12,7 @@
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['lastName'].valid && form.controls['lastName'].touched}">
         <label>Last Name:</label>
-        <input class="form-control" type="text" placeholder="Doe" [formControl]="form.controls['lastName']">
+        <input [(ngModel)] ="lastName" class="form-control" type="text" placeholder="Doe" [formControl]="form.controls['lastName']"  >
         <div *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched" class="alert alert-danger">You must include a last name</div>
         <div *ngIf="form.controls['lastName'].hasError('minlength') && form.controls['lastName'].touched" class="alert alert-danger">Your last name must be at least 5 characters long</div>
         <div *ngIf="form.controls['lastName'].hasError('maxlength') && form.controls['lastName'].touched" class="alert alert-danger">Your last name cannot exceed 10 characters.</div>
@@ -20,21 +20,21 @@
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['billingAddress'].valid && form.controls['billingAddress'].touched}">
         <label>Billing Address:</label>
-        <input class="form-control" type="text" placeholder="123 Street" [formControl]="form.controls['billingAddress']">
+        <input [(ngModel)] ="billingAddress" class="form-control" type="text" placeholder="123 Street" [formControl]="form.controls['billingAddress']" >
         <div *ngIf="form.controls['billingAddress'].hasError('required') && form.controls['billingAddress'].touched" class="alert alert-danger">Please fill in your billing address</div>
         <div *ngIf="form.controls['billingAddress'].hasError('minlength') && form.controls['billingAddress'].touched" class="alert alert-danger">Please enter valid address</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['city'].valid && form.controls['city'].touched}">
         <label>City:</label>
-        <input class="form-control" type="text" placeholder="San Jose" [formControl]="form.controls['city']">
+        <input [(ngModel)] ="city" class="form-control" type="text" placeholder="San Jose" [formControl]="form.controls['city']" >
         <div *ngIf="form.controls['city'].hasError('required') && form.controls['city'].touched" class="alert alert-danger">Please fill in your city</div>
         <div *ngIf="form.controls['city'].hasError('minlength') && form.controls['city'].touched" class="alert alert-danger">Please enter valid city</div>
       </div>
 
       <div class="form-group" [ngClass]="{'has-error':!form.controls['zipCode'].valid && form.controls['zipCode'].touched}">
         <label>Zip Code:</label>
-        <input class="form-control" type="text" placeholder="95192" [formControl]="form.controls['zipCode']">
+        <input [(ngModel)] ="zipCode" class="form-control" type="text" placeholder="95192" [formControl]="form.controls['zipCode']"  >
         <div *ngIf="form.controls['zipCode'].hasError('required') && form.controls['zipCode'].touched" class="alert alert-danger">Please fill in your zipcode</div>
         <div *ngIf="form.controls['zipCode'].hasError('pattern') && form.controls['zipCode'].touched" class="alert alert-danger">Please enter valid zipcode</div>
       </div>
@@ -71,6 +71,6 @@
         <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
       </div>
 
-      {{form.value | json}}
+      {{getUserDataString()}}
     </form>
 </div>
