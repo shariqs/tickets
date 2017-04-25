@@ -20,7 +20,6 @@ export class SellComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public price: number;
-  public name: String;
   public zoom: number;
   private id: any;
   private idNum: number;
@@ -101,7 +100,7 @@ export class SellComponent implements OnInit {
   
   onSubmit(){
     if(this.eventService.activeEventData != null ) {
-      if ( this.price != null && this.longitude != null && this.latitude != null && this.name != null){
+      if ( this.price != null && this.longitude != null && this.latitude != null ){
         this.dataService.addTicketListing(
         this.longitude,
         this.latitude,
