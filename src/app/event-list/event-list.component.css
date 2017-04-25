@@ -1,32 +1,29 @@
 ul {
     padding: 0px;
     margin: 0px;
+}
 
-}
-#bar {
-}
+#bar {}
 
 .eventList {
-    padding-bottom: 40px;
     width: 100%;
 }
 
-.well well-sm{
-    background:rgba(0,0,0,0.3);
+.well well-sm {
+    background: rgba(0, 0, 0, 0.3);
 }
 
-footer{
+footer {
     color: white;
     background-color: darkslategray;
 }
 
-.header{
+.header {
     width: 100%;
     text-align: center;
-    margin-top: 0.55em;
-    
     background-color: #222222;
 }
+
 .headerColumn {
     background-color: #222222;
 }
@@ -35,13 +32,13 @@ footer{
     background-color: grey;
 }
 
-h2{
+h2 {
     color: white;
     background-color: darkslategray;
     margin-top: 0.55em;
 }
 
-h5{
+h5 {
     font-family: "Times New Roman", Times, serif;
 }
 
@@ -50,22 +47,17 @@ table {
     text-align: left;
     width: 100%;
     text-align: center;
-
 }
 
-th {
-    
-}
+th {}
+
 tr {
-
     background-color: darkslategrey;
     width: 100%;
 }
 
 tr:hover {
-   background: rgba(0,0,0,0.4);
-
-    
+    background: rgba(0, 0, 0, 0.4);
 }
 
 td {
@@ -73,6 +65,10 @@ td {
     text-align: center;
     overflow: hidden;
     height: 50px;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     width: 100%;
+}
+
+.listItem {
+    border-bottom: 1px black solid;
 }

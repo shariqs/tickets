@@ -1,34 +1,35 @@
-
 <div class="eventList">
 
-  <h2 align ="center"> Events </h2>
-  <div class="input-group input-group-sm">
-  <span class="input-group-addon" id="bar"><i>Search</i></span>
-  <input class="form-control" aria-describedby="bar" id="bar" type="text" name="search" [(ngModel)]="this.searchTerm" (ngModelChange)="this.eventService.search(searchTerm)"  placeholder="Enter an event name..">
-  </div>
-<!-->
-  <ul class="list-group"  *ngFor="let event of eventService.eventListModel" >
-      <a [routerLink] = "['/Browse',event.id.toString()]">
-        <li class="list-group-item" (click)="eventClicked(event)"> 
-        <p><b>{{event.displayName}}</b> <br> <h5> {{event.date}}, {{event.city}}</h5> <p> 
-      </li>
-      </a>
-  </ul>
-<-->
+    <h2 align="center"> Events </h2>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="bar"><i>Search</i></span>
+        <input class="form-control" aria-describedby="bar" id="bar" type="text" name="search" [(ngModel)]="this.searchTerm" (ngModelChange)="this.eventService.search(searchTerm)" placeholder="Enter an event name..">
+    </div>
+    <!-->
+    <ul class="list-group" *ngFor="let event of eventService.eventListModel">
+        <a [routerLink]="['/Browse',event.id.toString()]">
+            <li class="list-group-item" (click)="eventClicked(event)">
+                <p><b>{{event.displayName}}</b> <br>
+                    <h5> {{event.date}}, {{event.city}}</h5>
+                    <p>
+            </li>
+        </a>
+    </ul>
+    <-->
 </div>
-  <div>
-      <table class="header">
+<div>
+    <table class="header">
         <td class="headerColumn" style="min-width: 465px;height: 25px" (click)="this.eventService.sort(this.headerColumns[0])">Event</td>
         <td class="headerColumn" style="min-width: 270px;height: 25px" (click)="this.eventService.sort(this.headerColumns[1])">Date</td>
         <td class="headerColumn" style="min-width: 250px;height: 25px" (click)="this.eventService.sort(this.headerColumns[2])">City</td>
-      </table>
-      <table *ngFor="let event of eventService.eventListModel" >
-      <a [routerLink] = "['/Browse',event.id.toString()]">
-      <tr>
-        <td style="min-width: 465px;" (click)="eventClicked(event)">{{event.displayName}}</td>
-        <td style="min-width: 270px;" (click)="eventClicked(event)">{{event.date}}</td>
-        <td style="min-width: 250px;" (click)="eventClicked(event)">{{event.city}}</td>
-      </tr>
-      </a>
-      </table>
-  </div>
+    </table>
+    <table *ngFor="let event of eventService.eventListModel">
+        <a [routerLink]="['/Browse',event.id.toString()]">
+            <tr class='listItem'>
+                <td style="min-width: 465px;" (click)="eventClicked(event)">{{event.displayName}}</td>
+                <td style="min-width: 270px;" (click)="eventClicked(event)">{{event.date}}</td>
+                <td style="min-width: 250px;" (click)="eventClicked(event)">{{event.city}}</td>
+            </tr>
+        </a>
+    </table>
+</div>
