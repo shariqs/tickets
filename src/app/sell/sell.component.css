@@ -10,7 +10,7 @@ form {
 input {
     display: inline;
     padding: 5px;
-    width: 500px;
+    width: 100%;
 }
 
 #price {
@@ -24,6 +24,7 @@ h4 {
 h3{
     padding: 0;
 }
+
 
 .sebm-google-map-container {
     height: 300px;

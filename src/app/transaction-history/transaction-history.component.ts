@@ -11,8 +11,7 @@ export class TransactionHistoryComponent implements OnInit {
   uid;
   activeListings = [];
   activeTicketListings: Array<Ticket> = [];
-  purchased = [];
-  purchaseTickets: Array<Ticket>;
+ 
   sold = [];
   soldTickets: Array<Ticket>;
 
@@ -33,18 +32,7 @@ export class TransactionHistoryComponent implements OnInit {
         });
       });
 
-        this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
-        this.purchased = []
-        Object.keys(listings).forEach(ticket => {  
-          Object.keys(listings[ticket]).forEach(item => {
-            this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
-                this.purchased.push(listing);
-
-                this.purchaseTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
-            });
-          })
-        });
-      });
+    
 
         this.af.database.object('/Users/' + this.uid + '/Sold/').subscribe(listings => {
         this.sold = []

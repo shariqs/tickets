@@ -3,7 +3,12 @@ ul {
     margin: 0px;
 }
 
-#bar {}
+#bar {
+
+    width: 100%;
+}
+
+
 
 .eventList {
     width: 100%;
