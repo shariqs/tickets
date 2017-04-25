@@ -147,7 +147,7 @@ prompt(): string {
           if(listing.$value == purchased.$key){
             this.af.database.list('Users/' + this.uid + '/Active_Listings/' + this.eventService.activeEventData.id + "/"  + listing.$key).remove();
           }
-          else if (listing.$value == null) return "NA";
+          else if (listing.$value == null) return "N/A";
         });
       });
       //Adds Listing to User's Sold

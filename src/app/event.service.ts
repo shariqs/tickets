@@ -35,7 +35,7 @@ export class EventService {
                         var time = JSON.stringify(event.start.time).replace(/\"/g, '');
                         var link = JSON.stringify(event.uri).replace(/\"/g, '');
                         var id = new Number(JSON.stringify(event.id));
-                        this.eventDetailsList[j] = new Event(name, venue, date, time, city, id, link);
+                        this.eventDetailsList.push(new Event(name, venue, date, time, city, id, link));
 
                   }
                   this.eventListModel = this.eventDetailsList.filter(event => event.displayName.length != 0);
@@ -149,6 +149,10 @@ export class EventService {
                         }
                   });
             }
+      }
+
+      public getEvent(displayName, venue, date, time, city, id, link): Event {
+            return new Event(displayName, venue, date, time, city, id, link);
       }
 
 

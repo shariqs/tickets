@@ -7,10 +7,11 @@ ul {
 .list-group-item:hover {
     background-color: darkslategray;
     padding: 10px;
+    font-size: 12pt;
 }
 
 .list-group-item {
-    padding: 0px;
+    padding: 5px;
     margin: 0px;
     border-radius: 0px;
     background: rgba(0, 0, 0, 0.4);

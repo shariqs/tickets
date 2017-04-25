@@ -10,9 +10,11 @@ import { AngularFire } from 'angularfire2';
 export class TransactionHistoryComponent implements OnInit {
   uid;
   activeListings = [];
-  activeEventListings: Array<Event> = [];
+  activeTicketListings: Array<Ticket> = [];
   purchased = [];
+  purchaseTickets: Array<Ticket>;
   sold = [];
+  soldTickets: Array<Ticket>;
 
   constructor(public eventService: EventService, public af: AngularFire) {
     this.af.auth.subscribe(user => {
@@ -25,6 +27,7 @@ export class TransactionHistoryComponent implements OnInit {
           Object.keys(listings[ticket]).forEach(item => {
             this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                 this.activeListings.push(listing);
+                this.activeTicketListings.push(new Ticket("null", listing.price, listing.owner))
             });
           })
         });
@@ -36,6 +39,7 @@ export class TransactionHistoryComponent implements OnInit {
           Object.keys(listings[ticket]).forEach(item => {
             this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                 this.purchased.push(listing);
+                this.purchaseTickets.push(new Ticket("null", listing.price, listing.owner))
             });
           })
         });
@@ -47,6 +51,7 @@ export class TransactionHistoryComponent implements OnInit {
           Object.keys(listings[ticket]).forEach(item => {
             this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                 this.sold.push(listing);
+                this.soldTickets.push(new Ticket("null", listing.price, listing.owner))
             });
           })
         });
@@ -54,13 +59,41 @@ export class TransactionHistoryComponent implements OnInit {
 
     });
 
-
+    this.activeListings.forEach(listing => {
+      console.log(this.activeListings[listing]);
+    });
   }
 
+  /*getActiveEventListings() {
+    for (var ticket in this.activeListings) {
+      for (var item in ticket) {
+        var listing = this.activeListings[ticket][item];
+        var owner = JSON.stringify(listing.owner).replace(/\"/g, '');
+        var price = JSON.stringify(listing.price).replace(/\"/g, '');
+        this.activeTicketListings.push( new Event("null", parseInt(price), owner));
+      }
+    }
+  }*/
 
   ngOnInit() {
-
   }
 
 
+}
+
+class Ticket {
+
+  eventName: string;
+  price: Number;
+  owner: string;
+
+  constructor(eventName: string, price: Number, owner: string) {
+    this.eventName = eventName;
+    this.price = price;
+    this.owner = owner;
+  }
+
+  public toString() {
+    return this.eventName + ", $" + this.price + ", " + this.owner;
+  }
 }
