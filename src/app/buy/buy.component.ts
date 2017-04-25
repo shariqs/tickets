@@ -50,17 +50,7 @@ export class BuyComponent implements OnInit{
     this.eventService.transactionInProgress = "buy";
   }
 
-   showEvent(){
-    this.popup.options = {
-      cancleBtnClass: "btn btn-default",
-      cancleBtnContent:"Cancel",
-      confirmBtnClass: "btn btn-default",
   
-      color: "#4180ab",
-      header: "Your almost done.."
-    }
-    this.popup.show();
-  }
   ConfirmEvent(){
     this.router.navigateByUrl('Transactions');
   }
@@ -77,11 +67,13 @@ export class BuyComponent implements OnInit{
   //BAD CODE THIS NEEDS TO BE FIXED LATER THERE MUST BE SOME WAY TO LISTEN FOR CHANGES ON ACTIVEEVENT!
   populateArray(){
     //console.log(this.eventService.activeEventData.id + " FROM BUYCOMPONENT");
-    if(this.eventService.activeEventData != undefined){
+    if(this.eventService.activeEventData != undefined ){
       this.af.database.list('Active_Listings/'+ this.eventService.activeEventData.id +'/').subscribe(allListings => {
         this.availableListings = allListings;
       });
     }
+    else 
+    return null
   }
 
   //gets number of tickets 
@@ -122,6 +114,7 @@ export class BuyComponent implements OnInit{
           if(listing.$value == purchased.$key){
             this.af.database.list('Users/' + this.uid + '/Active_Listings/' + this.eventService.activeEventData.id + "/"  + listing.$key).remove();
           }
+          else if (listing.$value == null) return null;
         });
       });
       //Adds Listing to User's Sold
@@ -129,5 +122,6 @@ export class BuyComponent implements OnInit{
   
       alert('sold');
     }
+    else return null;
   }
 }

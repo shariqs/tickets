@@ -18,16 +18,17 @@ export class TicketListComponent implements OnInit {
    this.af.auth.subscribe(user => {
       this.uid = user.uid;
 
+
+ if(this.eventService.activeEventData != undefined){
   this.af.database.object('/Active_Listings/' + this.uid ).subscribe(listings => {
         this.activeListings = []
         Object.keys(listings).forEach(ticket => {  
-          Object.keys(listings[ticket]).forEach(item => {
-            this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
-                this.activeListings.push(listing);
-            });
-          })
+          
         });
       });
+
+ }
+ else return null;
 
    });
 
