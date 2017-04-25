@@ -107,11 +107,23 @@ prompt(): string {
       this.sub.unsubscribe(); 
   }
 
+  discount(cost: number): number {
+   var p = cost;
+   var f = cost;
+   f = cost * .10;
+   p = p + f;
+   return p;
+  }
+
 
 //THIS SHOULD NOT BE HERE IT SHOULD BE IN DATASERVICE BUT I HAVE NO ENERGY
   buyTicket(purchased){
+  var price = purchased.price;
+  var fee = this.discount(price);
+  var ppt = "Are you sure you want to buy this ticket?" +"\n"+ "Ticket Price: $" + price +"\n" + "Ticket Miester's Price: $" + fee;
   var text = "no";
-  if (confirm('Are you sure you want to buy this ticket?') == true) {
+  
+  if (confirm( ppt) == true) {
       text = "yes";
     }
     else 
@@ -148,7 +160,7 @@ prompt(): string {
     else 
        {
       console.log("user did not buy the ticket");
-      alert('The ticket was not purchased')
+      alert('The ticket was not purchased');
 
        }
   }
