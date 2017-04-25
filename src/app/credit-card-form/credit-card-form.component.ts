@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { DataService } from '../data.service';
-import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
+import { EventService } from '../event.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+
 
 
 
@@ -14,6 +17,7 @@ import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'ang
 export class CreditCardFormComponent implements OnInit {
 
   private form: FormGroup;
+  private uid;
 
   public firstName; 
   public lastName;
@@ -26,7 +30,7 @@ export class CreditCardFormComponent implements OnInit {
   private exYear;
 
 
-  constructor(public fb: FormBuilder, dataService: DataService) {
+  constructor(public fb: FormBuilder, public dataService: DataService,public eventService: EventService, private router: Router) {
 
     this.form = this.fb.group({
       firstName: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(15)])],
@@ -43,13 +47,25 @@ export class CreditCardFormComponent implements OnInit {
    }
 
   ngOnInit() {
+    if(this.uid != null && this.eventService.activeEventData != null){
+      console.log("uid"+this.uid);
+      console.log("activeEvent"+this.eventService.activeEventData.id);
+    }
     
   }
 
   onSubmit(value: any): void {
     console.log('Reactive Form Data: ');
     console.log(value);
-    alert('submitted');
+    //Adds customers information to the databse
+    if(this.eventService.activeEventData != null ) {
+      this.dataService.addName(value.firstName,value.lastName);
+      this.dataService.addAddress(value.billingAddress, value.city, value.zipCode);
+      this.dataService.addCreditCard(value.cardNo, value.secCode, value.exMon, value.exYear);
+    } 
+    
+    alert('Purchase successful');
+    this.router.navigateByUrl('/Browse');
   }
 
   getUserDataString(): string {

@@ -46,4 +46,14 @@ export class DataService {
     this.af.database.list('Users/' + this.uid + '/Addresses/').push(key);
   }
 
+  public addName(fName: String, lName:String){
+    var info = this.af.database.list('Customer_Name').push({
+      fName: fName,
+      lName: lName
+    })
+    var key = info.key;
+
+    this.af.database.list('Users/' + this.uid + '/Customer_Name').push(key);
+  }
+
 }

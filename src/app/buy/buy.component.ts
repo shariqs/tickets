@@ -70,6 +70,7 @@ export class BuyComponent implements OnInit{
     if(this.eventService.activeEventData != undefined ){
       this.af.database.list('Active_Listings/'+ this.eventService.activeEventData.id +'/').subscribe(allListings => {
         this.availableListings = allListings;
+        console.log(allListings)
       });
     }
     else 
@@ -152,7 +153,7 @@ prompt(): string {
       });
       //Adds Listing to User's Sold
       this.af.database.list('/Users/' + this.uid + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
-      alert('Ticket was purchased')
+      this.router.navigateByUrl('/billings');
     }
     else return "NA"; 
 

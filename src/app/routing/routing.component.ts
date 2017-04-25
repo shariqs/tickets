@@ -10,6 +10,7 @@ import { BrowseMenuComponent } from '../Views/browse-menu/browse-menu.component'
 import { SellComponent } from '../sell/sell.component';
 import { BuyComponent } from '../buy/buy.component';
 import { TicketInfoComponent} from '../ticket-info/ticket-info.component';
+import { TransactionComponent } from '../transaction/transaction.component'; 
 
 export const routes: Routes = [
   {path:'',         component: InfoComponent },
@@ -22,6 +23,7 @@ export const routes: Routes = [
       {path:'buy', component: BuyComponent}
     ]
   },
+  {path:'billings', component: TransactionComponent},
   {path:'**', redirectTo: ''}
 ];
 
