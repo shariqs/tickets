@@ -20,8 +20,7 @@
         
          <ul class="list-group" *ngFor="let listing of availableListings">
         <li class="list-group-item" >
-            User: {{ listing.name }} 
-            Price: ${{ listing.price }}
+             Seller: {{ listing.name }} | Ticket Price: ${{ listing.price }}
             <div class="text-right" style="margin-top: -35px">
                 <button class="btn btn-mbe-normal" (click)='buyTicket(listing)'> Buy </button>
             </div>
