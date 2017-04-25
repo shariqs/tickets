@@ -1,13 +1,39 @@
-#prompt {
-    color: white;
+
+.ticketList {
+
+  padding-bottom: 40px;
 }
 
+/*.header{
+
+position: fixed;
+width: 50%;
+height: 10%;
+}
+
+
+#prompt {
+    color: white;
+    text-align: center;
+
+   
+}
+
+.button{
+
+float: left;
+
+}
+
+*/
 
 .container {
     color: white;
     background: rgba(0, 0, 0, 0.5);
     height: 100%;
     width: 100%;
+    
+    
 }
 
 ul {
@@ -30,8 +56,4 @@ ul {
     border-color: #424242;
     text-align: center;
     width: 100%;
-}
-
-.eventList {
-    padding-bottom: 40px;
 }

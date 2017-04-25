@@ -1,26 +1,33 @@
 <div class="container">
 
-    <p id="prompt">Available tickets at this event: {{ toString()}} </p>
-    <br>
 
 
+<div class ="header">
+ <br>
+<div class ="button">
+ <a [routerLink]="['.']">
+        <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
+    </a>
+</div>
      <br>
+ <p id="prompt">Available tickets at this event: {{ toString()}} </p>
+</div>
+
+
 
     <div class="ticketList">
         <app-ticket-list></app-ticket-list>
-    </div>
-
-    <ul class="list-group" *ngFor="let listing of availableListings">
-        <li class="list-group-item" (dblclick)='buyTicket(listing)'>
+        
+         <ul class="list-group" *ngFor="let listing of availableListings">
+        <li class="list-group-item" >
             User: {{ listing.owner.substring(0,5) }} Price: ${{ listing.price }}
+             <button id ="style" class="btn btn-mbe-normal" (dblclick)='buyTicket(listing)'> Buy </button>
         </li>
 
     </ul>
-    <br>
-    <a [routerLink]="['.']">
-        <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
-    </a>
-    <br>
 
+    </div>
 
+  
+    
 </div>
