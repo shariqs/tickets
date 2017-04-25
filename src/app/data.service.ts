@@ -9,7 +9,7 @@ export class DataService {
     af.auth.subscribe(auth => this.uid = auth.uid); 
   }
 
-  public addTicketListing(long, lat, price, event, name){
+  public addTicketListing(long, lat, price, event, name, eventName){
     
     var id: Number = event.id + 0;
     var info = this.af.database.list('Active_Listings/' + id + '/').push({
@@ -17,7 +17,8 @@ export class DataService {
       latitude: lat,
       price: price,
       owner: this.uid,
-      name: name
+      name: name,
+      eventName: eventName
      });
 
     var key = info.key;

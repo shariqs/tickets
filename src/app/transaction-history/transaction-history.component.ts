@@ -27,7 +27,7 @@ export class TransactionHistoryComponent implements OnInit {
           Object.keys(listings[ticket]).forEach(item => {
             this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                 this.activeListings.push(listing);
-                this.activeTicketListings.push(new Ticket("null", listing.price, listing.owner))
+                this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name))
             });
           })
         });
@@ -39,7 +39,7 @@ export class TransactionHistoryComponent implements OnInit {
           Object.keys(listings[ticket]).forEach(item => {
             this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                 this.purchased.push(listing);
-                this.purchaseTickets.push(new Ticket("null", listing.price, listing.owner))
+                this.purchaseTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
             });
           })
         });
@@ -51,7 +51,7 @@ export class TransactionHistoryComponent implements OnInit {
           Object.keys(listings[ticket]).forEach(item => {
             this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                 this.sold.push(listing);
-                this.soldTickets.push(new Ticket("null", listing.price, listing.owner))
+                this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
             });
           })
         });
