@@ -110,7 +110,6 @@ export class BuyComponent implements OnInit{
 //THIS SHOULD NOT BE HERE IT SHOULD BE IN DATASERVICE BUT I HAVE NO ENERGY
   buyTicket(purchased){
     if(this.eventService.activeEventData != undefined){
-          this.eventService.activeEventData.soldT()
       //Removes Listing from Active_Listings
       this.af.database.object('Active_Listings/'+ this.eventService.activeEventData.id +'/' + purchased.$key).remove();
       //Adds Listing to Completed_Transactions
