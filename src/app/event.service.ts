@@ -174,6 +174,7 @@ class Event {
             this.id = id;
             this.link = link;
             this.soldTickets = 0;
+            this.tickets= 0;
             
 
       }
