@@ -20,6 +20,7 @@ export class SellComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public price: number;
+  public name: String;
   public zoom: number;
   private id: any;
   private idNum: number;
@@ -100,9 +101,8 @@ export class SellComponent implements OnInit {
   
   onSubmit(){
     if(this.eventService.activeEventData != null ) {
-      if ( this.price != null && this.longitude != null && this.latitude != null){
-      this.dataService.addTicketListing(this.longitude, this.latitude, this.price, this.eventService.activeEventData);
-      alert('Ticket sale was a success')
+      if ( this.price != null && this.longitude != null && this.latitude != null && this.name != null){
+      this.dataService.addTicketListing(this.longitude, this.latitude, this.price, this.eventService.activeEventData,this.name);
       this.router.navigateByUrl('Transactions');
       }
       else alert("the form was not correclty filled out");
