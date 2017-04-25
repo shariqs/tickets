@@ -4,12 +4,17 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Injectable()
 export class DataService {
   uid;
-
+   user: any;
   constructor(public af: AngularFire) { 
     af.auth.subscribe(auth => this.uid = auth.uid); 
+
+    this.af.auth.subscribe(currentUser => {
+      this.user = currentUser.google;
+      console.log(this.user);
+    })
   }
 
-  public addTicketListing(long, lat, price, event, name, eventName){
+  public addTicketListing(long, lat, price, event, eventName){
     
     var id: Number = event.id + 0;
     var info = this.af.database.list('Active_Listings/' + id + '/').push({
@@ -17,7 +22,7 @@ export class DataService {
       latitude: lat,
       price: price,
       owner: this.uid,
-      name: name,
+      name: this.user.displayName,
       eventName: eventName
      });
 
@@ -47,15 +52,12 @@ export class DataService {
 
     this.af.database.list('Users/' + this.uid + '/Addresses/').push(key);
   }
+  private getUserFullname(): string {
+    return this.user.displayName;
+  }
 
-  public addName(fName: String, lName:String){
-    var info = this.af.database.list('Customer_Name').push({
-      fName: fName,
-      lName: lName
-    })
-    var key = info.key;
-
-    this.af.database.list('Users/' + this.uid + '/Customer_Name').push(key);
+  private getUserEmailAddress(): string {
+    return this.user.email;
   }
 
 }

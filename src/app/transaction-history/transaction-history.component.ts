@@ -39,6 +39,7 @@ export class TransactionHistoryComponent implements OnInit {
           Object.keys(listings[ticket]).forEach(item => {
             this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                 this.purchased.push(listing);
+
                 this.purchaseTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
             });
           })
@@ -59,9 +60,7 @@ export class TransactionHistoryComponent implements OnInit {
 
     });
 
-    this.activeListings.forEach(listing => {
-      console.log(this.activeListings[listing]);
-    });
+    
   }
 
   /*getActiveEventListings() {

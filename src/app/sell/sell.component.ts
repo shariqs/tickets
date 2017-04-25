@@ -107,7 +107,6 @@ export class SellComponent implements OnInit {
         this.latitude,
         this.price, 
         this.eventService.activeEventData,
-        this.name,
         this.eventService.activeEventData.displayName);
       this.router.navigateByUrl('Transactions');
       }
