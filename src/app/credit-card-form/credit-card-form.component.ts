@@ -63,6 +63,8 @@ export class CreditCardFormComponent implements OnInit {
       this.dataService.addCreditCard(value.cardNo, value.secCode, value.exMon, value.exYear);
       alert('Successful!');
       this.router.navigateByUrl('/Browse');
+      this.eventService.activeEvent = null;
+      this.eventService.transactionInProgress = "browse";
     } else {alert('Error: activeEventData == null');}
   }
 
