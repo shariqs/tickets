@@ -11,7 +11,7 @@ import { EventService } from '../event.service';
 export class MenuBarComponent {
     constructor(public eventService: EventService, private router: Router) { }
 
-    menuItems = ['Browse', 'Transactions'];
+    menuItems = ['Browse', 'Transactions', 'Purchased'];
     
     onClick(){
       this.eventService.transactionInProgress = 'browse';

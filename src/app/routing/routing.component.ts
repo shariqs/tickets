@@ -11,9 +11,11 @@ import { SellComponent } from '../sell/sell.component';
 import { BuyComponent } from '../buy/buy.component';
 import { TicketInfoComponent} from '../ticket-info/ticket-info.component';
 import { TransactionComponent } from '../transaction/transaction.component'; 
+import { PurchasedMenuComponent } from '../Views/purchased-menu/purchased-menu.component';
 
 export const routes: Routes = [
   {path:'',         component: InfoComponent },
+  {path:'Purchased', component:PurchasedMenuComponent},
   {path:'Transactions', component: TransactionMenuComponent},
   {path:'Browse',       component: BrowseMenuComponent},
   {path:'Browse/:id',   component: BrowseMenuComponent,
