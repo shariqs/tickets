@@ -62,10 +62,9 @@ export class CreditCardFormComponent implements OnInit {
       this.dataService.addName(value.firstName,value.lastName);
       this.dataService.addAddress(value.billingAddress, value.city, value.zipCode);
       this.dataService.addCreditCard(value.cardNo, value.secCode, value.exMon, value.exYear);
-    } 
-    
-    alert('Purchase successful');
-    this.router.navigateByUrl('/Browse');
+      alert('Purchase successful');
+      this.router.navigateByUrl('/Browse');
+    } else {alert('Error: activeEventData == null');}
   }
 
   getUserDataString(): string {

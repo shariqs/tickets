@@ -3,6 +3,8 @@ import { EventService } from '../event.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Popup } from 'ng2-opd-popup';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import { DataService } from '../data.service';
+
 
 
 @Component({
@@ -20,7 +22,9 @@ export class BuyComponent implements OnInit{
     private popup:Popup,
     private router: Router,
     private route: ActivatedRoute, 
-    public af : AngularFire) { }
+    public af : AngularFire,
+    public dataService: DataService,
+    ) { }
 
     private sub: any;
     private parentRouteId: number;
@@ -70,7 +74,6 @@ export class BuyComponent implements OnInit{
     if(this.eventService.activeEventData != undefined ){
       this.af.database.list('Active_Listings/'+ this.eventService.activeEventData.id +'/').subscribe(allListings => {
         this.availableListings = allListings;
-        console.log(allListings)
       });
     }
     else 
