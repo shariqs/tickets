@@ -44,6 +44,7 @@ export class LoginComponent {
 // Logout button
   private logout() {
     this.af.auth.logout();
+    location.reload();
   }
 
   

@@ -29,7 +29,6 @@ h1{
 }
 
 app-footer {
-	 position: fixed;
     bottom: 0;
     width: 100%
 }
@@ -45,3 +44,4 @@ overflow-y: scroll;
 margin-bottom: 10px;
 
 }
+
