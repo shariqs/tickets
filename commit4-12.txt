@@ -1,0 +1,1 @@
+Added search function in event-list component. Removed search-bar component.

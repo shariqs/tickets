@@ -18,48 +18,51 @@ export class TransactionHistoryComponent implements OnInit {
   purchased = []
   purchasedTickets: Array<Ticket> = [];
 
-  constructor(public eventService: EventService, public af: AngularFire) {
-    this.af.auth.subscribe(user => {
-      this.uid = user.uid;
+  constructor(public eventService: EventService, public af: AngularFire) { 
+    try {
+      this.af.auth.subscribe(user => {
+        this.uid = user.uid;
 
-      //REALLY F'ING STUPID
-      this.af.database.object('/Users/' + this.uid + '/Active_Listings/').subscribe(listings => {
-        this.activeListings = []
-        Object.keys(listings).forEach(ticket => {  
-          Object.keys(listings[ticket]).forEach(item => {
-            this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
-                this.activeListings.push(listing);
-                if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name))
-            });
-          })
+        //REALLY F'ING STUPID
+        this.af.database.object('/Users/' + this.uid + '/Active_Listings/').subscribe(listings => {
+          this.activeListings = []
+          Object.keys(listings).forEach(ticket => {  
+            Object.keys(listings[ticket]).forEach(item => {
+              this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
+                  this.activeListings.push(listing);
+                  if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name))
+              });
+            })
+          });
+        });
+
+        this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
+          this.purchased = []
+          Object.keys(listings).forEach(ticket => {  
+            Object.keys(listings[ticket]).forEach(item => {
+              this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
+                  this.purchased.push(listing);
+                  this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
+              });
+            })
+          });
+        });
+
+        this.af.database.object('/Users/' + this.uid + '/Sold/').subscribe(listings => {
+          this.sold = []
+          Object.keys(listings).forEach(ticket => {  
+            Object.keys(listings[ticket]).forEach(item => {
+              this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
+                  this.sold.push(listing);
+                  this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
+              });
+            })
+          });
         });
       });
-
-      this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
-        this.purchased = []
-        Object.keys(listings).forEach(ticket => {  
-          Object.keys(listings[ticket]).forEach(item => {
-            this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
-                this.purchased.push(listing);
-                this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
-            });
-          })
-        });
-      });
-
-      this.af.database.object('/Users/' + this.uid + '/Sold/').subscribe(listings => {
-        this.sold = []
-        Object.keys(listings).forEach(ticket => {  
-          Object.keys(listings[ticket]).forEach(item => {
-            this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
-                this.sold.push(listing);
-                this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
-            });
-          })
-        });
-      });
-    });
-
+    } catch (e) {
+      alert('Please log in to your Google account');
+    }
     
   }
 

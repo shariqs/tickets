@@ -3,7 +3,7 @@
     width: 100%;
     position: fixed;
     height: 100%;
-    background-color: darkgrey;
+    background-color: darkslategrey;
     color: white;
     overflow-y:scroll;
 }
@@ -26,6 +26,12 @@ h3{
 h1{
     color:white;
     text-align: center;
+}
+
+app-footer {
+	 position: fixed;
+    bottom: 0;
+    width: 100%
 }
 
 

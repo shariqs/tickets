@@ -16,27 +16,30 @@ export class PurchasedHistoryComponent implements OnInit {
   
 
   constructor(public eventService: EventService, public af: AngularFire) {
-    this.af.auth.subscribe(user => {
-      this.uid = user.uid;
+    try {
+      this.af.auth.subscribe(user => {
+        this.uid = user.uid;
 
-    
+      
 
-        this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
-        this.purchased = []
-        Object.keys(listings).forEach(ticket => {  
-          Object.keys(listings[ticket]).forEach(item => {
-            this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
-                this.purchased.push(listing);
+          this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
+          this.purchased = []
+          Object.keys(listings).forEach(ticket => {  
+            Object.keys(listings[ticket]).forEach(item => {
+              this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
+                  this.purchased.push(listing);
 
-                this.purchaseTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
-            });
-          })
+                  this.purchaseTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
+              });
+            })
+          });
         });
+
+
       });
-
-
-    });
-
+    } catch(e) {
+      alert('please log into your Google account');
+    }
     
   }
 
