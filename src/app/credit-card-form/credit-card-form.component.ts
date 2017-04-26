@@ -59,8 +59,10 @@ export class CreditCardFormComponent implements OnInit {
     console.log(value);
     //Adds customers information to the databse
     if(this.eventService.activeEventData != null ) {
+      
       this.dataService.addAddress(value.billingAddress, value.city, value.zipCode);
       this.dataService.addCreditCard(value.cardNo, value.secCode, value.exMon, value.exYear);
+
       alert('Successful!');
       this.router.navigateByUrl('/Browse');
       this.eventService.activeEvent = null;

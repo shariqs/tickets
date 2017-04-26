@@ -24,7 +24,10 @@ h3{
 
 h1{
     color:white;
+    text-align: center;
 }
+
+
 
 #ticketList {
 float: right;

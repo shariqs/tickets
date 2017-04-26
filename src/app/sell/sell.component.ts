@@ -107,7 +107,7 @@ export class SellComponent implements OnInit {
         this.price, 
         this.eventService.activeEventData,
         this.eventService.activeEventData.displayName);
-      this.router.navigateByUrl('Transactions');
+      this.router.navigateByUrl('/billings');
       }
       else alert("the form was not correclty filled out");
     } else {
