@@ -15,6 +15,9 @@ export class TransactionHistoryComponent implements OnInit {
   sold = [];
   soldTickets: Array<Ticket> = [];
 
+  purchased = []
+  purchasedTickets: Array<Ticket> = [];
+
   constructor(public eventService: EventService, public af: AngularFire) {
     this.af.auth.subscribe(user => {
       this.uid = user.uid;
@@ -32,7 +35,19 @@ export class TransactionHistoryComponent implements OnInit {
         });
       });
 
-        this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
+      this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
+        this.purchased = []
+        Object.keys(listings).forEach(ticket => {  
+          Object.keys(listings[ticket]).forEach(item => {
+            this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
+                this.purchased.push(listing);
+                this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
+            });
+          })
+        });
+      });
+
+      this.af.database.object('/Users/' + this.uid + '/Sold/').subscribe(listings => {
         this.sold = []
         Object.keys(listings).forEach(ticket => {  
           Object.keys(listings[ticket]).forEach(item => {
@@ -43,7 +58,6 @@ export class TransactionHistoryComponent implements OnInit {
           })
         });
       });
-
     });
 
     
