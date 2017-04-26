@@ -12,10 +12,12 @@ import { BuyComponent } from '../buy/buy.component';
 import { TicketInfoComponent} from '../ticket-info/ticket-info.component';
 import { TransactionComponent } from '../transaction/transaction.component'; 
 import { PurchasedMenuComponent } from '../Views/purchased-menu/purchased-menu.component';
+import { AccountMenuComponent } from '../Views/account-menu/account-menu.component';
 
 export const routes: Routes = [
   {path:'',         component: InfoComponent },
-  {path:'Purchased', component:PurchasedMenuComponent},
+  {path:'Account', component: AccountMenuComponent},
+  {path:'Purchased', component: PurchasedMenuComponent},
   {path:'Transactions', component: TransactionMenuComponent},
   {path:'Browse',       component: BrowseMenuComponent},
   {path:'Browse/:id',   component: BrowseMenuComponent,
