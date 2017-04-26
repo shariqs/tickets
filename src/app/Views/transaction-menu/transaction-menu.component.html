@@ -1,14 +1,15 @@
 <app-menu-bar></app-menu-bar>
 <div class="container">
-    <div class="ticketDetails">
-        
-        <app-credit-card-form></app-credit-card-form>
+    <div class="row">
+        <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h1> Transaction History</h1>
+                <div *ngIf="isAvailable">
+                        <p *ngFor="let s of this.eventService.activeEvent"> {{ s }} </p>
+                    </div>
+                    <app-transaction-history></app-transaction-history>
+            </div>
+        <div class="col-md-3">.</div>
     </div>
-    <div id="ticketList">
-        <h1> Transaction History</h1>
-        <div *ngIf="isAvailable">
-            <p *ngFor="let s of this.eventService.activeEvent"> {{ s }} </p>
-        </div>
-        <app-transaction-history></app-transaction-history>
-    </div>
+
 </div>
