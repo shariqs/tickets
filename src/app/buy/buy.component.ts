@@ -23,7 +23,7 @@ export class BuyComponent implements OnInit{
     private router: Router,
     private route: ActivatedRoute, 
     public af : AngularFire,
-    public dataService: DataService,
+    public dataService: DataService
     ) { }
 
     private sub: any;
