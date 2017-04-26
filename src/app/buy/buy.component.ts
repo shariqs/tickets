@@ -31,6 +31,7 @@ export class BuyComponent implements OnInit{
     private id: any;
     private idNum: number;
     private uid;
+    private uid_seller;
     
     
     
@@ -134,7 +135,6 @@ export class BuyComponent implements OnInit{
     if (text == "yes"){
 
     if(this.eventService.activeEventData != undefined){
-      
       //Removes Listing from Active_Listings
       this.af.database.object('Active_Listings/'+ this.eventService.activeEventData.id +'/' + purchased.$key).remove();
       //Adds Listing to Completed_Transactions
@@ -151,7 +151,8 @@ export class BuyComponent implements OnInit{
         });
       });
       //Adds Listing to User's Sold
-      this.af.database.list('/Users/' + this.uid + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
+      this.uid_seller = purchased.owner;
+      this.af.database.list('/Users/' + this.uid_seller + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
       this.router.navigateByUrl('/billings');
     }
     else return "NA"; 

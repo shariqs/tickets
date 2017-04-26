@@ -13,7 +13,7 @@ export class TransactionHistoryComponent implements OnInit {
   activeTicketListings: Array<Ticket> = [];
  
   sold = [];
-  soldTickets: Array<Ticket>;
+  soldTickets: Array<Ticket> = [];
 
   constructor(public eventService: EventService, public af: AngularFire) {
     this.af.auth.subscribe(user => {
@@ -32,9 +32,7 @@ export class TransactionHistoryComponent implements OnInit {
         });
       });
 
-    
-
-        this.af.database.object('/Users/' + this.uid + '/Sold/').subscribe(listings => {
+        this.af.database.object('/Users/' + this.uid + '/Purchased/').subscribe(listings => {
         this.sold = []
         Object.keys(listings).forEach(ticket => {  
           Object.keys(listings[ticket]).forEach(item => {

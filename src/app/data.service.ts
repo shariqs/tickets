@@ -52,6 +52,7 @@ export class DataService {
 
     this.af.database.list('Users/' + this.uid + '/Addresses/').push(key);
   }
+  
   private getUserFullname(): string {
     return this.user.displayName;
   }
