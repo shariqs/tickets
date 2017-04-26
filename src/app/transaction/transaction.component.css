@@ -2,4 +2,7 @@
     height: 100%;
     background-color: darkgrey;
     color: black;
+    width: 100%;
+    position:fixed;
+    overflow-y: scroll;
 }
