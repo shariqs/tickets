@@ -32,7 +32,7 @@ A semester project for CS 160 class at San Jose State University. Simulating the
 - [**GitHub**](https://desktop.github.com/)
 
 ## Required addons
-
+ - `npm install -g angular2-cli`
  - `npm install ng2-opd-popup --save` [**Boostrap Modals**](https://www.npmjs.com/package/ng2-opd-popup)
  - `npm install angular2-google-maps --save` [**Angular Maps**](https://angular-maps.com/docs/getting-started.html)
  - `npm install @types/googlemaps --save-dev`
