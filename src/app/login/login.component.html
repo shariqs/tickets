@@ -1,3 +1,6 @@
 <div id="login">
     <button class="btn btn-primary" *ngIf="!auth" (click)="loginGoogle()">  Login With Google   </button>
-    <button class="btn btn-danger" *ngIf="auth" (click)="logout()">     Logout              </button>
+    <span class="glyphicon glyphicon-user" style="color:white" *ngIf="auth"></span>
+    <b style="color:white"*ngIf="auth">     {{userName}}       </b>
+    <button class="btn btn-danger" *ngIf="auth" (click)="logout()">  Logout   </button>
+</div>

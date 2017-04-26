@@ -9,7 +9,8 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 export class LoginComponent {
 
   auth: any;  // Instance of the User coming from app.component.
- 
+  user: any;
+  userName: String;
 
   // Saves angularFire object as variable "af" that can be used anywhere in the component
   constructor(public af: AngularFire) {
@@ -22,6 +23,12 @@ export class LoginComponent {
       this.auth = authenticationValue;
     });
     
+      this.af.auth.subscribe(currentUser => {
+        if(currentUser != null){
+          this.user = currentUser.google;
+          this.userName = this.user.displayName;
+        }
+    })
   }
 
   /**
