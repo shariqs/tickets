@@ -18,7 +18,7 @@ export class BodyComponent {
    */
 public view;
 
-  constructor(public af: AngularFire) {
+  constructor(public af: AngularFire, public dataService:DataService) {
     af.auth.subscribe(auth => {
       if (auth == null) {
         this.view = "splash";
@@ -26,6 +26,22 @@ public view;
         this.view = "browse";
       }
     });
+  }
+
+  clicked(){
+     var address = "Some street";
+     var city = "COVINGTON";
+     var zipCode = 988888;
+     this.dataService.addAddress(address, city, zipCode);
+  }
+
+  clicked2(){
+     var number = 1233444422223334;
+     var code = 123;
+     var month = 12;
+     var year = 1231;
+
+     this.dataService.addCreditCard(number, code, month, year);
   }
 }
 

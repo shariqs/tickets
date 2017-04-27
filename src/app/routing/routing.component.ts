@@ -26,7 +26,8 @@ export const routes: Routes = [
     ]
   },
   {path:'billings', component: TransactionComponent},
-  {path:'**', redirectTo: ''}
+  {path:'body', component: BodyComponent},
+  {path:'**', redirectTo: ''},
 ];
 
 export const routing = RouterModule.forRoot(routes);
