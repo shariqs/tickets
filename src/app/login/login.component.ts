@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent {
   userName: String;
 
   // Saves angularFire object as variable "af" that can be used anywhere in the component
-  constructor(public af: AngularFire) {
+  constructor(public af: AngularFire, private router: Router) {
 
     /**
      * You can subscribe to certain variables.
