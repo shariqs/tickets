@@ -30,6 +30,8 @@ export class DataService {
     this.af.database.list('Users/' + this.uid + '/Active_Listings/' + id).push(key);
   }
 
+  
+
   public addCreditCard(number: Number, code: Number, expMonth: Number, expYear: Number){
     var info = this.af.database.list('Cards').push({
       number: number,

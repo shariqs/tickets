@@ -1,0 +1,24 @@
+
+
+.body{
+height: 100%;
+width: 100%;
+
+
+}
+
+.leftFrame{
+
+width: 50%;
+float: left;
+
+}
+
+.rightFrame{
+
+float: right;
+width: 50%;
+
+
+
+}
