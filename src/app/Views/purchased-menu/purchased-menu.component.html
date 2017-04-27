@@ -1,8 +1,34 @@
 
+
 <app-menu-bar></app-menu-bar>
+
+
+
+<div class="body">
+
+
+<div class="leftFrame">
+
 
 <app-google-maps></app-google-maps>
 
-    <app-purchased-history></app-purchased-history>
+    <h1> Ticket ETA:  </h1>
 
-    
+    <h1> Ticket Status: </h1> 
+
+    <button class="btn btn-mbe-normal" (click)="onClick()"> Ticket's Details </button>
+
+   <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
+</div>
+
+
+
+<div class="rightFrame">
+
+
+   <app-transaction-history></app-transaction-history>
+</div>
+
+
+
+</div>
