@@ -16,9 +16,9 @@ import { AccountMenuComponent } from '../Views/account-menu/account-menu.compone
 
 export const routes: Routes = [
   {path:'',         component: InfoComponent },
-  {path:'Account', component: AccountMenuComponent},
+  {path:'Transactions', component: AccountMenuComponent},
   {path:'Purchased', component: PurchasedMenuComponent},
-  {path:'Transactions', component: TransactionMenuComponent},
+  {path:'Account', component: TransactionMenuComponent},
   {path:'Browse',       component: BrowseMenuComponent},
   {path:'Browse/:id',   component: BrowseMenuComponent,
     children: [

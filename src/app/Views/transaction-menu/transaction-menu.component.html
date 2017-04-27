@@ -1,15 +1,15 @@
 <app-menu-bar></app-menu-bar>
 <div class="container">
     <div class="row">
-            <div class="col-md-6">
-                <h1> Transaction History</h1>
-                <div *ngIf="isAvailable">
-                        <p *ngFor="let s of this.eventService.activeEvent"> {{ s }} </p>
-                    </div>
-                    <app-transaction-history></app-transaction-history>
-            </div>
         <!-- this is for the grid layout please don't remove -->
         <div class="col-md-6"><app-purchased-menu></app-purchased-menu></div>
+        <div class="col-md-6">
+            <h1> Transaction History</h1>
+            <div *ngIf="isAvailable">
+                    <p *ngFor="let s of this.eventService.activeEvent"> {{ s }} </p>
+                </div>
+                <app-transaction-history></app-transaction-history>
+        </div>
     </div>
     <app-footer></app-footer>
 </div>
