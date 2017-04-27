@@ -36,11 +36,12 @@ export class BuyComponent implements OnInit{
     
     
   ngOnInit() {
-
-    this.af.auth.subscribe(x => {
-      this.uid = x.uid;
-    })
-    
+    if(this.uid == null){alert('Please login and refresh the browser!');}
+    else{
+      this.af.auth.subscribe(x => {
+        this.uid = x.uid;
+      })
+    }
     this.sub = this.route.parent.params.subscribe(params => {
       this.id = +params["id"];
       console.log("this is the id (sell form):"+this.id);
@@ -134,7 +135,7 @@ export class BuyComponent implements OnInit{
 
     if (text == "yes"){
 
-    if(this.eventService.activeEventData != undefined){
+    if(this.eventService.activeEventData != undefined && this.uid != null){
       //Removes Listing from Active_Listings
       this.af.database.object('Active_Listings/'+ this.eventService.activeEventData.id +'/' + purchased.$key).remove();
       //Adds Listing to Completed_Transactions
