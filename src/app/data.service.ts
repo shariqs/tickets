@@ -31,7 +31,7 @@ export class DataService {
     this.af.database.list('Users/' + this.uid + '/Active_Listings/' + id).push(key);
   }
 
-  
+
 
   public addCreditCard(number: Number, code: Number, expMonth: Number, expYear: Number){
     var checkDup = false;
@@ -102,5 +102,7 @@ export class DataService {
   private getUserEmailAddress(): string {
     return this.user.email;
   }
+
+
 
 }
