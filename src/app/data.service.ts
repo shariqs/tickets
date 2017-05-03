@@ -7,15 +7,12 @@ export class DataService {
   user: any;
 
   constructor(public af: AngularFire) { 
-    if(this.uid == null){alert('Please login and refresh the browser!');}
-    else{
-      af.auth.subscribe(auth => this.uid = auth.uid); 
+    af.auth.subscribe(auth => this.uid = auth.uid); 
 
-      this.af.auth.subscribe(currentUser => {
-        this.user = currentUser.google;
-        console.log(this.user);
-      })
-    }
+    this.af.auth.subscribe(currentUser => {
+      this.user = currentUser.google;
+      console.log(this.user);
+    })
   }
 
   public addTicketListing(long, lat, price, event, eventName){
