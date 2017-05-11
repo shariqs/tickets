@@ -41,11 +41,13 @@ export class LoginComponent {
       provider: AuthProviders.Google,
       method: AuthMethods.Popup,
     });
+    alert('Please refresh after sign in!');
   }
 
 // Logout button
   private logout() {
     this.af.auth.logout();
+    this.router.navigateByUrl('/Browse');
     location.reload();
   }
 
