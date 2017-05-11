@@ -21,10 +21,15 @@ ul {
     width: 100%;
 }
 
-h2 {
+h2,h3,h4 {
     text-align: center;
 }
 
 body {
     background-color: darkslategrey;
+}
+
+.ticket-details{
+    margin: auto;
+    width: 100%;;
 }

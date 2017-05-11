@@ -1,14 +1,25 @@
-<h2> Active Transactions </h2>
-<ul class="list-group" *ngFor="let listing of activeTicketListings">
-    <li class="list-group-item"> {{ listing }} </li>
-</ul>
+<div *ngIf="!isSwitched">
+    <h2> Active Transactions </h2>
+    <ul class="list-group" *ngFor="let listing of activeTicketListings">
+        <li class="list-group-item"> {{ listing }} </li>
+    </ul>
 
-<h2> Purchased </h2>
-<ul class="list-group" *ngFor="let events of purchasedTickets">
-    <li class="list-group-item"> {{ events }} </li>
-</ul>
+    <h2> Purchased </h2>
+    <ul class="list-group" *ngFor="let event of purchasedTickets">
+        <li class="list-group-item" (click)="onClicked(event)"> {{ event }} </li>
+    </ul>
 
-<h2> Sold </h2>
-<ul class="list-group" *ngFor="let events of soldTickets">
-    <li class="list-group-item"> {{ events }} </li>
-</ul>
+    <h2> Sold </h2>
+    <ul class="list-group" *ngFor="let event of soldTickets">
+        <li class="list-group-item" (click)="onClicked(event)"> {{ event }} </li>
+    </ul>
+</div>
+<div *ngIf="isSwitched">
+    <button class="btn btn-success btn-md"(click)="onBack()">Back</button>
+    <h2> Ticket Details </h2>
+    <h3>Event name:  </h3>   <h4>{{event.eventName}} </h4>
+    <h3>Event date:  </h3>   <h4>{{event.date}}      </h4>
+    <h3>Event time:  </h3>   <h4>{{event.time}}      </h4>
+    <h3>Seller:      </h3>   <h4>{{event.owner}}     </h4>
+    <h3>Price bought:</h3>   <h4>${{event.price}}    </h4>
+</div>

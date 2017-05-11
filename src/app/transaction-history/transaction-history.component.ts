@@ -8,6 +8,9 @@ import { AngularFire } from 'angularfire2';
   styleUrls: ['./transaction-history.component.css']
 })
 export class TransactionHistoryComponent implements OnInit {
+  isSwitched: boolean;
+  event: any;
+
   uid;
   activeListings = [];
   activeTicketListings: Array<Ticket> = [];
@@ -30,7 +33,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.activeListings.push(listing);
-                  if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name))
+                  if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time))
               });
             })
           });
@@ -42,7 +45,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.purchased.push(listing);
-                  this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
+                  this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time))
               });
             })
           });
@@ -54,7 +57,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.sold.push(listing);
-                  this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name))
+                  this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time))
               });
             })
           });
@@ -64,6 +67,8 @@ export class TransactionHistoryComponent implements OnInit {
       alert('Please log in to your Google account');
     }
     
+    this.isSwitched = false;
+
   }
 
   /*getActiveEventListings() {
@@ -80,6 +85,16 @@ export class TransactionHistoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  private onClicked(event){
+    console.log(event);
+    this.event = event;
+    this.isSwitched = true;
+  }
+
+  private onBack(){
+    this.isSwitched = false;
+  }
+
 
 }
 
@@ -88,11 +103,15 @@ class Ticket {
   eventName: string;
   price: Number;
   owner: string;
+  date: string;
+  time: string;
 
-  constructor(eventName: string, price: Number, owner: string) {
+  constructor(eventName: string, price: Number, owner: string, date: string, time: string ) {
     this.eventName = eventName;
     this.price = price;
     this.owner = owner;
+    this.date = date;
+    this.time = time;
   }
 
   public toString() {
