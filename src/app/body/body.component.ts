@@ -43,5 +43,9 @@ public view;
 
      this.dataService.addCreditCard(number, code, month, year);
   }
+
+  clicked3(){
+    this.dataService.removeOldEvents();
+  }
 }
 

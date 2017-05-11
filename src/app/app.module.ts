@@ -90,4 +90,12 @@ const myFirebaseAuthConfig = {
   providers: [DataService, EventService, appRoutingProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor(private updateData: DataService){
+    console.log("Starting Services");
+    updateData.removeOldEvents();
+  }
+}
+
+

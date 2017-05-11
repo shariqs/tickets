@@ -15,7 +15,7 @@ export class DataService {
     })
   }
 
-  public addTicketListing(long, lat, price, event, eventName){
+  public addTicketListing(long, lat, price, event, eventName, date, time){
     
     var id: Number = event.id + 0;
     var info = this.af.database.list('Active_Listings/' + id + '/').push({
@@ -24,7 +24,9 @@ export class DataService {
       price: price,
       owner: this.uid,
       name: this.user.displayName,
-      eventName: eventName
+      eventName: eventName,
+      date: date,
+      time: time
      });
 
     var key = info.key;
@@ -61,7 +63,7 @@ export class DataService {
         this.af.database.list('Users/' + this.uid + '/Cards/').push(key);
 
         }else {console.log('Card is already presented in DB. Transaction successed!');}
-      },1000);
+    },1000);
 
   }
 
@@ -101,6 +103,56 @@ export class DataService {
 
   private getUserEmailAddress(): string {
     return this.user.email;
+  }
+
+
+  // Should be implement on the server side daily routine
+  // We don't have a running server so this performs every time app is initialized / refreshed
+  // Does not check for event's TIME 
+  removeOldEvents(){
+    var today = new Date();
+    var currentDay = today.getDate();
+    var currentMonth = today.getMonth()+1;
+    var dd = currentDay.toString();
+    var mm = currentMonth.toString();
+
+    console.log("Updating database using DataSerive..");
+
+    this.af.database.list('/Active_Listings/').subscribe(listings => {
+        //console.log(listings)
+        listings.forEach(list => {
+          // event.$key: get the event ID numbers
+          // console.log(event.$key);
+          Object.keys(list).forEach( event=>{
+            //details: get the hash key of the event 
+            //console.log(details)
+            this.af.database.object('/Active_Listings/'+list.$key+'/'+event+'/').subscribe(details=>{
+              if(details.date != null){
+                //console.log(details.date);
+                var temp1 = details.date.substring(5,7);
+                var temp2 = details.date.substring(8,10);
+                var eventMonth = +temp1;
+                var eventDay = +temp2;
+
+                if(currentMonth == eventMonth){
+
+                  if(currentDay > eventDay){
+                    //delete event
+                    console.log("Removing out-dated events..")
+                    this.af.database.object('/Users/'+details.owner+"/Active_Listings/"+list.$key).remove();
+                    this.af.database.object('/Active_Listings/'+list.$key).remove();
+                  }
+                }
+                // this is not necessary if runs daily 
+                else if(currentMonth > eventMonth){
+                  this.af.database.object('/Users/'+details.owner+"/Active_Listings/"+list.$key).remove();
+                  this.af.database.object('/Active_Listings/'+list.$key).remove();
+                }
+              }
+            });
+          });            
+        });
+      });
   }
 
 

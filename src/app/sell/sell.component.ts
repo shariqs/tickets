@@ -106,12 +106,15 @@ export class SellComponent implements OnInit {
         this.latitude,
         this.price, 
         this.eventService.activeEventData,
-        this.eventService.activeEventData.displayName);
+        this.eventService.activeEventData.displayName,
+        this.eventService.activeEventData.date,
+        this.eventService.activeEventData.time
+);
       this.router.navigateByUrl('/billings');
       }
       else alert("the form was not correclty filled out");
     } else {
-      alert("unable to list ticket");
+      alert("Unable to list ticket please refresh!");
     }
   }
   private ngOnDestroy(){
