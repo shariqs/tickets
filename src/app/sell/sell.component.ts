@@ -114,7 +114,9 @@ export class SellComponent implements OnInit {
       }
       else alert("the form was not correclty filled out");
     } else {
-      alert("Unable to list ticket please refresh!");
+      alert("Error code: 160. Redirecting..");
+      this.router.navigateByUrl('/Browse');
+      location.reload();
     }
   }
   private ngOnDestroy(){
