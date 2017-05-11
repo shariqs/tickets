@@ -1,47 +1,43 @@
 
 .container{
     width: 100%;
-    position: fixed;
     height: 100%;
     background-color: darkslategrey;
     color: white;
-    overflow-y:scroll;
+    position: fixed;
 }
 
-.ticketDetails{
-float: left;
-width: 50%;
-height: 100%;
-overflow-y: visible;
-overflow-x: hidden;
-padding: 25px;
-color: black;
-}
 
 h3{
  text-align: center;
  padding: 15px;
+
 }
 
 h1{
-    color:white;
+  
     text-align: center;
 }
 
 app-footer {
     bottom: 0;
-    width: 100%
+    width: 100%;
+   position : fixed;
+   
+}
+app-google-maps{
+    position: fixed;
+    width: 50%;
+    float: left;
+    height: 100%;
 }
 
 
-
-#ticketList {
-float: right;
-padding: 5px;
-width: 50%;
-height: 100%;
-overflow-y: scroll;
-margin-bottom: 10px;
-
+app-transaction-history{
+    position: fixed;
+    overflow-y: scroll;
+    width: 50%;
+    float: right;
+    height: 100%;
+    
 }
-

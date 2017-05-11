@@ -35,7 +35,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.activeListings.push(listing);
-                  if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time))
+                  if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listings.longtitude, listings.latitude))
               });
             })
           });
@@ -47,7 +47,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.purchased.push(listing);
-                  this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time))
+                  this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listings.longtitude, listings.latitude))
               });
             })
           });
@@ -59,7 +59,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.sold.push(listing);
-                  this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time))
+                  this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time,listings.longtitude, listings.latitude))
               });
             })
           });
@@ -130,13 +130,17 @@ class Ticket {
   owner: string;
   date: string;
   time: string;
+  sellerLongitude: number;
+  sellerLatitude: number;
 
-  constructor(eventName: string, price: Number, owner: string, date: string, time: string ) {
+  constructor(eventName: string, price: Number, owner: string, date: string, time: string, sellerLongitude: number , sellerLatitude: number ) {
     this.eventName = eventName;
     this.price = price;
     this.owner = owner;
     this.date = date;
     this.time = time;
+    this.sellerLongitude = sellerLongitude;
+    this.sellerLatitude = sellerLatitude;
   }
 
   public toString() {

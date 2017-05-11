@@ -1,3 +1,4 @@
+
 <div *ngIf="!isSwitched">
     <h2> Active Transactions </h2>
     <ul class="list-group" *ngFor="let listing of activeTicketListings">
@@ -23,4 +24,6 @@
     <h3>Event time:  </h3>   <h4>{{event.time}}      </h4>
     <h3>Seller:      </h3>   <h4>{{event.owner}}     </h4>
     <h3>Price bought:</h3>   <h4>${{event.price}}    </h4>
+    <h2> Ticket ETA:  </h2>
+    
 </div>
