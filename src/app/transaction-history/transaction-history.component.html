@@ -17,6 +17,7 @@
 <div *ngIf="isSwitched">
     <button class="btn btn-success btn-md"(click)="onBack()">Back</button>
     <h2> Ticket Details </h2>
+    <h3>Status:      </h3>   <h4><i>{{this.currentStatus}}</i></h4>
     <h3>Event name:  </h3>   <h4>{{event.eventName}} </h4>
     <h3>Event date:  </h3>   <h4>{{event.date}}      </h4>
     <h3>Event time:  </h3>   <h4>{{event.time}}      </h4>

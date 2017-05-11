@@ -9,7 +9,9 @@ import { AngularFire } from 'angularfire2';
 })
 export class TransactionHistoryComponent implements OnInit {
   isSwitched: boolean;
+  currentStatus: String;
   event: any;
+
 
   uid;
   activeListings = [];
@@ -66,9 +68,7 @@ export class TransactionHistoryComponent implements OnInit {
     } catch (e) {
       alert('Please log in to your Google account');
     }
-    
     this.isSwitched = false;
-
   }
 
   /*getActiveEventListings() {
@@ -89,10 +89,35 @@ export class TransactionHistoryComponent implements OnInit {
     console.log(event);
     this.event = event;
     this.isSwitched = true;
+    this.checkDate(event);
   }
 
   private onBack(){
     this.isSwitched = false;
+  }
+
+  public checkDate(event){
+    var today = new Date();
+    var currentDay = today.getDate();
+    var currentMonth = today.getMonth()+1;
+
+    if(event.date != null){
+
+      var temp1 = event.date.substring(5,7);
+      var temp2 = event.date.substring(8,10);
+      var eventMonth = +temp1;
+      var eventDay = +temp2;
+
+      if(currentMonth == eventMonth){
+        if(currentDay == eventDay){this.currentStatus = "Today";}
+        else if(currentDay > eventDay) {this.currentStatus = "Expired";}
+        else if(currentDay < eventDay) {this.currentStatus =  "Upcoming";}
+      }
+      else if(currentMonth > eventMonth) {this.currentStatus = "Expired";}
+      else if(currentMonth < eventMonth) {this.currentStatus = "Upcoming";}
+      //handle old tickets without time stamp 
+    }else {this.currentStatus = "Expired";}
+
   }
 
 

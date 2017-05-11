@@ -113,8 +113,6 @@ export class DataService {
     var today = new Date();
     var currentDay = today.getDate();
     var currentMonth = today.getMonth()+1;
-    var dd = currentDay.toString();
-    var mm = currentMonth.toString();
 
     console.log("Updating database using DataSerive..");
 
