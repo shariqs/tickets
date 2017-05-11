@@ -114,6 +114,9 @@ export class SellComponent implements OnInit {
       }
       else alert("the form was not correclty filled out");
     } else {
+      // error 160: occurs when on Sell page and got refreshed
+      // => can't get the event ID
+      // => thefor can't register with Selling
       alert("Error code: 160. Redirecting..");
       this.router.navigateByUrl('/Browse');
       location.reload();
