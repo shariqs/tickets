@@ -22,7 +22,9 @@ export class DataService {
       longitude: long,
       latitude: lat,
       price: price,
+      //hashkey for this user
       owner: this.uid,
+      //display name for this user
       name: this.user.displayName,
       eventName: eventName,
       date: date,
