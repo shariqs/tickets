@@ -21,6 +21,14 @@ ul {
     width: 100%;
 }
 
+.details{
+    padding: 5px;
+    margin: 0px;
+    height: 75%;
+    width: 100%;
+    overflow: scroll;
+}
+
 h2,h3,h4 {
     text-align: center;
 }

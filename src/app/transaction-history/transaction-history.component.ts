@@ -127,16 +127,16 @@ class Ticket {
 
   eventName: string;
   price: Number;
-  owner: string;
+  buyer: string;
   date: string;
   time: string;
   sellerLongitude: number;
   sellerLatitude: number;
 
-  constructor(eventName: string, price: Number, owner: string, date: string, time: string, sellerLongitude: number , sellerLatitude: number ) {
+  constructor(eventName: string, price: Number, buyer: string, date: string, time: string, sellerLongitude: number , sellerLatitude: number ) {
     this.eventName = eventName;
     this.price = price;
-    this.owner = owner;
+    this.buyer = buyer;
     this.date = date;
     this.time = time;
     this.sellerLongitude = sellerLongitude;
@@ -144,6 +144,6 @@ class Ticket {
   }
 
   public toString() {
-    return this.eventName + ", $" + this.price + ", " + this.owner;
+    return this.eventName + ", $" + this.price + ", " + this.buyer;
   }
 }
