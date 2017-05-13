@@ -35,7 +35,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.activeListings.push(listing);
-                  if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listings.longtitude, listings.latitude))
+                  if(listing.eventName != null) this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listing.longitude, listing.latitude))
               });
             })
           });
@@ -47,7 +47,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.purchased.push(listing);
-                  this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listings.longtitude, listings.latitude))
+                  this.purchasedTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listing.longitude, listing.latitude))
               });
             })
           });
@@ -59,7 +59,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings[ticket]).forEach(item => {
               this.af.database.object('/Completed_Transactions/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
                   this.sold.push(listing);
-                  this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time,listings.longtitude, listings.latitude))
+                  this.soldTickets.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listing.longitude, listing.latitude))
               });
             })
           });
