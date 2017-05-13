@@ -3,7 +3,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class DataService {
-  uid;
+  private uid;
  private user: any;
 
   constructor(public af: AngularFire) { 
