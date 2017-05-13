@@ -4,7 +4,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Injectable()
 export class DataService {
   uid;
-  user: any;
+ private user: any;
 
   constructor(public af: AngularFire) { 
     af.auth.subscribe(auth => this.uid = auth.uid); 
