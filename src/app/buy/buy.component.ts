@@ -84,7 +84,8 @@ export class BuyComponent implements OnInit{
   //gets number of tickets 
 
   toString(): string {
-    if (this.availableListings.length == 0 ) return "Currently, there are no available tickets at this event" 
+
+     if (this.availableListings.length == 0 || null ) return "Currently, there are no available tickets at this event" 
     else {
     for (var i = 0; i < this.availableListings.length; i++){
         this.eventService.activeEventData.addTicket();
