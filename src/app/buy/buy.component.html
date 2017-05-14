@@ -1,35 +1,44 @@
 <div class="container">
-
-
-
-<div class ="header">
- <br>
-<div class ="button">
- <a [routerLink]="['.']">
-        <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
-    </a>
-</div>
-     <br>
- <p id="prompt">{{ toString()}} </p>
-</div>
-
-
-
-    <div class="ticketList">
-        <app-ticket-list></app-ticket-list>
-        
-         <ul class="list-group" *ngFor="let listing of availableListings">
-        <li class="list-group-item" >
-            Ticket Price: ${{ listing.price }} | Seller: {{ listing.name }}
-            <div class="text-right" style="margin-top: -35px">
-                <button class="btn btn-mbe-normal" (click)='buyTicket(listing)'> Buy </button>
-            </div>
-        </li>
-
-    </ul>
-
+    <div class ="header" *ngIf="!isConfirmed">
+        <br>
+        <div class ="button">
+            <a [routerLink]="['.']">
+                <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
+            </a>
+        </div>
+        <h5><i>If you do not sea any tickets press back and try again!</i></h5>
+            <br>
+        <p id="prompt">{{ toString()}} </p>
     </div>
-
-  
-    
+    <div class="ticketList" *ngIf="!isConfirmed">
+        <app-ticket-list></app-ticket-list>
+         <ul class="list-group" *ngFor="let listing of availableListings">
+            <li class="list-group-item" >
+                Ticket Price: ${{ listing.price }} | Seller: {{ listing.name }}
+                <div class="text-right" style="margin-top: -35px">
+                    <button class="btn btn-mbe-normal" (click)='checkConfirm(listing)'> Buy </button>
+                </div>
+            </li>
+        </ul>
+    </div>  
+    <div class="orderDetails" *ngIf="isConfirmed">
+        <button class="btn btn-mbe-normal" (click)="onClick2()"> Cancel </button>
+        <h3> Order Summary </h3>
+        <ul>
+            <li> Event name: {{this.event.eventName}}
+            <li> Price: {{this.price}}
+            <li> Fee: ${{this.fee}}
+            <br>--------------------------------------------------------
+            <li> Total price: ${{this.totalPrice}}
+        </ul>
+        <hr>
+        <h3>Please enter your shipping address: </h3>
+        <div class="form-group">
+            <label> Shipping Address </label>
+            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+        </div>
+        <h6><i>*If you enter address and the browser shows no auto-filling, press 'Browse' and then refresh!</i></h6>
+        
+        <button (click)="onClick3()" class="btn btn-primary"> Proceed </button>        
+    </div>
 </div>

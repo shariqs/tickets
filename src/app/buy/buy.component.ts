@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+/// <reference path="../../../typings/index.d.ts" />
 import { EventService } from '../event.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Popup } from 'ng2-opd-popup';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import { DataService } from '../data.service';
+import { AgmCoreModule, MapsAPILoader } from 'angular2-google-maps/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Component, NgModule, NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
+
 
 
 
@@ -16,6 +20,26 @@ export class BuyComponent implements OnInit{
 
 
   availableListings : Event[] = [];
+  private sub: any;
+  private parentRouteId: number;
+  private id: any;
+  private idNum: number;
+  private uid;
+  private uid_seller;
+  private isConfirmed: boolean;
+  private price;
+  private fee;
+  private totalPrice;
+  private event;
+  public searchControl: FormControl;
+  public latitude: number;
+  public longitude: number;
+  public zoom: number;
+  public time: String;
+
+  @ViewChild("search")
+  public searchElementRef: ElementRef;
+
 
   constructor(
     public eventService: EventService, 
@@ -23,17 +47,12 @@ export class BuyComponent implements OnInit{
     private router: Router,
     private route: ActivatedRoute, 
     public af : AngularFire,
-    public dataService: DataService
-    ) { }
-
-    private sub: any;
-    private parentRouteId: number;
-    private id: any;
-    private idNum: number;
-    private uid;
-    private uid_seller;
-    
-    
+    public dataService: DataService,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
+    ) { 
+      this.isConfirmed = false;
+    }
     
   ngOnInit() {
 
@@ -49,6 +68,8 @@ export class BuyComponent implements OnInit{
 
     this.eventService.activeEventData
     this.populateArray();
+
+    
   }
   
   private ngDoCheck(){
@@ -64,7 +85,87 @@ export class BuyComponent implements OnInit{
   }
   onClick(){
     this.eventService.transactionInProgress = 'browse';
+  }
+  onClick2(){
+    this.isConfirmed = false;
+  }
+  onClick3(){
+    var today = new Date();
+
+    var currentDay = today.getDate();
+    var currentMonth = today.getMonth()+1;
+    var currentHour = today.getHours();
+    var currentMin = today.getMinutes();
+
+    var stringDay = currentDay.toString();
+    var stringMonth = currentMonth.toString();
+    var stringHour = currentHour.toString();
+    var stringMin = currentMin.toString();
+
+    //change to standard formatting
+    if(currentDay < 10) stringDay = "0" + stringDay;
+    if(currentMonth < 10) stringMonth = "0" + stringMonth;
+    if(currentHour < 10) stringHour = "0" + stringHour;
+    if(currentMin < 10) stringMin = "0" + stringMin;
+
+    var time = stringDay + stringMonth + stringHour + stringMin;
+    console.log(this.latitude);
+    console.log(this.longitude);
+    this.event["purchasedTime"] = time;
+    this.event["buyerLatitude"] = this.latitude;
+    this.event["buyerLongitude"] = this.longitude;
+    this.dataService.buyTicket(this.event,this.eventService,this.uid_seller,this.router);
+  }
+  checkConfirm(purchased){
+    this.price = purchased.price;
+    this.fee = this.discount(purchased.price);
+    this.totalPrice = this.price + this.fee;
+    this.isConfirmed = true;
+    this.event = purchased;
+    this.zoom = 4;
+    this.latitude;
+    this.longitude;
+
+    //create search FormControl
+    this.searchControl = new FormControl();
     
+    //set current position
+    this.setCurrentPosition();
+    
+    //load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+  
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+          
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+    });
+    //get the time of purchase made 
+
+  }
+
+  private setCurrentPosition() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 12;
+      });
+    }
   }
 
 
@@ -109,7 +210,7 @@ export class BuyComponent implements OnInit{
       this.sub.unsubscribe(); 
   }
 
-  discount(cost: number): number {
+  public discount(cost: number): number {
    var p = cost;
    var f = cost;
    f = cost * .10;
@@ -117,53 +218,4 @@ export class BuyComponent implements OnInit{
    return p;
   }
 
-
-//THIS SHOULD NOT BE HERE IT SHOULD BE IN DATASERVICE BUT I HAVE NO ENERGY
-  buyTicket(purchased){
-  var price = purchased.price;
-  var fee = this.discount(price);
-  var ppt = "Are you sure you want to buy this ticket?" +"\n"+ "Ticket Price: $" + price +"\n" + "Ticket Meister's Price: $" + fee;
-  var text = "no";
-  
-  if (confirm( ppt) == true) {
-      text = "yes";
-    }
-    else 
-    {
-      text = "no";
-    }
-
-    if (text == "yes"){
-
-    if(this.eventService.activeEventData != undefined){
-      //Removes Listing from Active_Listings
-      this.af.database.object('Active_Listings/'+ this.eventService.activeEventData.id +'/' + purchased.$key).remove();
-      //Adds Listing to Completed_Transactions
-      var info = this.af.database.list('Completed_Transactions/'+ this.eventService.activeEventData.id).push(purchased);
-      //Adds Listing to Purchased for specific user
-      this.af.database.list('Users/' + this.uid + '/Purchased/' + this.eventService.activeEventData.id).push(info.key);
-      //Removes Listing from User's Active_Listing
-      this.af.database.list('Users/' + this.uid + '/Active_Listings/' + this.eventService.activeEventData.id).subscribe(listings => {
-        listings.forEach(listing => {
-          if(listing.$value == purchased.$key){
-            this.af.database.list('Users/' + this.uid + '/Active_Listings/' + this.eventService.activeEventData.id + "/"  + listing.$key).remove();
-          }
-          else if (listing.$value == null) return "N/A";
-        });
-      });
-      //Adds Listing to User's Sold
-      this.uid_seller = purchased.owner;
-      this.af.database.list('/Users/' + this.uid_seller + '/Sold/' + this.eventService.activeEventData.id).push(info.key);
-      this.router.navigateByUrl('/billings');
-    }
-    else return "NA"; 
-
-    }
-    else 
-       {
-      
-      alert('The ticket was not purchased');
-
-       }
-  }
 }

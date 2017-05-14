@@ -7,12 +7,12 @@
 
     <h2> Purchased </h2>
     <ul class="list-group" *ngFor="let event of purchasedTickets">
-        <li class="list-group-item" (click)="onClicked(event)"> {{ event }} </li>
+        <li class="list-group-item" (click)="onClicked(event,1)"> {{ event }} </li>
     </ul>
 
     <h2> Sold </h2>
     <ul class="list-group" *ngFor="let event of soldTickets">
-        <li class="list-group-item" (click)="onClicked(event)"> {{ event }} </li>
+        <li class="list-group-item" (click)="onClicked(event,2)"> {{ event }} </li>
     </ul>
 </div>
 <div *ngIf="isSwitched" class="details">
@@ -24,5 +24,5 @@
     <h3>Event time:  </h3>   <h4>{{event.time}}      </h4>
     <h3>Seller:      </h3>   <h4>{{event.seller}}     </h4>
     <h3>Price bought:</h3>   <h4>${{event.price}}    </h4>
-    <h2> Ticket ETA:  </h2>
+    <h2>Ticket ETA:  </h2>    <h4> {{this.currentETA}} {{this.checkString}}</h4>
 </div>

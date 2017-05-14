@@ -47,5 +47,32 @@ public view;
   clicked3(){
     this.dataService.removeOldEvents();
   }
+
+  clicked4(){
+    var testDate = "21:00:00";
+    var eventHour = parseInt(testDate.substring(0,2));
+    var eventMin = parseInt(testDate.substring(3,5));
+
+    var today = new Date();
+
+    var currentDay = today.getDate();
+    var currentMonth = today.getMonth()+1;
+    var currentHour = today.getHours();
+    var currentMin = today.getMinutes();
+
+    var stringDay = currentDay.toString();
+    var stringMonth = currentMonth.toString();
+    var stringHour = currentHour.toString();
+    var stringMin = currentMin.toString();
+
+    //change to standard formatting
+    if(currentDay < 10) stringDay = "0" + stringDay;
+    if(currentMonth < 10) stringMonth = "0" + stringMonth;
+    if(currentHour < 10) stringHour = "0" + stringHour;
+    if(currentMin < 10) stringMin = "0" + stringMin;
+
+    var getTime = stringDay + stringMonth + stringHour + stringMin;
+
+  }
 }
 

@@ -4,28 +4,12 @@
   padding-bottom: 40px;
 }
 
-/*.header{
 
-position: fixed;
-width: 50%;
-height: 10%;
+.orderDetails {
+
+  padding: 40px;
 }
 
-
-#prompt {
-    color: white;
-    text-align: center;
-
-   
-}
-
-.button{
-
-float: left;
-
-}
-
-*/
 
 .container {
     color: white;
