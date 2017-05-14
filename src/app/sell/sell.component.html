@@ -1,7 +1,7 @@
 <div class="container">
     <br>
     <div *ngIf='this.eventService.activeEvent != null'>
-    <p *ngFor="let s of this.eventService.activeEvent.split(';')"> {{ s }} </p>
+        <p *ngFor="let s of this.eventService.activeEvent.split(';')"> {{ s }} </p>
     </div>
     <h3>Please enter your information: </h3>
     <div class="form-group">

@@ -38,7 +38,7 @@ export class TransactionHistoryComponent implements OnInit {
             Object.keys(listings).forEach(ticket => {  
               Object.keys(listings[ticket]).forEach(item => {
                 this.af.database.object('/Active_Listings/' + ticket + '/' + listings[ticket][item] + '/').subscribe(listing => {
-                    this.activeListings.push(listing);
+                    if(listing != null) this.activeListings.push(listing);
                     this.activeTicketListings.push(new Ticket(listing.eventName, listing.price, listing.name, listing.date, listing.time, listing.purchasedTime, listing.sellerLongitude, listing.sellerLatitude,listing.buyerLongitude,listing.buyerLatitude))
                 });
               })

@@ -18,7 +18,7 @@ export class BodyComponent {
    */
 public view;
 
-  constructor(public af: AngularFire, public dataService:DataService) {
+  constructor(public af: AngularFire, public dataService:DataService, public eventService: EventService) {
     af.auth.subscribe(auth => {
       if (auth == null) {
         this.view = "splash";
@@ -73,6 +73,53 @@ public view;
 
     var getTime = stringDay + stringMonth + stringHour + stringMin;
 
+  }
+  clicked5(){
+    //console.log(this.eventService.eventListModel);
+    var lat = 37.3214832;
+    var lon = -121.94791839999999;
+    var randomPrice;
+    var randomCoord;
+
+    this.eventService.setActiveEvent(this.eventService.eventListModel[0]);
+    //console.log(this.eventService.activeEventData);
+    for(var i = 0; i < 5; i++){
+      randomPrice = Math.floor(Math.random() * 100) + 1;
+      randomCoord = Math.floor(Math.random() * 1) + 1;
+      lat = lat + (randomCoord);
+      this.dataService.addTicketListing(
+        lon,
+        lat,
+        randomPrice, 
+        this.eventService.activeEventData,
+        this.eventService.activeEventData.displayName,
+        this.eventService.activeEventData.date,
+        this.eventService.activeEventData.time
+      );
+    }
+    alert("Added 5 tickets to first event");
+  }
+  clicked6(){
+    var lat = 37.3214832;
+    var lon = -121.94791839999999;
+    var randomPrice;
+
+    //console.log(this.eventService.activeEventData);
+    for(var i = 0; i < 10; i++){
+      this.eventService.setActiveEvent(this.eventService.eventListModel[i]);
+      //console.log(this.eventService.activeEventData);
+      randomPrice = Math.floor(Math.random() * 100) + 1;
+      this.dataService.addTicketListing(
+        lat,
+        lon,
+        randomPrice, 
+        this.eventService.activeEventData,
+        this.eventService.activeEventData.displayName,
+        this.eventService.activeEventData.date,
+        this.eventService.activeEventData.time
+      );
+    }
+    alert("Added 1 ticket to 10 events");
   }
 }
 

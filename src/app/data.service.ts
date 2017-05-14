@@ -245,10 +245,10 @@ export class DataService {
           }
           else{return ((buyMin+tempMins)-currentMin).toString()+ " mins";}
         }
-        else if(currentHour < (buyHour+tempHour)){ return ((buyHour+tempHour)-currentHour).toString() + " hours" + ((buyMin+ tempMins)-currentMin)+ " mins"; }
+        else if(currentHour < (buyHour+tempHour)){ return ((buyHour+tempHour)-currentHour).toString() + " hours " + ((buyMin+ tempMins)-currentMin)+ " mins"; }
         else if(currentHour > (buyHour+tempHour)) { return "Delivered"; } 
       }
-      else if (currentDate < buyDate ){ return ((buyDate+tempDays)-currentDate).toString() + " days";}
+      else if (currentDate < buyDate ){ return (Math.round((buyDate+tempDays)-currentDate)).toString() + " days";}
       else if (currentDate > buyDate ){ return "Delivered"; }
     }else return "no data";
 
