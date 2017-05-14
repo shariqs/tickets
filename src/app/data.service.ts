@@ -11,7 +11,7 @@ export class DataService {
 
     this.af.auth.subscribe(currentUser => {
       this.user = currentUser.google;
-      console.log(this.user);
+      //console.log(this.user);
     })
   }
 
@@ -219,10 +219,14 @@ export class DataService {
     }
     //if longer than 1 hour
     else if(deliverTime >= 1) {
+      //console.log(deliverTime);
       tempHour = deliverTime / 1;
-      tempHour = Math.ceil(tempHour);
+      tempHour = Math.round(tempHour);
+      //console.log(tempHour);
       tempMins = deliverTime - tempHour;
-      tempMins = Math.ceil(tempMins * 60);
+      //console.log(tempMins);
+      tempMins = Math.round(tempMins * 60);
+      
     }
     else if(deliverTime < 1){
       tempHour = 0;
@@ -241,7 +245,7 @@ export class DataService {
           }
           else{return ((buyMin+tempMins)-currentMin).toString()+ " mins";}
         }
-        else if(currentHour < (buyHour+tempHour)){ return ((buyHour+tempHour)-currentHour).toString() + " hours"; }
+        else if(currentHour < (buyHour+tempHour)){ return ((buyHour+tempHour)-currentHour).toString() + " hours" + ((buyMin+ tempMins)-currentMin)+ " mins"; }
         else if(currentHour > (buyHour+tempHour)) { return "Delivered"; } 
       }
       else if (currentDate < buyDate ){ return ((buyDate+tempDays)-currentDate).toString() + " days";}

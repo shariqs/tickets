@@ -10,7 +10,6 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('footer running');
   }
 
 }

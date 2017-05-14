@@ -42,14 +42,14 @@ export class EventService {
 
                   }
                   this.eventListModel = this.eventDetailsList.filter(event => event.displayName.length != 0);
-                  console.log(this.eventListModel)
+                  //console.log(this.eventListModel)
             });
       }
 
       search(searchTerm: string) {
             if (searchTerm != null)
                   this.eventListModel = this.eventDetailsList.filter(event => event.displayName.toLowerCase().includes(searchTerm.toLowerCase()));
-            console.log(this.eventListModel)
+            //console.log(this.eventListModel)
       }
       
 
@@ -57,11 +57,11 @@ export class EventService {
             
             this.activeEventData = event;
             this.activeEvent = event.toString();
-            console.log(this.activeEvent);
+           // console.log(this.activeEvent);
       }
 
       sort(sortSetting: string) {
-            console.log('sort by ' + sortSetting);
+            //console.log('sort by ' + sortSetting);
 
             if (sortSetting === "Date") {
                   this.sortByDate(this.sortDescending);
