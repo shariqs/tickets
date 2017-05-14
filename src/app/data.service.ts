@@ -238,9 +238,14 @@ export class DataService {
           if(currentMin >= (buyMin+tempMins)){
             //console.log("in min");
             return "Delivered";
-          }else{return ((buyMin+tempMins)-currentMin).toString()+ " mins";}
-        }else if(currentHour < (buyHour+tempHour)){ return ((buyHour+tempHour)-currentHour).toString() + " hours"; }
-      }else if (currentDate < buyDate ){ return ((buyDate+tempDays)-currentDate).toString() + " days";}
+          }
+          else{return ((buyMin+tempMins)-currentMin).toString()+ " mins";}
+        }
+        else if(currentHour < (buyHour+tempHour)){ return ((buyHour+tempHour)-currentHour).toString() + " hours"; }
+        else if(currentHour > (buyHour+tempHour)) { return "Delivered"; } 
+      }
+      else if (currentDate < buyDate ){ return ((buyDate+tempDays)-currentDate).toString() + " days";}
+      else if (currentDate > buyDate ){ return "Delivered"; }
     }else return "no data";
 
 
