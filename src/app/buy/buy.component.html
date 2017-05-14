@@ -6,7 +6,7 @@
                 <button class="btn btn-mbe-normal" (click)="onClick()"> Back </button>
             </a>
         </div>
-        <h5><i>If you do not sea any tickets press back and try again!</i></h5>
+        <h5><i>If you do not see any tickets press back and try again!</i></h5>
             <br>
         <p id="prompt">{{ toString()}} </p>
     </div>
@@ -37,7 +37,7 @@
             <label> Shipping Address </label>
             <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
         </div>
-        <h6><i>*If you enter address and the browser shows no auto-filling, press 'Browse' and then refresh!</i></h6>
+        <h6><i>*If you had previously entered an address and the browser shows no auto-filling, press 'Browse' and then refresh!</i></h6>
         
         <button (click)="onClick3()" class="btn btn-primary"> Proceed </button>        
     </div>
